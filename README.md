@@ -7,4 +7,4 @@ I have listed all the assignments below categoried with its related topics.
 
 ## Design
 - [Assignment 1](design/assignment-1/) 
-- [Assignment 1](design/assignment-2/) 
+- [Assignment 2](design/assignment-2/) 
