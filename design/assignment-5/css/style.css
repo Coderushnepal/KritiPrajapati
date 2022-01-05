@@ -1,0 +1,943 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+.playfair {
+  font-family: "Playfair Display", serif;
+}
+
+.lato {
+  font-family: "Lato", sans-serif;
+}
+
+:root {
+  --primary: #2c394b;
+  --secondary: #ff4c29;
+}
+
+.container {
+  max-width: 375px;
+  margin: 0 auto;
+}
+
+.d-block {
+  display: block;
+}
+
+.d-inline {
+  display: inline;
+}
+
+.d-inline-block {
+  display: inline-block;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.text-secondary {
+  color: var(--secondary);
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-mini {
+  font-size: 14px;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.text-thin {
+  font-weight: 300;
+}
+
+.mr-1 {
+  margin-right: 20px;
+}
+
+.ml-1 {
+  margin-left: 20px;
+}
+
+.mb-1 {
+  margin-bottom: 20px;
+}
+
+.mt-1 {
+  margin-top: 20px;
+}
+
+.mt-2 {
+  margin-top: 32px;
+}
+
+.btn {
+  font-family: "Lato", sans-serif;
+  border: none;
+  padding: 12px 18px;
+  background-color: transparent;
+}
+
+.btn-primary {
+  background-color: var(--secondary);
+  color: #fff;
+}
+
+.btn-secondary {
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.title-1 {
+  font-size: 32px;
+  font-family: "Playfair Display", serif;
+  color: val(--primary);
+  text-transform: capitalize;
+  color: #334756;
+}
+
+.description-side {
+  float: right;
+  color: #667580;
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  line-height: 25.6px;
+}
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
+.clearfix::before,
+.clearfix::after {
+  content: " ";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+@media screen and (min-width: 600px) {
+  .container {
+    padding: 0 20px;
+    max-width: 772px;
+    margin: 0px auto;
+  }
+  .btn {
+    padding: 16px 42px;
+  }
+}
+@media screen and (min-width: 600px) {
+  .container {
+    max-width: 1175px;
+    margin: 0px auto;
+    overflow-x: hidden;
+  }
+  .btn {
+    padding: 16px 42px;
+  }
+}
+
+/* Generic css end  */
+
+/* header css */
+
+.header {
+  padding: 16px 10px;
+  margin-bottom: 16px;
+  position: relative;
+}
+.burger-menu {
+  float: left;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.logo-container {
+  font-family: "Playfair Display", serif;
+  text-align: center;
+}
+
+.right-container {
+  font-family: "Lato", sans-serif;
+  display: none;
+}
+
+/* header css end */
+
+/* introsectioncss */
+
+.imgcontainer-wrapper {
+  width: 100%;
+}
+.textcontainer {
+  width: 100%;
+  color: var(--primary);
+  margin-top: 13px;
+  padding: 0 20px;
+}
+
+.textcontainer h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.textcontainer .description {
+  font-size: 16px;
+  margin: 16px 0 16px 0;
+  line-height: 25.6px;
+  color: #667580;
+}
+
+.findyourplaceBtn {
+  margin-bottom: 20px;
+  width: 100%;
+}
+.contactBtn {
+  width: 100%;
+}
+
+
+/* end introsectioncss */
+
+/* card */
+
+.threeCardSection {
+  margin-top: 54px;
+  padding: 32px 20px;
+  background-color: #f6f6f6;
+}
+
+.section-header {
+  color: #2c394b;
+  margin-bottom: 24px;
+}
+.section-header .title-1 {
+  margin-bottom: 12px;
+  float: left;
+}
+.description-side {
+  float: none;
+  clear: both;
+  width: 80%;
+}
+
+.cardholder {
+  display: block;
+  width: 100%;
+}
+
+.card {
+  width: 100%;
+  max-width: 335px;
+  height: 264px;
+  margin: 0px auto 24px;
+  overflow: hidden;
+  position: relative;
+}
+
+.card img {
+  height: 100%;
+  object-fit: cover;
+}
+.card:hover .card-footer {
+  transform: translateY(-80%);
+}
+
+.card-head img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-footer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 80%;
+  left: 0;
+  background-color: var(--primary);
+  color: #fff;
+  font-family: "Lato", sans-serif;
+  transition: transform 600ms;
+}
+
+.card-footer-head {
+  padding: 17px;
+}
+
+.card-footer-left {
+  float: left;
+}
+
+.card-footer-right {
+  float: right;
+  font-size: 12px;
+}
+
+.card-minitext {
+  margin-left: 0.4rem;
+}
+
+.card-body {
+  padding: 1rem;
+  text-align: center;
+  font-size: 12px;
+  width: 75%;
+  margin: auto;
+}
+
+.card-footer-foot {
+  background-color: var(--secondary);
+  padding: 24px;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  cursor: pointer;
+}
+
+/* end card */
+
+.facilitySection {
+  margin-top: 54px;
+  padding: 50px 20px;
+}
+
+.facilitySection .imgContainer {
+  width: 587px;
+  height: 351px;
+}
+
+.facilitySection .description-side {
+  font-size: 16px;
+  margin-right: 7%;
+}
+
+.btn-special {
+  background-color: #fff;
+  color: #334756;
+  width: auto;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  transition: background-color 200ms, color 200ms;
+  cursor: pointer;
+  padding: 14px 24px;
+}
+
+.btn-special:hover {
+  background-color: #334756;
+  color: #fff;
+}
+
+.btn-special.active {
+  background-color: var(--secondary);
+  color: #fff;
+}
+.facility {
+  display: none;
+}
+
+
+/* Map container */
+
+.mapdiv {
+  background-color: #f6f6f6;
+  padding: 93px 60px;
+}
+
+.location {
+  padding-top: 40px;
+  padding-bottom: 50px;
+}
+.location-header {
+  margin-bottom: 20px;
+}
+.location-header .description {
+  color: #667580;
+}
+.explore {
+  display: none;
+}
+.explore-mob {
+  font-size: 20px;
+  line-height: 120%;
+  margin-top: 15%;
+  color: #086de0;
+  display: inline-block;
+}
+
+
+/* end */
+
+.customerSection {
+  margin-top: 80px;
+}
+
+.customer-card-container {
+  margin-top: 30px;
+}
+
+.customer-card {
+  background: var(--primary);
+  width: 89%;
+  height: 260px;
+  color: #ffffff;
+  padding-top: 40px;
+  padding-bottom: 16px;
+  margin: auto;
+  margin-bottom: 30px;
+  font-family: "Lato", sans-serif;
+  position: relative;
+}
+.quote-image {
+  height: 45px;
+  width: 65px;
+  position: absolute;
+  display: inline-block;
+  top: 27px;
+  left: 24px;
+}
+.quote-image img {
+  z-index: 1;
+}
+.quote {
+  width: 77.9104477612%;
+  margin: 0 39px 98px 35px;
+  font-size: 16px;
+  line-height: 140%;
+  z-index: 2;
+}
+.author {
+  margin: 34px 0px 0px 39px;
+}
+.author-pic {
+  margin-right: 16px;
+}
+.author-name {
+  font-weight: bold;
+}
+.author-post {
+  font-weight: 300;
+  font-size: 12px;
+}
+.author div {
+  display: inline-block;
+}
+#card2,
+#card3 {
+  display: none;
+}
+
+
+.topcompanies-container {
+  margin-top: 40px;
+  background-color: #f6f6f6;
+  padding: 28px 0;
+}
+
+.topcompanies-container .title-1 {
+  font-size: 27px;
+  text-align: left;
+}
+
+.topcompanies-container .description {
+  font-family: "Lato", sans-serif;
+  margin-bottom: 56px;
+  font-size: 16px;
+  color: #667580;
+  text-align: left;
+}
+.companieslogos {
+  margin: auto;
+}
+.companieslogos div {
+  text-align: center;
+  margin-bottom: 37px;
+}
+
+
+
+.trendInsight-container {
+  margin-top: 80px;
+}
+
+.trendInsight-container .card-container {
+  margin-top: 40px;
+}
+
+.insight_card {
+  width: 340px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  margin: auto;
+  margin-bottom: 20px;
+}
+.insight_card-footer {
+  font-family: "Lato", sans-serif;
+  padding: 22.5px 20px;
+}
+.insight_card-footer-head {
+  background-color: #fff;
+  color: #334756;
+}
+.insight_card-2 {
+  width: 340px;
+  height: 342px;
+  position: relative;
+}
+.insight_card-2 .insight_card-footer {
+  position: absolute;
+  background-color: #fff;
+  top: 0;
+  height: 100%;
+}
+.insight_card-footer-foot {
+  color: #086de0;
+}
+.insight_card-4,
+.insight_card-5,
+.insight_card-6 {
+  display: none;
+}
+.insight_card-2 .description {
+  margin-top: 20px;
+}
+
+.insight_card-2 .foot {
+  margin-top: 70px;
+}
+
+.insighter-name {
+  color: #2c394b;
+  font-weight: 300;
+  font-size: 10px;
+}
+
+.foot .insighter-name {
+  margin: 16px 0;
+}
+
+
+/* footer */
+.footer {
+  margin-bottom: 20px;
+}
+
+.footer-lemburs {
+  margin-bottom: 20px;
+}
+.footer-container {
+  background-color: #f7f7f7;
+  padding: 34px 20px;
+}
+
+
+.lemburs-detail {
+  display: inline-block;
+}
+.footer-lemburs-heading {
+  font-family: "Playfair Display", serif;
+  font-size: 48px;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.footer-menu {
+  display: none;
+}
+
+.footer-langauge {
+  display: none;
+}
+
+.footer-menu {
+  float: left;
+  margin: 0 62px;
+  width: 45%;
+}
+
+.menu-col {
+  margin-left: 5%;
+}
+.footer-lanugage-container {
+  clear: right;
+}
+
+
+.footer-text,
+.footer-section-title {
+  margin-bottom: 20px;
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.footer-section-title {
+  font-size: 20px;
+  color: #334756;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.footer-text.soft-blue {
+  color: #667580;
+}
+
+.footer-text.grey-blue {
+  color: #334756;
+}
+
+.footer-text.sky {
+  color: #086de0;
+}
+
+.icon {
+  margin-right: 12px;
+}
+
+.middle-topcompanies-card {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.middle-topcompanies-card-show-footer .card-footer {
+  top: 0;
+}
+
+
+/* For tablet */
+@media screen and (min-width: 600px) {
+  .header {
+    margin-bottom: 24px;
+  }
+
+
+  .imgcontainer-wrapper {
+    width: 50%;
+    float: left;
+  }
+  .textcontainer {
+    float: right;
+    width: 50%;
+    margin-top: 13px;
+  }
+  .textcontainer h1 {
+    font-size: 27px;
+  }
+  .findyourplaceBtn {
+    margin-bottom: none;
+    width: auto;
+  }
+  .contactBtn {
+    width: auto;
+  }
+
+
+
+
+  .threeCardSection {
+    background-color: white;
+  }
+  .card {
+    display: inline-block;
+    width: 31.6062176166%;
+  }
+
+
+
+
+  .facility {
+    float: right;
+    display: block;
+    width: 51.9909326425%;
+  }
+
+
+
+  .location {
+    overflow: hidden;
+    width: 100%;
+    display: block;
+  }
+  .location-header {
+    float: right;
+    margin: 0 20px 10px;
+    width: 42.9158031088%;
+  }
+  .location-header .description {
+    width: 85.974025974%;
+    float: none;
+    margin-top: 10%;
+  }
+  .explore {
+    font-size: 20px;
+    line-height: 120%;
+    color: #086de0;
+    margin-top: 15%;
+    display: inline-block;
+  }
+  .explore-mob {
+    display: none;
+  }
+  .map {
+    float: left;
+    width: 51.0362694301%;
+  }
+
+
+
+
+  .customer-card {
+    width: 49%;
+    display: inline-block;
+  }
+  #card2 {
+    display: inline-block;
+    margin-left: 10px;
+  }
+  #card2 .quote {
+    margin-bottom: 76px;
+  }
+
+
+
+
+
+  .topcompanies-container {
+    background-color: #fff;
+  }
+  .topcompanies-container .title-1 {
+    text-align: center;
+  }
+  .topcompanies-container .description {
+    text-align: center;
+  }
+  .companieslogos {
+    width: 95%;
+    margin: 40px auto 28px;
+  }
+  .companieslogos div {
+    display: inline-block;
+    margin-right: 50px;
+    padding: 0px;
+  }
+
+
+
+  .insight_card {
+    display: inline-block;
+    width: 30%;
+    margin: auto;
+
+    margin-right: 10px;
+  }
+  .insight_card-4,
+  .insight_card-5,
+  .insight_card-6 {
+    display: none;
+  }
+  .insight_card-2 .description {
+    margin-top: 0;
+  }
+  .insight_card-2 .foot {
+    margin-top: 0;
+  }
+
+
+
+  .footer-container {
+    padding: 68px 20px;
+  }
+  .footer-langauge {
+    display: block;
+  }
+  .footer-lemburs {
+    float: left;
+  }
+  .footer-lanugage-container {
+    float: right;
+  }
+}
+
+/* For Desktop */
+@media screen and (min-width: 992px) {
+  .header {
+    border-bottom: 2px solid var(--primary);
+    margin-bottom: 82px;
+  }
+  .burger-menu {
+    display: none;
+  }
+  .logo-container {
+    float: left;
+  }
+  .right-container {
+    font-family: "Lato", sans-serif;
+    display: block;
+  }
+
+  .nav-container {
+    float: left;
+    margin-left: 155px;
+    margin-top: 15px;
+  }
+
+  .action-container {
+    float: right;
+    margin-top: 15px;
+  }
+
+  .login-btn {
+    margin-right: 16px;
+  }
+
+  .navs {
+    list-style-type: none;
+    text-align: center;
+    font-family: "Lato", sans-serif;
+  }
+
+  .navs li {
+    display: inline;
+    margin: 0 32px;
+    cursor: pointer;
+    font-weight: 300;
+  }
+
+  .navs .active {
+    font-weight: bold;
+  }
+
+
+
+  .imgcontainer-wrapper {
+    width: 45%;
+  }
+  .textcontainer {
+    float: right;
+    width: 50%;
+    color: var(--primary);
+    margin-top: 13px;
+  }
+  .textcontainer .description {
+    font-size: 16px;
+    margin-bottom: 58px;
+    color: #667580;
+  }
+
+
+
+  .threeCardSection {
+    margin-top: 160px;
+  }
+  .section-header {
+    margin-bottom: 46.59px;
+  }
+  .section-header .description-side {
+    float: right;
+    clear: none;
+    width: 45%;
+  }
+  .card {
+    width: 30.2127659574%;
+    margin-right: 3%;
+  }
+  .card:last-child {
+    margin-right: 0px;
+  }
+
+
+
+  .facilitySection {
+    margin-top: 100px;
+  }
+
+  .facility {
+    float: right;
+  }
+  .btn-special {
+    margin-bottom: 1rem;
+  }
+
+
+
+
+  .location {
+    width: 100%;
+  }
+  map {
+    width: 68.9361702128%;
+  }
+  .location-header {
+    width: 32.7659574468%;
+  }
+
+
+
+
+  #card3 {
+    display: inline-block;
+    margin-left: 10px;
+  }
+  .customer-card {
+    width: 31%;
+    margin: 0px;
+    margin-right: 20px;
+  }
+  .customer-card:last-child {
+    margin: 0px;
+  }
+
+
+
+
+  .topcompanies-container .title-1 {
+    font-size: 40px;
+    margin-top: 120px;
+  }
+  .companieslogos div {
+    margin-right: 100px;
+  }
+
+
+
+  .insight_card {
+    display: inline-block;
+    margin-bottom: 20px;
+    margin-right: 30px;
+  }
+  .insight_card-2{
+    margin-bottom: 0;
+  }
+
+
+
+  .footer-container {
+    padding: 91px 20px;
+  }
+  .footer-menu {
+    display: block;
+  }
+}

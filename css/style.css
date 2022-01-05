@@ -50,7 +50,7 @@
 
 .table-wrapper table th,
 .table-wrapper table td {
-  padding: 20px 24px 20px 24px;
+  padding: 20px 24px;
   font-weight: 700;
   text-align: left;
 }
@@ -60,8 +60,9 @@
 }
   
 table.list-assignment td a.btn {
-    margin: 0 4px 0 4px;
+    margin: 0 4px;
 }
+
 
 .btn-html {
     background-color: #fbe9e7;
@@ -81,10 +82,20 @@ table.list-assignment td a.btn {
 a.btn, span.capsule {
   text-decoration: none;
   display: inline-block;
-  border: 0;
-  padding: 8px 16px 8px 16px;
-  border-radius: 4px;
-  font-size: 1rem;
+  padding: 6px ;
+  font-size: 16px;
   font-weight: bold;
-  margin: 6px 0;
+  margin: 6px 0 0;
+}
+
+.btn-js {
+    background-color: #fffde7;
+    color: #f9a825;
+}
+
+.btn-nodemo {
+    background-color: #eceff1;
+    color: #37474f;
+    opacity: 0.5;
+    pointer-events: none;
 }
