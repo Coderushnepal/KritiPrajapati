@@ -1,0 +1,49 @@
+.clearfix:before, :after {
+    content: " ";
+    display: table;
+} 
+.clearfix:after {
+    clear: both;
+}
+
+h1 {
+    font-family: 'Roboto';
+    text-align: center;
+}
+
+.container {
+  margin: 0 auto;
+  width: 60%;
+  font-family: 'Roboto';
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.header {
+  background: #8cdedc;
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.sidebar {
+  background: #9cd08f;
+  padding: 8rem 0;
+  text-align: center;
+  width: 40%;
+  float:left;
+}
+
+.main {
+  background: #456990;
+  color: #fff;
+  padding: 8rem 0;
+  text-align: center;
+  width: 60%;
+  float: right;
+}
+
+.footer {
+  background: #e3d7ff;
+  padding: 3rem 0;
+  text-align: center;
+}
