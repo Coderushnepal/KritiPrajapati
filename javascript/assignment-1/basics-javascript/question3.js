@@ -3,10 +3,11 @@
 // Write a function that converts an object into an array, where each element represents a key-value pair.
 
 function ObjectToArray(obj) {
-    let objKeysArray = Object.keys(obj);
+    let objKeysArray = Object.keys(obj); 
     let result = [];
     for(let i=0; i<objKeysArray.length; i++) {
-        result.push([objKeysArray[i], obj[objKeysArray[i]]]);
+        let key = objKeysArray[i];
+        result.push([key, obj[key]]);
     }
     return result;
 }
