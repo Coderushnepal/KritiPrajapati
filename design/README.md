@@ -1,4 +1,4 @@
-## Design
+# Design
 Here are the assignments done in HTML and CSS.
 
 - Assignment 1 - Newspaper Layout    
