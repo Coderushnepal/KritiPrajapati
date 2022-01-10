@@ -1,0 +1,127 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.poppins {
+  font-family: "Poppins", serif;
+}
+
+.main-wrapper {
+  max-width: 600px;
+  font-family: "Poppins", serif;
+}
+
+.header-wrapper {
+  background: linear-gradient(to top right, #37bda6 0%, #cb1ae8 100%);
+}
+
+.clearfix:before, :after {
+  content: " ";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+.left-container {
+  float: left;
+  margin : 25px;
+}
+
+.center-right-container {
+  float: right;
+}
+
+.right-container {
+  float: right;
+  margin: 29px 16px;
+}
+
+.nav {
+  display: none;
+}
+
+.signup-btn {
+  float: left;
+  font-weight: 500;
+  font-size: 16px;
+  margin: 0 27px;
+}
+
+.nav-menu {
+  float: right;
+  padding: 13px 11px;
+}
+
+.btn {
+  color: #ffffff;
+  background: transparent;
+  padding : 20px 36px; 
+  border: 1px solid #ffffff;
+        border-radius: 39px;
+      text-align: center;      
+      font-size: 16px;      
+      -webkit-transition-duration: 0.4s; 
+      transition-duration: 0.4s;      
+      cursor: pointer;      
+}
+/* Tablet */
+@media only screen and (min-width: 600px) {
+  .main-wrapper {
+    max-width: 992px;
+  }
+}
+/* Desktop */
+@media only screen and (min-width: 992px) {
+  .main-wrapper {
+    max-width: 100%;
+
+  }
+  .center-right-container {
+    width: 68%;
+  }
+  
+  .center-container {
+    float: left;
+    margin: 46px 0;
+  }
+
+  .right-container {
+    margin: 33px 0;
+  }
+
+  .left-container{
+    margin: 30px 0px;
+
+  }
+
+  .nav {
+    display: block;
+    list-style: none;
+    float: right;
+  }
+
+  .nav-link {
+    float: left;
+    margin-right: 50px;
+    font-family:"Poppins", serif ;
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 15px;
+  }
+  .signup-btn {
+    float: right;
+    /* margin: 30px 0; */
+
+  }
+  .nav-menu {
+    display: none;
+  }
+
+  .header {
+    width: 81%;
+    margin: 0 auto;
+  }
+}
