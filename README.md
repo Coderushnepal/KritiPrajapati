@@ -11,6 +11,7 @@ I have listed all the assignments below categoried with its related topics.
 - [Assignment 3 - Float with Clearfix hack](design/assignment-3/)
 - [Assignment 4 - Lemburs Figma](design/assignment-4/) 
 - [Assignment 5 - Responsive Lemburs](design/assignment-5/)
+- [Final Assignment](design/final-assignment/)
 
 ## Javascript
 - [Assignment 1](javascript/assignment-1/) 
