@@ -12,34 +12,60 @@
     font-family: "Poppins", serif;
 }
 
+.btn {
+    color: #ffffff;
+    background: transparent;
+    padding: 20px 36px;
+    border: 1px solid #ffffff;
+    border-radius: 39px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+
+/* header */
+
 .header-wrapper {
     background: linear-gradient(to top right, #37bda6 0%, #cb1ae8 100%);
     font-family: "Poppins", serif;
 }
 
-.clearfix:before,
- :after {
-    content: " ";
-    display: table;
-}
-
-.clearfix::after {
-    clear: both;
+.header {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px 0;
 }
 
 .left-container {
     float: left;
-    margin: 25px;
 }
 
-.center-right-container,
-.center-right-container1 {
+.center-right-container {
     float: right;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
 }
 
 .right-container {
     float: right;
-    margin: 29px 16px;
+    margin-top: 20px;
 }
 
 .nav {
@@ -50,25 +76,12 @@
     float: left;
     font-weight: 500;
     font-size: 16px;
-    margin: 0 27px;
+    padding: 14px 35px;
 }
 
 .nav-menu {
     float: right;
-    padding: 13px 11px;
-}
-
-.btn {
-    color: #ffffff;
-    background: transparent;
-    padding: 20px 36px;
-    border: 1px solid #ffffff;
-    border-radius: 39px;
-    text-align: center;
-    font-size: 16px;
-    -webkit-transition-duration: 0.4s;
-    transition-duration: 0.4s;
-    cursor: pointer;
+    margin-left: 12px;
 }
 
 .header-content {
@@ -78,17 +91,18 @@
 
 .left-btn {
     background-color: #ffffff;
-    color: #112D57;
-}
-
-.text {
-    padding: 10px;
+    color: #112d57;
 }
 
 .heading {
-    margin: 0 25px;
+    margin: 0 auto 27px;
     font-size: 40px;
-    font-weight: 900;
+    font-weight: 500;
+    line-height: 57px;
+}
+
+.sub-head {
+    padding: 10px;
 }
 
 .text-content {
@@ -98,6 +112,22 @@
 
 .sub-head {
     font-size: 16px;
+    font-weight: 700;
+    color: #e5e5e5;
+}
+
+.buttons .btn {
+    display: inline-block;
+    padding: 20px 180px;
+    font-weight: 500;
+}
+
+.buttons .left-btn {
+    margin-bottom: 20px;
+}
+
+button {
+    cursor: pointer;
 }
 
 .dashboard img {
@@ -105,57 +135,8 @@
     margin: 90px auto 40px;
 }
 
-.contain3 {
-    width: 80%;
-    margin: 47px auto;
-}
 
-.title {
-    font-size: 46px;
-    font-weight: 500;
-    margin-bottom: 27px;
-}
-
-.description {
-    font-size: 16px;
-    font-weight: 700;
-    color: #5c5c5c;
-}
-
-.text-container {
-    margin-bottom: 98px;
-}
-
-.img-container,
-.img-container1,
-.img-container2 {
-    width: 80%;
-    margin: 0 auto 88px;
-}
-
-.img-container,
-.img-container1,
-.img-container2 img {
-    width: 100%;
-}
-
-.btn2 {
-    border: none;
-    background-color: #03d6f3;
-    color: white;
-    border-radius: 50px;
-    font-size: 16px;
-    font-weight: 500;
-    margin: 0 auto 22px;
-    padding: 18px 107px;
-    display: block;
-}
-
-.btn-outline {
-    border: 1px solid #03d6f3;
-    color: #03d6f3;
-    background-color: white;
-}
+/* Specifically for you */
 
 .card-wapper {
     margin: 50px 0;
@@ -165,8 +146,10 @@
     width: 45%;
     margin: 100px auto;
     text-align: center;
-    font-size: 40px;
+    font-size: 46px;
     font-weight: 500;
+    line-height: 57px;
+    margin: 100px auto 50px;
 }
 
 .card-content {
@@ -175,10 +158,11 @@
 }
 
 .card {
-    width: 350px;
-    text-align: left;
+    width: 100%;
+    margin: auto;
+    text-align: center;
     padding: 30px 30px 50px 30px;
-    border: 1px solid #DEDEDE;
+    border: 1px solid #dedede;
     box-sizing: border-box;
     /* shadow */
     box-shadow: 0px 4px 31px rgba(0, 0, 0, 0.15);
@@ -205,15 +189,84 @@
 
 .card a {
     text-decoration: none;
-    color: #03D6F3;
+    color: #03d6f3;
 }
 
 .card2 a {
     color: #ffffff;
 }
 
+
+/* End of specifically for you */
+
+.contain3 {
+    width: 80%;
+    margin: 150px auto 0;
+}
+
+.title {
+    font-size: 46px;
+    font-weight: 500;
+    margin-bottom: 27px;
+}
+
+.description {
+    font-size: 16px;
+    font-weight: 700;
+    color: #5c5c5c;
+}
+
+.text-container {
+    margin-bottom: 98px;
+}
+
+.img-container,
+.img-container1,
+.img-container2 {
+    width: 80%;
+    margin: 0 auto 88px;
+}
+
+.img-container img,
+.img-container1 img,
+.img-container2 img {
+    width: 100%;
+}
+
+.btn2 {
+    border: none;
+    background-color: #03d6f3;
+    color: white;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0 auto 22px;
+    padding: 18px 107px;
+    display: block;
+}
+
+.desktop-title {
+    display: none;
+}
+
+.btn-outline {
+    border: 1px solid #03d6f3;
+    color: #03d6f3;
+    background-color: white;
+}
+
+.subscriber-hr {
+    margin: 120px 0;
+    color: #cdcdcd;
+}
+
 .subscribe-wrapper {
     margin: 50px auto;
+}
+
+.subscribe-content {
+    text-align: center;
+    margin-bottom: 69px;
 }
 
 .subscribe-heading {
@@ -221,25 +274,57 @@
     font-weight: 500;
 }
 
-.footer-wrapper {
-    width: 100%;
-    background-color: #112D57;
+.subscribe-description {
+    color: #5c5c5c;
 }
 
-.footer {
+.email-container {
+    width: 80%;
+    margin: auto;
+}
+
+.email-input {
+    width: 95%;
+    margin: 0 auto 15px;
+    display: block;
+    padding: 20px;
+    font-size: 18px;
+    background: #efefef;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.subscribe-btn {
+    box-sizing: border-box;
+    display: block;
+    margin: 0 auto;
+    width: 95%;
+    font-size: 18px;
+    border-radius: 5px;
+    padding: 24px;
+    cursor: pointer;
+}
+
+footer {
     margin: 0px auto;
     color: #ffffff;
     font-size: 15px;
     font-weight: 400;
+    background-color: #112d57;
+}
+
+.footer-wrapper {
+    width: 70%;
+    margin: 0 auto;
 }
 
 .left-col {
-    margin: 46px 84px 0 0;
+    margin: 110px 84px 0 0;
     float: left;
 }
 
 .right-col {
-    margin: 46px 0;
+    margin: 110px 0 65px;
     float: right;
 }
 
@@ -247,8 +332,45 @@ ul {
     list-style: none;
 }
 
+.msg-p {
+    float: left;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 67px;
+}
+
+.footer {
+    width: 100%;
+}
+
+.footer-left-container {
+    float: left;
+    width: 100%;
+}
+
+.footer-center-container {
+    max-width: 600px;
+    margin: 0 auto 97px;
+}
+
+.OpenType-lm {
+    margin: 27px 0 70px;
+}
+
+.footer-center-container img {
+    width: 100%;
+}
+
 .social-media-icon {
     width: 170px;
+}
+
+.add {
+    margin-bottom: 10px;
+}
+
+.add .text {
+    vertical-align: 18px;
 }
 
 .icon {
@@ -259,13 +381,12 @@ ul {
     margin: 0 25px;
 }
 
-.add span {
-    display: inline-block;
-    margin: 0 18px 10px 0;
-}
-
 .footer-link {
     margin-bottom: 20px;
+}
+
+.footer-right-container {
+    margin-bottom: 150px;
 }
 
 
@@ -273,14 +394,32 @@ ul {
 
 @media only screen and (min-width: 600px) {
     .main-wrapper {
-        max-width: 992px;
+        max-width: 100%;
+    }
+    .heading {
+        margin: 0 auto 27px;
+        font-size: 55px;
+        font-weight: 900;
+    }
+    .buttons .btn {
+        display: inline;
+        padding: 18px 56px;
+    }
+    .buttons .left-btn {
+        margin-bottom: 0;
+        margin-right: 15px;
+    }
+    /* Specifically for you */
+    .card {
+        text-align: left;
+        width: 100%;
     }
 }
 
 
 /* Desktop */
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 1100px) {
     .main-wrapper {
         max-width: 100%;
     }
@@ -318,12 +457,18 @@ ul {
     .nav-menu {
         display: none;
     }
-    .header {
-        width: 81%;
-        margin: 0 auto;
+    .heading {
+        width: 72%;
+        font-size: 55px;
+        font-weight: 900;
+        margin: 0 auto 27px;
     }
     .header-content {
         margin: 73px auto 0;
+    }
+    /* Specifically for you */
+    .main-heading {
+        width: 40%;
     }
     .title {
         margin-bottom: 46px;
@@ -339,6 +484,20 @@ ul {
         float: right;
         margin-bottom: 0;
     }
+    .card {
+        width: 29%;
+    }
+    .card1 {
+        float: left;
+    }
+    .card2 {
+        float: left;
+        display: block;
+        margin: 0 0 0 7%;
+    }
+    .card3 {
+        float: right;
+    }
     .btn-container {
         float: left;
     }
@@ -346,6 +505,9 @@ ul {
         display: inline;
         margin-right: 22px;
         padding: 18px 46px;
+    }
+    .contain3 {
+        width: 70%;
     }
     .text-container1 {
         width: 50%;
@@ -364,41 +526,70 @@ ul {
         margin-bottom: 36px;
         margin-top: 36px;
     }
+    .desktop-title {
+        display: block;
+    }
+    .mob-title {
+        display: none;
+    }
     .img-container2 {
         float: right;
         margin-bottom: 0;
         width: 60%;
     }
-    .card1 {
-        float: left;
-    }
-    .mid-card {
-        float: right;
-    }
-    .card2 {
-        float: left;
-    }
-    .card3 {
-        float: right;
-    }
-    .card2 {
-        margin: 0 30px;
+    .OpenType-lm {
+        display: none;
     }
     .subscribe-wrapper {
         width: 70%;
-        margin: 0 auto;
+        margin: 0 auto 170px;
         text-align: center;
     }
-    .footer {
-        width: 70%;
+    .email-container {
+        width: 90%;
+    }
+    .email-input {
+        width: 40%;
+        text-align: left;
+        display: inline;
+        margin: 0;
+        border-radius: 15px;
+        border: #d0d0d0 1px solid;
+    }
+    .subscribe-btn {
+        padding: 22px 32px;
+        width: auto;
+        border-radius: 40px;
     }
     .btn3 {
         display: inline;
         margin-right: 22px;
         padding: 18px 46px;
-        background: #EFEFEF;
-        border: 1px solid #D0D0D0;
+        background: #efefef;
+        border: 1px solid #d0d0d0;
         box-sizing: border-box;
         border-radius: 6px;
+    }
+    .footer-wrapper {
+        width: 80%;
+    }
+    .footer-left-container {
+        width: auto;
+    }
+    .footer-center-right-container {
+        float: right;
+        width: 65%;
+    }
+    .footer-right-container {
+        margin-top: 97px;
+        float: right;
+    }
+    .footer-center-container {
+        max-width: 600px;
+        margin: 97px auto 97px;
+        float: left;
+    }
+    .footer-center-container img {
+        width: auto;
     }
 }
