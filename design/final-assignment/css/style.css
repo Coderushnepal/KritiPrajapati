@@ -61,6 +61,19 @@
 a {
     text-decoration: none;
     color: #ffffff;
+    transition: transform 600ms;
+}
+
+a:hover {
+    transform: scale(1.1);
+}
+
+button {
+    transition: transform 320ms;
+}
+
+button:hover {
+    transform: scale(1.1);
 }
 
 .right-container {
@@ -76,7 +89,7 @@ a {
     float: left;
     font-weight: 500;
     font-size: 16px;
-    padding: 14px 35px;
+    /* padding: 14px 35px; */
 }
 
 .nav-menu {
@@ -96,7 +109,7 @@ a {
 
 .heading {
     margin: 0 auto 27px;
-    font-size: 40px;
+    font-size: 46px;
     font-weight: 500;
     line-height: 57px;
 }
@@ -117,9 +130,10 @@ a {
 }
 
 .buttons .btn {
-    display: inline-block;
-    padding: 20px 180px;
+    display: block;
+    width: 65%;
     font-weight: 500;
+    margin: 20px auto;
 }
 
 .buttons .left-btn {
@@ -143,12 +157,12 @@ button {
 }
 
 .main-heading {
-    width: 45%;
+    width: 80%;
     margin: 100px auto;
     text-align: center;
-    font-size: 46px;
+    font-size: 36px;
     font-weight: 500;
-    line-height: 57px;
+    line-height: 42px;
     margin: 100px auto 50px;
 }
 
@@ -178,6 +192,7 @@ button {
 
 .card-heading {
     font-size: 30px;
+    font-size: 20px;
     font-weight: 700;
     margin: 25px 0;
 }
@@ -241,7 +256,7 @@ button {
     font-size: 16px;
     font-weight: 500;
     margin: 0 auto 22px;
-    padding: 18px 107px;
+    padding: 16px 48px;
     display: block;
 }
 
@@ -255,9 +270,10 @@ button {
     background-color: white;
 }
 
-.subscriber-hr {
-    margin: 120px 0;
-    color: #cdcdcd;
+.perfect-solution {
+    margin-bottom: 150px;
+    padding-bottom: 150px;
+    border-bottom: 1px solid #cdcdcd;
 }
 
 .subscribe-wrapper {
@@ -313,23 +329,34 @@ footer {
     background-color: #112d57;
 }
 
+
+/* .footer-wrapper {
+  width: 70%;
+  margin: 0 auto;
+  padding: 40px 0;
+} */
+
 .footer-wrapper {
-    width: 70%;
-    margin: 0 auto;
+    width: 90%;
+    padding: 60px 0;
+    margin: auto;
 }
 
-.left-col {
-    margin: 110px 84px 0 0;
-    float: left;
-}
-
-.right-col {
-    margin: 110px 0 65px;
-    float: right;
+.price-item-container {
+    text-align: center;
+    max-width: 300px;
 }
 
 ul {
     list-style: none;
+}
+
+.left-col {
+    float: left;
+}
+
+.right-col {
+    float: right;
 }
 
 .msg-p {
@@ -350,15 +377,11 @@ ul {
 
 .footer-center-container {
     max-width: 600px;
-    margin: 0 auto 97px;
+    margin: 0 auto 60px;
 }
 
 .OpenType-lm {
     margin: 27px 0 70px;
-}
-
-.footer-center-container img {
-    width: 100%;
 }
 
 .social-media-icon {
@@ -385,10 +408,6 @@ ul {
     margin-bottom: 20px;
 }
 
-.footer-right-container {
-    margin-bottom: 150px;
-}
-
 
 /* Tablet */
 
@@ -403,16 +422,47 @@ ul {
     }
     .buttons .btn {
         display: inline;
+        /* width: 32%; */
+        max-width: 230px;
         padding: 18px 56px;
     }
     .buttons .left-btn {
         margin-bottom: 0;
-        margin-right: 15px;
+        margin-right: 25px;
+    }
+    .main-heading {
+        font-size: 46px;
+        width: 65%;
+        margin: 100px auto;
+        text-align: center;
+        font-weight: 500;
+        line-height: 57px;
+        margin: 100px auto 50px;
+    }
+    .card-heading {
+        font-size: 30px;
     }
     /* Specifically for you */
     .card {
-        text-align: left;
-        width: 100%;
+        width: 80%;
+    }
+    .card2 {
+        margin: 60px auto;
+    }
+    .price-item-container {
+        width: 300px;
+    }
+    .left-col {
+        float: left;
+    }
+    .right-col {
+        float: right;
+    }
+    .footer-center-right-container {
+        float: right;
+    }
+    .footer-left-container {
+        width: auto;
     }
 }
 
@@ -447,8 +497,11 @@ ul {
         font-family: "Poppins", serif;
         color: #ffffff;
         font-weight: 400;
-        font-size: 15px;
+        font-size: 16px;
         padding: 10px;
+    }
+    .nav-link:hover {
+        transform: scale(1.2);
     }
     .signup-btn {
         float: right;
@@ -458,7 +511,7 @@ ul {
         display: none;
     }
     .heading {
-        width: 72%;
+        width: 65%;
         font-size: 55px;
         font-weight: 900;
         margin: 0 auto 27px;
@@ -468,7 +521,8 @@ ul {
     }
     /* Specifically for you */
     .main-heading {
-        width: 40%;
+        width: 50%;
+        margin-bottom: 100px;
     }
     .title {
         margin-bottom: 46px;
@@ -486,6 +540,7 @@ ul {
     }
     .card {
         width: 29%;
+        min-height: 455px;
     }
     .card1 {
         float: left;
@@ -581,12 +636,10 @@ ul {
         width: 65%;
     }
     .footer-right-container {
-        margin-top: 97px;
         float: right;
     }
     .footer-center-container {
         max-width: 600px;
-        margin: 97px auto 97px;
         float: left;
     }
     .footer-center-container img {
