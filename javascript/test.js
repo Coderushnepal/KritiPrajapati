@@ -1,15 +1,8 @@
-var array = [
-    "j mahar",
-    "k mahar"
-];
-var filter = array.filter(
-
+var array = [1, 2, 3];
+var mmap = array.map(
     function(value) {
-        var spiltt = value.split(" ");
-        if (spiltt[-1] === "mahar") {
-            return value;
-        }
+        return 2 * value;
     }
 )
 
-console.log(filter);
+console.log(mmap);

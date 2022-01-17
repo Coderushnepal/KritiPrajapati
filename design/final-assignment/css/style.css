@@ -61,10 +61,11 @@
 a {
     text-decoration: none;
     color: #ffffff;
-    transition: transform 600ms;
+    transition: transform 320ms;
+    padding: 5px;
 }
 
-a:hover {
+.footer-link:hover {
     transform: scale(1.1);
 }
 
@@ -72,7 +73,9 @@ button {
     transition: transform 320ms;
 }
 
-button:hover {
+button:hover,
+.icon :hover,
+.left-container:hover {
     transform: scale(1.1);
 }
 
@@ -329,13 +332,6 @@ footer {
     background-color: #112d57;
 }
 
-
-/* .footer-wrapper {
-  width: 70%;
-  margin: 0 auto;
-  padding: 40px 0;
-} */
-
 .footer-wrapper {
     width: 90%;
     padding: 60px 0;
@@ -363,21 +359,23 @@ ul {
     float: left;
     font-size: 12px;
     font-weight: 700;
-    margin-bottom: 67px;
+    margin: 36px 0;
 }
 
 .footer {
     width: 100%;
+    margin: 0 auto;
 }
 
 .footer-left-container {
     float: left;
     width: 100%;
+    margin-bottom: 40px;
 }
 
 .footer-center-container {
     max-width: 600px;
-    margin: 0 auto 60px;
+    margin: 40px auto 60px;
 }
 
 .OpenType-lm {
@@ -393,7 +391,11 @@ ul {
 }
 
 .add .text {
-    vertical-align: 18px;
+    vertical-align: 17px;
+}
+
+.text1 {
+    vertical-align: 13px;
 }
 
 .icon {
@@ -406,6 +408,20 @@ ul {
 
 .footer-link {
     margin-bottom: 20px;
+}
+
+.mapouter {
+    position: relative;
+    text-align: right;
+    height: 220px;
+    width: 290px;
+    overflow: hidden;
+    background: none !important;
+    border-radius: 22px;
+}
+
+.contact {
+    margin-bottom: 40px;
 }
 
 
@@ -450,19 +466,62 @@ ul {
         margin: 60px auto;
     }
     .price-item-container {
-        width: 300px;
+        margin-top: 20px;
+        margin: auto;
     }
     .left-col {
         float: left;
+        margin-right: 40px;
     }
     .right-col {
-        float: right;
+        float: left;
     }
     .footer-center-right-container {
         float: right;
+        width: 100%;
+        margin: 0 auto;
+        align-items: center;
     }
-    .footer-left-container {
-        width: auto;
+    .footer-right-container {
+        float: left;
+        width: 50%;
+        margin: 0 auto;
+    }
+    .contact {
+        margin-left: 30px;
+    }
+    .footer-center-container {
+        float: left;
+        width: 50%;
+        margin: 0 auto;
+    }
+    .mapouter {
+        position: relative;
+        text-align: right;
+        height: 220px;
+        width: 280px;
+        overflow: hidden;
+        background: none !important;
+        border-radius: 22px;
+        margin: auto;
+    }
+    .add .text {
+        font-size: 14px;
+    }
+    .add {
+        margin-bottom: 0px;
+    }
+    .contact span {
+        margin-top: 30px;
+    }
+    .btn-container {
+        display: block;
+        margin: auto;
+    }
+    .btn2 {
+        display: inline;
+        margin-right: 22px;
+        padding: 18px 46px;
     }
 }
 
@@ -562,7 +621,8 @@ ul {
         padding: 18px 46px;
     }
     .contain3 {
-        width: 70%;
+        width: 80%;
+        max-width: 1140px;
     }
     .text-container1 {
         width: 50%;
@@ -576,10 +636,13 @@ ul {
         margin-bottom: 0;
     }
     .text-container2 {
-        width: 40%;
+        width: 45%;
         float: left;
-        margin-bottom: 36px;
-        margin-top: 36px;
+        margin-bottom: 26px;
+        margin-top: 26px;
+    }
+    .text-container2 .title {
+        line-height: 55px;
     }
     .desktop-title {
         display: block;
@@ -590,7 +653,7 @@ ul {
     .img-container2 {
         float: right;
         margin-bottom: 0;
-        width: 60%;
+        width: 55%;
     }
     .OpenType-lm {
         display: none;
@@ -626,23 +689,33 @@ ul {
         border-radius: 6px;
     }
     .footer-wrapper {
-        width: 80%;
+        width: 86%;
+        max-width: 1134px;
     }
     .footer-left-container {
+        margin-top: 20px;
         width: auto;
     }
     .footer-center-right-container {
         float: right;
-        width: 65%;
+        width: 68%;
     }
     .footer-right-container {
+        margin-top: 20px;
         float: right;
     }
     .footer-center-container {
-        max-width: 600px;
         float: left;
+        margin: 0;
     }
-    .footer-center-container img {
-        width: auto;
+    .mapouter {
+        position: relative;
+        text-align: right;
+        height: 240px;
+        width: 340px;
+        overflow: hidden;
+        background: none !important;
+        border-radius: 22px;
+        margin: 0;
     }
 }
