@@ -15,3 +15,4 @@ I have listed all the assignments below categoried with its related topics.
 
 ## Javascript
 - [Assignment 1](javascript/assignment-1/) 
+- [Assignment 2](javascript/assignment-2/) 
