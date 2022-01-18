@@ -1,18 +1,21 @@
 # Javascript
 
-Here are the assignments done in javascript.
+Here are the tasks done in javascript.
 
 - Ability Test    
-[Code](assignment-1/ability-test/)
+[Code](task-1/ability-test/)
 
 - String Manipulation    
-[Code](assignment-1/string-manipulation/)
+[Code](task-1/string-manipulation/)
 
 - Array
-[Code](assignment-1/array/)
+[Code](task-1/array/)
 
 - Basics of JavaScript    
-[Code](assignment-1/basics-javascript/)
+[Code](task-1/basics-javascript/)
 
-- Assignment 2      
-[Code](assignment-2/basics-js/) | [Demo](https://coderushnepal.github.io/KritiPrajapati/javascript/assignment-2/basics-js/)
+- Task 2      
+[Code](task-2/) | [Demo](https://coderushnepal.github.io/KritiPrajapati/javascript/task-2/)
+
+- Task 3      
+[Code](task-3/) | [Demo](https://coderushnepal.github.io/KritiPrajapati/javascript/task-3/)
