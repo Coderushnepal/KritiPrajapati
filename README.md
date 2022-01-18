@@ -14,5 +14,6 @@ I have listed all the assignments below categoried with its related topics.
 - [Final Assignment](design/final-assignment/)
 
 ## Javascript
-- [Assignment 1](javascript/assignment-1/) 
-- [Assignment 2](javascript/assignment-2/) 
+- [Task 1 - Basics of JS](javascript/task-1/) 
+- [Task 2 - Array Iterations](javascript/task-2/) 
+- [Task 3- Show Hide Password](javascript/task-3/) 
