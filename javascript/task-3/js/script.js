@@ -4,7 +4,7 @@ box.classList.add("boxwrapper");
 
 body.appendChild(box);
 
-var passwordWrapper = document.createElement('div');
+var passwordWrapper = document.createElement('form');
 var passwordInputBox = document.createElement('div');
 var controlWrapper = document.createElement('div');
 
@@ -24,6 +24,7 @@ passwordInput.type = "password"
 passwordInput.id = "pwd";
 passwordInput.className = "passwordContainer"
 passwordInput.placeholder = "Enter Your Password";
+passwordInput.required = "true";
 
 var eyeSlashIcon = document.createElement("i");
 eyeSlashIcon.className = "fa fa-eye-slash";
@@ -51,8 +52,13 @@ controlWrapper.className = "controls-container";
 var forgotPassword = document.createElement("span");
 var forgotPasswordLink = document.createElement("a");
 forgotPasswordLink.innerHTML = "Forgot Password?";
-forgotPasswordLink.setAttribute("href", "#");
+forgotPasswordLink.setAttribute("href", "");
 forgotPasswordLink.setAttribute("id", "forgetPassword");
+
+forgotPasswordLink.addEventListener("click", function() {
+    passwordInput.value = "";
+
+})
 
 var btnSubmit = document.createElement("button");
 btnSubmit.innerHTML = "Next";
@@ -61,7 +67,13 @@ forgotPassword.appendChild(forgotPasswordLink);
 controlWrapper.appendChild(forgotPassword);
 controlWrapper.appendChild(btnSubmit);
 
+btnSubmit.addEventListener("click", function(event) {
+    if (passwordInput.value !== "") {
+        event.preventDefault();
+        console.log("Successful", passwordInput.value);
+        passwordInput.value = "";
 
-btnSubmit.addEventListener("click", function() {
-    console.log("Successful", passwordInput.value);
+    }
+
+
 });

@@ -5,7 +5,6 @@
 }
 
 .boxwrapper {
-    height: 300px;
     width: 500px;
     border: 1px solid #868686;
     margin: 50px auto;
@@ -13,7 +12,7 @@
 
 .box {
     max-width: 350px;
-    margin: 60px auto;
+    margin: 70px auto;
     font-family: 'Roboto', 'san-serif';
 }
 
@@ -23,14 +22,14 @@
     display: inline-block;
     border: 3px solid #2F96EF;
     border-radius: 5px;
-    padding: 0 15px;
+    padding: 0 38px 0 10px;
     font-size: 15px;
 }
 
 .fa {
     position: absolute;
     top: 50px;
-    right: 20px;
+    right: 15px;
     cursor: pointer;
 }
 
