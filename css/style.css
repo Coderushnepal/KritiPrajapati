@@ -45,7 +45,7 @@
 .table-wrapper {
     padding-top: 25px;
 }
-  
+
 .table-wrapper table {
     width: 100%;
     border-collapse: collapse;
@@ -58,9 +58,9 @@
 
 .table-wrapper table th,
 .table-wrapper table td {
-  padding: 15px 24px;
-  font-weight: 700;
-  text-align: left;
+    padding: 15px 24px;
+    font-weight: 700;
+    text-align: left;
 }
 
 .table-wrapper table td {
@@ -73,24 +73,26 @@
     background-color: #fbe9e7;
     color: #d84315;
 }
-  
-.btn-demo,.btn-css  {
+
+.btn-demo,
+.btn-css {
     background-color: #e3f2fd;
     color: #1565c0;
 }
 
-.btn-code{
+.btn-code {
     background-color: #e8f5e9;
     color: #2e7d32;
 }
 
-a.btn, span.capsule {
-  text-decoration: none;
-  display: inline-block;
-  padding: 6px 12px;
-  font-size: 16px;
-  font-weight: bold;
-  margin: 6px 0 0;
+a.btn,
+span.capsule {
+    text-decoration: none;
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 6px 0 0;
 }
 
 .btn-js {
