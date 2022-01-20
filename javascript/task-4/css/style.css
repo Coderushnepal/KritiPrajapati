@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 .main-wrapper {
@@ -20,7 +21,6 @@
     background-color: #ffffff;
     padding: 50px 70px;
     border-radius: 3px;
-    border: 1px solid #efefef;
 }
 
 .btn {
@@ -41,7 +41,7 @@
     height: 440px;
     border: 1px solid #868686;
     position: relative;
-    padding: 20px;
+    overflow: hidden;
 }
 
 .balloon {
@@ -49,6 +49,4 @@
     height: 20px;
     width: 20px;
     border-radius: 50%;
-    background-color: black;
-    margin: 10px;
 }

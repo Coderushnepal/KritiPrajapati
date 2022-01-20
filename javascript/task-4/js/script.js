@@ -25,8 +25,6 @@ boxWrapper.appendChild(box);
 btnGenerateBalloon.addEventListener("click", function() {
     var balloon = document.createElement('div');
     balloon.classList.add("balloon");
-    balloon.style.left = 480 * Math.random() + 'px';
-    balloon.style.top = 420 * Math.random() + 'px';
 
     //color of balloon
     var x = Math.floor(Math.random() * 256);
@@ -34,5 +32,9 @@ btnGenerateBalloon.addEventListener("click", function() {
     var z = Math.floor(Math.random() * 256);
     balloon.style.backgroundColor = "rgb(" + x + "," + y + "," + z + ")";
 
-    box.appendChild(balloon);
+    box.appendChild(balloon, balloon.clientWidth);
+    console.log(box.clientWidth)
+    balloon.style.left = (box.clientWidth - balloon.clientWidth) * Math.random() + 'px';
+    balloon.style.top = (box.clientHeight - balloon.clientHeight) * Math.random() + 'px'
+
 });
