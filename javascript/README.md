@@ -1,6 +1,6 @@
 # Javascript
 
-Here are the tasks done in javascript.
+**Here are the tasks done in javascript.**
 
 - [Ability Test](task-1/ability-test/)
 
@@ -10,8 +10,8 @@ Here are the tasks done in javascript.
 
 - [Basics of JavaScript](task-1/basics-javascript/)
 
-- [Task 2 - Array Iterations](task-2/) | [`Demo`](https://coderushnepal.github.io/KritiPrajapati/javascript/task-2/)
+- [Task 2 - Array Iterations](task-2/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-2/)
 
-- [Task 3 - Toggle Password](task-3/) | [`Demo`](https://coderushnepal.github.io/KritiPrajapati/javascript/task-3/)
+- [Task 3 - Toggle Password](task-3/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-3/)
 
-- [Task 4 - Random Balloon Generator](task-4/) | [`Demo`](https://coderushnepal.github.io/KritiPrajapati/javascript/task-4/)
+- [Task 4 - Random Balloon Generator](task-4/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-4/)
