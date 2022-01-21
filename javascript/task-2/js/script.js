@@ -38,16 +38,14 @@ console.log("Solution 2");
 
 function find(initialLetter) {
     let totalObjects = arrayOfObject.length;
-    let startsWithInitialLetterCount = 0;
-    for (let i = 0; i < totalObjects; i++) {
-        let initialFromObject = arrayOfObject[i].firstName[0].toLowerCase();
-        let initialFromParams = initialLetter.toLowerCase();
-        if (initialFromObject === initialFromParams) {
+    var startsWithInitialLetterCount = 0;
+
+    arrayOfObject.filter(function(value) {
+        if (value.firstName[0].toUpperCase() === initialLetter.toUpperCase()) {
             startsWithInitialLetterCount++;
         }
-    }
-    return `${startsWithInitialLetterCount} and ${
-    totalObjects - startsWithInitialLetterCount}`;
+    });
+    return `${startsWithInitialLetterCount} and ${ totalObjects - startsWithInitialLetterCount}`;
 }
 
 console.log("find('s') -> ", find("s"));
@@ -57,11 +55,13 @@ console.log("\n***********************************\n");
 
 console.log("Solution 3");
 let object = {};
-for (let i = 0; i < arrayOfObject.length; i++) {
-    let objId = arrayOfObject[i].id;
+
+arrayOfObject.forEach(function(value) {
+    var objId = value.id;
     object[objId] = {
-        firstName: arrayOfObject[i].firstName,
-        lastName: arrayOfObject[i].lastName,
+        firstName: value.firstName,
+        lastName: value.lastName,
     };
-}
+})
+
 console.log(object, "object");
