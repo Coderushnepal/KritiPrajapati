@@ -1,6 +1,4 @@
-# Basics of JavaScript - Day 2
-
-## Array Iterations | [**`Demo Here`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-2/)
+### Array Iterations | [**`Demo Here`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-2/)
 
 You have the following list of names:
 ```
