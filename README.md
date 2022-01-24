@@ -18,3 +18,4 @@ I have listed all the assignments below categoried with its related topics.
 - [Task 2 - Array Iterations](javascript/task-2/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-2/)
 - [Task 3 - Password Toggle using DOM](javascript/task-3/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-3/)
 - [Task 4 - Random Balloon Generator](javascript/task-4/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-4/)
+- [Task 4 - Random Balloon Generator](javascript/task-4/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-4/)
