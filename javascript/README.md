@@ -10,4 +10,7 @@
 - [Task 3 - Toggle Password](task-3/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-3/)
 - [Task 4 - Random Balloon Generator](task-4/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-4/)
 - [Task 5 - Form Validator](task-5/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-5/)
+- [Task 6 - Hangman Game](task-6/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-6/)
+- [Task 7 - Bounce Ball Animation](task-7/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-7/)
+
 

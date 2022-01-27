@@ -14,8 +14,13 @@ I have listed all the assignments below categoried with its related topics.
 - [Final Assignment](design/final-assignment/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/design/final-assignment/)
 
 ## Javascript
-- [Task 1 - Basics of JS](javascript/task-1/) 
-- [Task 2 - Array Iterations](javascript/task-2/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-2/)
-- [Task 3 - Password Toggle using DOM](javascript/task-3/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-3/)
-- [Task 4 - Random Balloon Generator](javascript/task-4/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-4/)
-- [Task 5 - Form VAlidator](javascript/task-5/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-5/)
+- [Ability Test](javascript/task-1/ability-test/)
+- [String Manipulation](javascript/task-1/string-manipulation/)
+- [Array](javascript/task-1/array/)
+- [Basics of JS](javascript/task-1/basics-javascript/) 
+- [Array Iterations](javascript/task-2/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-2/)
+- [Password Toggle using DOM](javascript/task-3/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-3/)
+- [Random Balloon Generator](javascript/task-4/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-4/)
+- [Form Validator](javascript/task-5/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-5/)
+- [Hangman Game](javascript/task-6/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-6/)
+- [Bounce Ball Animation](javascript/task-7/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-7/)
