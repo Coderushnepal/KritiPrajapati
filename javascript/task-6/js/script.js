@@ -7,7 +7,7 @@ body.style = `
 
 mainWrapper.style = `
     width: 760px;
-    margin: 10px auto;
+    margin: 40px auto;
     background-color: #002851;
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
@@ -27,6 +27,7 @@ description.innerHTML = "Find the hidden word - Enter a letter";
 
 titleGame.style = `
     text-align : center;`;
+
 description.style = `
     text-align: center;
     margin: 10px 0 70px;
@@ -51,6 +52,7 @@ var wordsContainer = document.createElement("div");
 wordsContainer.style = `
     float: left;
     padding: 0 30px;
+    font-size: 20px;
 `;
 
 var wordContainer = document.createElement("div");
@@ -136,8 +138,6 @@ const words = [
     "disaster",
     "population",
     "bathroom",
-    "bread",
-    "skill",
     "enthusiasm",
     "management",
     "impression",
@@ -181,15 +181,6 @@ var isPlaying = true;
 var correctCount = 0;
 var wrongLetterCount = 0;
 
-function assignGameWord() {
-    var randomNumber = Math.floor(Math.random() * words.length);
-    gameWord = words[randomNumber];
-    gameWordArray = gameWord.split("");
-    gameWordArray.forEach(function(letter) {
-        inDisplayWordArray.push("_");
-    });
-}
-
 function clearContainer(container) {
     while (container.firstChild) {
         container.removeChild(container.firstChild);
@@ -203,27 +194,6 @@ function displayWord() {
         var letterBox = document.createElement("span");
         letterBox.innerHTML = ` ${letter} `;
         wordContainer.appendChild(letterBox);
-    });
-}
-
-function findMatchingLetterIndexes(letter) {
-    var indexes = [];
-    // apple => ['a','p','p','l','e']
-    // letter: p
-    for (var i = 0; i < gameWordArray.length; i++) {
-        if (gameWordArray[i] === letter) {
-            indexes.push(i);
-            correctCount++;
-        }
-    }
-    return indexes; // [1,2]
-}
-
-function fillLetters(letter, matchingIndexes) {
-    // inDisplayWordArray = ['_', '_', '_', '_', '_']
-    // p , [1,2]
-    matchingIndexes.forEach(function(index) {
-        inDisplayWordArray[index] = letter; // inDisplayWordArray = ['_', 'p', 'p', '_', '_'];
     });
 }
 
@@ -253,11 +223,20 @@ function keydownListener(e) {
 
         selectedWords.push(letter);
 
-        var matchingIndexes = findMatchingLetterIndexes(letter); // [1,2]
-
-        if (matchingIndexes.length) {
+        var indexes = [];
+        // apple => ['a','p','p','l','e']
+        // letter: p
+        for (var i = 0; i < gameWordArray.length; i++) {
+            if (gameWordArray[i] === letter) {
+                indexes.push(i);
+                correctCount++;
+            }
+        }
+        if (indexes.length) {
             // correct letter pressed
-            fillLetters(letter, matchingIndexes);
+            indexes.forEach(function(index) {
+                inDisplayWordArray[index] = letter;
+            });
             displayWord();
 
             if (correctCount === gameWord.length) {
@@ -290,8 +269,14 @@ function initializeGame() {
         part.style.visibility = "hidden";
     });
 
-    assignGameWord();
-    console.log(gameWord, "gameWord");
+    var randomNumber = Math.floor(Math.random() * words.length);
+    gameWord = words[randomNumber];
+    gameWordArray = gameWord.split("");
+    gameWordArray.forEach(function(letter) {
+        inDisplayWordArray.push("_");
+    });
+
+    // console.log(gameWord, "gameWord");
     displayWord();
 
     window.addEventListener("keydown", keydownListener);
