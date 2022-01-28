@@ -23,7 +23,7 @@ function Ball(size, id) {
                 clearInterval(myInterval);
             } else {
                 isMoving = true;
-                var speedTop = 5;
+                var speedTop = 2;
                 myInterval = setInterval(function() {
                     ballTopPosition = parseInt(e.target.style.top);
                     console.log(ballTopPosition);
