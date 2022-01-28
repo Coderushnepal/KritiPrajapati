@@ -14,23 +14,30 @@ function Ball(size, id) {
         this.element.style.left = position.left + "px";
         this.element.style.cursor = "pointer";
 
+        var isMoving = false;
+        var myInterval;
+
         this.element.addEventListener("click", function(e) {
-            var speedTop = 5;
-            interval = setInterval(function() {
-                ballTopPosition = parseInt(e.target.style.top);
-                console.log(ballTopPosition);
-                ballTopPosition += speedTop;
-                e.target.style.top = ballTopPosition + "px";
-                console.log(ground.clientHeight, e.target.clientHeight);
+            if (isMoving) {
+                isMoving = false;
+                clearInterval(myInterval);
+            } else {
+                isMoving = true;
+                var speedTop = 5;
+                myInterval = setInterval(function() {
+                    ballTopPosition = parseInt(e.target.style.top);
+                    console.log(ballTopPosition);
+                    ballTopPosition += speedTop;
+                    e.target.style.top = ballTopPosition + "px";
+                    console.log(ground.clientHeight, e.target.clientHeight);
 
-                if (ballTopPosition <= 0 || ballTopPosition >= ground.clientHeight - e.target.clientHeight) {
-                    speedTop *= -1;
-                }
-
-            }, 1000 / 60);
+                    if (ballTopPosition <= 0 || ballTopPosition >= ground.clientHeight - e.target.clientHeight) {
+                        speedTop *= -1;
+                    }
+                }, 1000 / 60);
+            }
 
         });
-
         ground.appendChild(this.element);
     };
 
