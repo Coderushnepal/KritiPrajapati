@@ -71,6 +71,8 @@ formControls.forEach(function(value) {
 
     var titleLabel = document.createElement('label');
     titleLabel.innerHTML = value.label;
+    var inputBox = document.createElement('div');
+    inputBox.id = "input-" + value.id;
 
     var inputField = document.createElement('input');
     inputField.setAttribute('type', value.type);
@@ -82,7 +84,8 @@ formControls.forEach(function(value) {
 
     form.appendChild(formControl);
     formControl.appendChild(titleLabel);
-    formControl.appendChild(inputField);
+    inputBox.appendChild(inputField);
+    formControl.appendChild(inputBox);
     formControl.appendChild(smallDispaly);
 
 
@@ -101,11 +104,11 @@ formControls.forEach(function(value) {
     `;
 
     inputField.style = `
+    box-sizing: border-box;
         width: 100%;
         border: 2px solid #f0f0f0;
         border-radius: 4px;
-        width: 92.5%;
-        padding: 10px;
+        padding: 10px 40px 10px 10px;
         font-size: 14px;
     `;
 
@@ -116,8 +119,53 @@ formControls.forEach(function(value) {
         left: 0;
     `;
     smallDispaly.style.visibility = "hidden";
+
+    inputBox.style = `position: relative;`;
 });
 
+var eyeSlashIcon = document.createElement("i");
+eyeSlashIcon.className = "fa fa-eye-slash";
+eyeSlashIcon.id = "eyeToggle";
+
+var eyeSlashIcon2 = document.createElement("i");
+eyeSlashIcon2.className = "fa fa-eye-slash";
+eyeSlashIcon2.id = "eyeToggle";
+
+eyeSlashIcon.style = `position: absolute;
+top: 12px;
+right: 12px;
+cursor: pointer;`;
+
+eyeSlashIcon2.style = `position: absolute;
+top: 12px;
+right: 12px;
+cursor: pointer;`;
+
+var passwordBox = document.getElementById("input-password");
+var password2Box = document.getElementById("input-password2");
+passwordBox.appendChild(eyeSlashIcon);
+password2Box.appendChild(eyeSlashIcon2);
+
+var password = document.getElementById('password');
+var password2 = document.getElementById('password2');
+
+eyeSlashIcon.addEventListener("click", function() {
+    checkEyeToggle(password, eyeSlashIcon)
+});
+
+eyeSlashIcon2.addEventListener("click", function() {
+    checkEyeToggle(password2, eyeSlashIcon2)
+});
+
+function checkEyeToggle(password, eyeSlashIcon) {
+    if (password.type === "password") {
+        password.type = "text";
+        eyeSlashIcon.className = "fa fa-eye";
+    } else {
+        password.type = "password";
+        eyeSlashIcon.className = "fa fa-eye-slash";
+    }
+}
 
 
 var btnSubmit = document.createElement("button");
@@ -137,6 +185,7 @@ btnSubmit.style = `
     font-size: 16px;
     padding: 10px;
     width: 100%;
+    margin-top: 10px;
 `;
 
 btnSubmit.addEventListener("click", function(event) {
