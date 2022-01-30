@@ -31,11 +31,7 @@ boxWrapper.style = `
     border-radius: 3px;
 `;
 
-boxTitle.style = `margin:20px`;
-
-
 boxWrapper.appendChild(boxTitle);
-
 
 function position(size) {
     return {
@@ -43,8 +39,6 @@ function position(size) {
         left: parseInt(Math.random() * size),
     };
 }
-
-
 var groundSize = 500;
 var defaultBallSize = 50;
 var ground = new Playground(groundSize);
@@ -52,6 +46,5 @@ ground.create(boxWrapper);
 
 for (var i = 0; i < 10; i++) {
     var ball = new Ball(defaultBallSize, i);
-    console.log("hello")
     ball.create(ground.element, `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}`, position(groundSize - defaultBallSize));
 }

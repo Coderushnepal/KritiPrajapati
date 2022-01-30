@@ -7,6 +7,7 @@ function Playground(size) {
         this.element.style.height = this.size + "px";
         this.element.style.border = "1px solid black";
         this.element.style.position = "relative";
+        this.element.style.margin = "15px";
 
         parent.appendChild(this.element);
     };

@@ -29,16 +29,14 @@ function Ball(size, id) {
                     console.log(ballTopPosition);
                     ballTopPosition += speedTop;
                     e.target.style.top = ballTopPosition + "px";
-                    console.log(ground.clientHeight, e.target.clientHeight);
+                    console.log(ground.clientHeight + 2, e.target.clientHeight);
 
-                    if (ballTopPosition <= 0 || ballTopPosition >= ground.clientHeight - e.target.clientHeight) {
+                    if (ballTopPosition <= 0 || ballTopPosition >= ground.clientHeight + 2 - e.target.clientHeight) {
                         speedTop *= -1;
                     }
                 }, 1000 / 60);
             }
-
         });
         ground.appendChild(this.element);
     };
-
 }
