@@ -24,3 +24,5 @@ I have listed all the assignments below categoried with its related topics.
 - [Form Validator](javascript/task-5/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-5/)
 - [Hangman Game](javascript/task-6/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-6/)
 - [Bounce Ball Animation](javascript/task-7/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-7/)
+- [Multiple Ball Bouncing](javascript/task-8/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-8/)
+- [Expense Tracker](javascript/task-9/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-9/)

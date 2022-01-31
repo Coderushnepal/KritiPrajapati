@@ -12,5 +12,8 @@
 - [Task 5 - Form Validator](task-5/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-5/)
 - [Task 6 - Hangman Game](task-6/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-6/)
 - [Task 7 - Bounce Ball Animation](task-7/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-7/)
+- [Task 8 - Multiple Ball Bouncing](task-8/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-8/)
+- [Task 9 - Expense Tracker](task-9/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-9/)
+
 
 
