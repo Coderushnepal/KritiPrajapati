@@ -26,3 +26,4 @@ I have listed all the assignments below categoried with its related topics.
 - [Bounce Ball Animation](javascript/task-7/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-7/)
 - [Multiple Ball Bouncing](javascript/task-8/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-8/)
 - [Expense Tracker](javascript/task-9/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-9/)
+- [Infinite Scroll Blog ](javascript/task-10/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-10/)

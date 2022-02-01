@@ -14,6 +14,4 @@
 - [Task 7 - Bounce Ball Animation](task-7/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-7/)
 - [Task 8 - Multiple Ball Bouncing](task-8/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-8/)
 - [Task 9 - Expense Tracker](task-9/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-9/)
-
-
-
+- [Task 10 - Infinite Scroll Blog ](task-10/) | [**`Demo`**](https://coderushnepal.github.io/KritiPrajapati/javascript/task-10/)
