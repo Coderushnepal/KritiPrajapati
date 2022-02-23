@@ -1,0 +1,4 @@
+{"id":1644716558066,"manufacturer":"Hyundai","model":"i10"}
+{"id":1644716586670,"manufacturer":"Hyundai","model":"i20"}
+{"id":1644721712937,"manufacturer":"Suzuki","model":"Swift"}
+{"id":1644721755953,"manufacturer":"Suzuki","model":"Brezza"}
