@@ -33,7 +33,12 @@ export function getCarById(id) {
 export function saveCar(params) {
   logger.debug("Payload received", params);
 
-  const existingData = new Car().findCarByParams(params);
+  const onlyRequiredParams = {
+    manufacturer: params.manufacturer,
+    model: params.model,
+  }
+
+  const existingData = new Car().findCarByParams(onlyRequiredParams);
 
   if (existingData) {
     logger.error("Data with the same payload already exists");
