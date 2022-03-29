@@ -1,0 +1,22 @@
+[
+  {
+    "manufacturer": "Hyundai",
+    "model": "i10",
+    "_id": "a26e9c9f5f7d47668eca824b7e61bb75"
+  },
+  {
+    "manufacturer": "Suzuki",
+    "model": "Brezza",
+    "_id": "e8ae6fd2be98407598064038990fb3b0"
+  },
+  {
+    "manufacturer": "Hyundai",
+    "model": "i20",
+    "_id": "e299c62acaef4e3fbd557d892df7e925"
+  },
+  {
+    "manufacturer": "Hyundai",
+    "model": "i10 sportx",
+    "_id": "4aac8feec09f4c629bbc9265e41838a3"
+  }
+]

@@ -1,0 +1,5 @@
+{"manufacturer":"Hyundai","model":"i10"}
+{"manufacturer":"Hyundai","model":"i10"}
+{"manufacturer":"TATA","model":"i20"}
+{"id":1644860310221,"manufacturer":"hello","model":"i20"}
+{"id":1644860344519,"manufacturer":"hello","model":"i30"}

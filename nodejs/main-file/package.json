@@ -1,0 +1,15 @@
+{
+  "type": "module",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "diskdb": "^0.1.17",
+    "express": "^4.17.2",
+    "helmet": "^5.0.2",
+    "joi": "^17.6.0",
+    "knex": "^1.0.4",
+    "morgan": "^1.10.0",
+    "pg": "^8.7.3",
+    "serve-favicon": "^2.5.0",
+    "winston": "^3.5.1"
+  }
+}
