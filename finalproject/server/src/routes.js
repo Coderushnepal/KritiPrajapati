@@ -2,28 +2,36 @@ import { Router } from 'express';
 import * as apiController from './controllers/api.js';
 // import * as abcController from './controllers/abc.js';
 import * as userController from './controllers/user.js';
+import * as postController from './controllers/post.js';
 import addUserSchema from './schemas/addUser.js';
 import loginSchema from './schemas/login.js';
+import addPostSchema from './schemas/addPost.js';
+
 
 // import getCarsQuerySchema from './schemas/getCarsQuery.js';
 import { validateBody, validateQueryParams } from './middlewares/validation.js';
+import authenticate from './middlewares/authenticate.js';
 
 const router = Router();
 
 router.get('/', apiController.getAPIDetails);
 
-// router.get('/abc', authenticate, validateQueryParams(getAbcsQuerySchema), abcController.getAbcs);
+router.get('/users', userController.getUsers);
 
 // router.get('/abc/:abcIdentifier', authenticate, abcController.getAbc);
 
-router.post('/user', validateBody(addUserSchema), userController.addUser);
-router.post('/me',  userController.getMe);
+// router.post('/me',  userController.getMe);
 
 // router.put('/abc/:abcIdentifier', authenticate, validateBody(updateAbcSchema), abcController.updateAbc);
 
 
-router.post('/users', validateBody(addUserSchema), userController.addUser);
+router.post('/signup', validateBody(addUserSchema), userController.addUser);
 
 router.post('/login', validateBody(loginSchema), userController.login);
+
+router.post('/post',authenticate, validateBody(addPostSchema),postController.addPost);
+
+router.get('/posts',authenticate,postController.getPosts);
+
 
 export default router;

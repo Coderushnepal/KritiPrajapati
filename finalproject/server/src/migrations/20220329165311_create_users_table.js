@@ -12,6 +12,7 @@ export function up(knex) {
     table.string('password', 200).notNull();
     table.string('phone_number', 15).unique().notNull();
     table.double('amount').default(10000.00).notNull();
+    table.string('avatar', 500).notNull();
     table.timestamp('created_at').default(knex.fn.now()).notNull();
   });
 }

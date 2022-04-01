@@ -1,22 +1,21 @@
 /**
- * Delete existing entries and seed values for `table_name`.
+ * Delete existing entries and seed values for `users`.
  *
  * @param   {object} knex
  * @returns {Promise}
  */
 export function seed(knex) {
-  return knex('table_name')
+  return knex("users")
     .del()
     .then(() => {
-      return knex('table_name').insert([
+      return knex("users").insert([
         {
-          colName: 'rowValue',
-          colName2: 'rowValue'
+          email: "kritiipraz@outlook.com",
+          full_name: "Kriti Prajapati",
+          phone_number: "9818253535",
+          password: "helloworld",
+          avatar : `https://avatars.dicebear.com/api/big-smile/9818253535.svg`,
         },
-        {
-          colName: 'rowValue',
-          colName2: 'rowValue'
-        }
       ]);
     });
 }

@@ -15,6 +15,20 @@ export function addUser(req, res, next) {
 }
 
 /**
+ * Controller to get details of all users.
+ *
+ * @param {Object} req
+ * @param {Object} res
+ * @param {Function} next
+ */
+ export function getUsers(req, res, next) {
+  userService
+    .getAllUsers(req.query)
+    .then((data) => res.json(data))
+    .catch((err) => next(err));
+}
+
+/**
  * Controller for user login.
  *
  * @param {Object} req

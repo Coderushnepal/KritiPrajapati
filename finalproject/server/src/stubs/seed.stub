@@ -12,10 +12,6 @@ export function seed(knex) {
         {
           colName: 'rowValue',
           colName2: 'rowValue'
-        },
-        {
-          colName: 'rowValue',
-          colName2: 'rowValue'
         }
       ]);
     });
