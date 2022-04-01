@@ -8,7 +8,7 @@ import bodyParser from 'body-parser';
 
 import router from './routes.js';
 import logger, { logStream } from './utils/logger.js';
-import errorHandler from './middlewares/errorHandler.js';
+// import errorHandler from './middlewares/errorHandler.js';
 
 const server = express();
 
@@ -23,7 +23,7 @@ server.use(bodyParser.json());
 
 server.use(router);
 
-server.use(errorHandler);
+// server.use(errorHandler);
 
 server.listen(process.env.PORT, () => {
   logger.info(`Listening on localhost:${process.env.PORT}`);
