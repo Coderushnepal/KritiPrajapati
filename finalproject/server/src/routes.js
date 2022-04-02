@@ -1,10 +1,12 @@
 import { Router } from 'express';
 import * as apiController from './controllers/api.js';
-// import * as abcController from './controllers/abc.js';
+import * as donateController from './controllers/donate.js';
 import * as userController from './controllers/user.js';
 import * as postController from './controllers/post.js';
 import addUserSchema from './schemas/addUser.js';
 import loginSchema from './schemas/login.js';
+import addDonateSchema from './schemas/addDonate.js';
+
 import addPostSchema from './schemas/addPost.js';
 
 
@@ -32,6 +34,10 @@ router.post('/login', validateBody(loginSchema), userController.login);
 router.post('/post',authenticate, validateBody(addPostSchema),postController.addPost);
 
 router.get('/posts',authenticate,postController.getPosts);
+
+router.post('/donate/',authenticate, validateBody(addDonateSchema),donateController.addDonation);
+
+router.get('/donate/:postIdentifier',authenticate,donateController.getDonations);
 
 
 export default router;

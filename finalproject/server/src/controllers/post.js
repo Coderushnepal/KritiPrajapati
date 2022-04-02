@@ -27,3 +27,17 @@ export function addPost(req, res, next) {
     .then((data) => res.json(data))
     .catch((err) => next(err));
 }
+
+/**
+ * Controller to get details of a post.
+ *
+ * @param {Object} req
+ * @param {Object} res
+ * @param {Function} next
+ */
+ export function getPost(req, res, next) {
+  postService
+    .getPost(+req.params.postIdentifier)
+    .then((data) => res.json(data))
+    .catch((err) => next(err));
+}

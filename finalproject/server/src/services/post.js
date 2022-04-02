@@ -41,3 +41,31 @@ export async function getAllPosts() {
   };
 }
 
+/**
+ * Get details of a post by the identifier.
+ *
+ * @param {string} id
+ * @return {Object}
+ */
+ export async function getPost(id) {
+  logger.info(`Fetching post with postId ${id}`);
+
+  const post = await new Post().getPostDetails(id);
+
+  if (!post) {
+    logger.error(`Cannot find post with postId ${id}`);
+
+    throw new Boom.notFound(`Cannot find post with postId ${id}`);
+  }
+
+  const parsedPost = {
+    ...post,
+  };
+
+  return {
+    data: parsedPost,
+    message: `Details of postId ${id}`
+  };
+}
+
+
