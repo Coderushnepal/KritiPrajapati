@@ -13,6 +13,7 @@ export async function createPost(params,user) {
   // console.log(params);
 
   const { postTitle, postDescription, targetAmount, category, endDate } = params;
+  console.log(user.id);
   const ownerUserId = user.id;
 
   const [insertedData] = await new Post().save({

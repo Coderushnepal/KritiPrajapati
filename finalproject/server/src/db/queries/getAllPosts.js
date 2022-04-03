@@ -1,4 +1,3 @@
-
 export default `SELECT
 post.id,
 post.post_title,
@@ -17,8 +16,6 @@ p.collected_amount, p.category, p.start_date FROM posts p
 INNER JOIN users u on p.owner_user_id = u.id ) AS post
 INNER JOIN (SELECT d.post_id,d.donar_user_id,d.amount,d.message,ud.full_name FROM donations d INNER JOIN users ud on d.donar_user_id = ud.id) AS donation
  on post.id = donation.post_id
-
- WHERE post.id = :postId
 group by post.id,
 post.post_title,
 post.post_description,
