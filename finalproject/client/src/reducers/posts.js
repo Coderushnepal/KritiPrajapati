@@ -1,5 +1,6 @@
 import {
   ADD_NEW_POST,
+  DELETE_POST,
     FETCH_POSTS_FULFILLED,
     FETCH_POSTS_PENDING,
     FETCH_POSTS_REJECTED,
@@ -42,6 +43,15 @@ import {
             ...state,
             list: [action.payload, ...state.list]
           }
+
+          case DELETE_POST:
+            let tempList = [...state.list];
+            console.log(tempList,action.payload)
+            tempList = tempList.filter(({ id }) => id !== action.payload)
+            return {
+              ...state,
+              list: tempList
+            };
   
       default:
         return state;

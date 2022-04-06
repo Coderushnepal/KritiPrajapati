@@ -41,3 +41,31 @@ export function addPost(req, res, next) {
     .then((data) => res.json(data))
     .catch((err) => next(err));
 }
+
+/**
+ * Controller to get update the details of a post.
+ *
+ * @param {Object} req
+ * @param {Object} res
+ * @param {Function} next
+ */
+ export function updatePost(req, res, next) {
+  postService
+    .updatePost(+req.params.postIdentifier, req.body)
+    .then((data) => res.json(data))
+    .catch((err) => next(err));
+}
+
+/**
+ * Controller to get remove a post record.
+ *
+ * @param {Object} req
+ * @param {Object} res
+ * @param {Function} next
+ */
+export function removePost(req, res, next) {
+  postService
+    .removePost(+req.params.postIdentifier)
+    .then((data) => res.json(data))
+    .catch((err) => next(err));
+}

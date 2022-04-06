@@ -1,4 +1,6 @@
 import DBModel from './DBModel.js';
+import getAllPostsQuery from '../db/queries/getAllPosts.js';
+import getPostDetailsQuery from '../db/queries/getPostDetails.js';
 
 /**
  * Model for the 'posts' table.
@@ -10,8 +12,12 @@ class Post extends DBModel {
     super('posts');
   }
 
-  async getCarDetails(carId) {
-    const [details] = await this.query(getCarDetailsQuery, { carId });
+  getAllPosts() {
+    return this.query(getAllPostsQuery);
+  }
+
+  async getPostDetails(postId) {
+    const [details] = await this.query(getPostDetailsQuery, { postId });
 
     return details || null;
   }

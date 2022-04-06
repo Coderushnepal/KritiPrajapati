@@ -1,5 +1,4 @@
 import * as postService from "../services/post";
-import { toast } from "react-toastify";
 export const FETCH_POSTS_PENDING = "FETCH_POSTS_PENDING";
 export const FETCH_POSTS_REJECTED = "FETCH_POSTS_REJECTED";
 export const FETCH_POSTS_FULFILLED = "FETCH_POSTS_FULFILLED";
@@ -37,9 +36,7 @@ export function updatePost(data) {
     try {
       const response = await postService.updatePost(data);
       dispatch(editPost(response));
-      toast.success("You have successfully Donated");
     } catch (err) {
-      toast.error("Something went wrong");
       dispatch(fetchBeersRejected(err));
     }
   };
@@ -49,10 +46,10 @@ export function deletePost(data) {
   return async function (dispatch) {
     try {
       const response = await postService.deletePost(data);
+      console.log(response)
       dispatch(removePost(response));
-      toast.success("You have successfully Donated");
+
     } catch (err) {
-      toast.error("Something went wrong");
       dispatch(fetchBeersRejected(err));
     }
   };
@@ -63,9 +60,7 @@ export function donatePost(data) {
     try {
       const response = await postService.donatePost(data);
       dispatch(donateInPost(response));
-      toast.success("You have successfully Donated");
     } catch (err) {
-      toast.error("Something went wrong");
       dispatch(fetchBeersRejected(err));
     }
   };
@@ -103,10 +98,10 @@ const editPost = (data) => {
   };
 };
 
-const removePost = (data) => {
+const removePost = (postId) => {
   return {
     type: DELETE_POST,
-    payload: data,
+    payload: postId,
   };
 };
 

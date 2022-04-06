@@ -2,6 +2,7 @@ import Boom from "@hapi/boom";
 
 import Post from "../models/Post.js";
 import logger from "../utils/logger.js";
+import User from "../models/User.js";
 
 /**
  * Create a new post.
@@ -13,15 +14,20 @@ export async function createPost(params,user) {
   // console.log(params);
 
   const { postTitle, postDescription, targetAmount, category, endDate } = params;
-  console.log(user.id);
   const ownerUserId = user.id;
+  const ownerUser =  await new User().getById(ownerUserId);
+
 
   const [insertedData] = await new Post().save({
     postTitle, postDescription, ownerUserId,targetAmount, category, endDate,
   });
 
   return {
-    data: insertedData,
+    data: {
+      ...insertedData,
+      avatar:  ownerUser.avatar,
+      ownerName: ownerUser.fullName
+    },
     message: "Added post successfully",
   };
 }
@@ -29,12 +35,20 @@ export async function createPost(params,user) {
 /**
  * Get list of posts
  *
+ * @param {Object} [query]
  * @return {Object}
  */
 export async function getAllPosts() {
+
+  // console.log(query)
+  // const postTitle = query.postTitle;
+  // const ownerUserId = query.ownerUserId;
+  // const category = query.category;
+  
   logger.info("Fetching list of posts");
 
-  const data = await new Post().getAll();
+  const data = await new Post().getAllPosts();
+ 
 
   return {
     data,
@@ -66,6 +80,31 @@ export async function getAllPosts() {
   return {
     data: parsedPost,
     message: `Details of postId ${id}`
+  };
+}
+
+
+/**
+ * Remove an existing record based on the identifier.
+ *
+ * @param {string} id
+ * @return {Object}
+ */
+ export async function removePost(id) {
+  logger.info(`Checking if post with id ${id} exists`);
+
+  const post = await new Post().getById(id);
+
+  if (!post) {
+    logger.error(`Cannot delete post with id ${id} because it doesn't exist`);
+
+    throw new Boom.notFound(`Cannot delete post with id ${id} because it doesn't exist`);
+  }
+
+  await new Post().removeById(id);
+
+  return {
+    message: 'Record removed successfully'
   };
 }
 

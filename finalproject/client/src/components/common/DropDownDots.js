@@ -1,33 +1,41 @@
 import React, { useState } from "react";
 import {updatePost,deletePost} from '../../actions/posts'
+import { useDispatch } from "react-redux";
 
-const onClickEdit = async (e) => {
-  try {
-    e.preventDefault();
-    dispatch(updatePost(data));
-  } catch (error) {
-    console.log(error);
-  }
-};
 
-const onClickDelete = async () => {
-  try {
-    dispatch(deletePost(data));
-  } catch (error) {
-    console.log(error);
-  }
-};
 
-function DropDownDots() {
+
+
+function DropDownDots({ post }) {
+    const dispatch = useDispatch();
+
   const [showOptions, setShowOptions] = useState(false);
+
+  const onClickEdit = async (id) => {
+    try {
+      dispatch(updatePost(id));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
+  const onClickDelete = async (id) => {
+    try {
+        console.log(id);
+      dispatch(deletePost(id));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div>
       <div onClick={() => setShowOptions(!showOptions)}>...</div>
 
       {showOptions && (
         <div>
-          <span onClick={onClickEdit}>Edit</span>
-          <span onClick={onClickDelete}>Delete</span>
+          <span onClick={()=>onClickEdit(post.id)}>Edit</span>
+          <span onClick={()=>onClickDelete(post.id)}>Delete</span>
         </div>
       )}
     </div>

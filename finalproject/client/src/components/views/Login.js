@@ -1,7 +1,9 @@
-import axios from "axios";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { loginUser } from "../../actions/users";
 
 function Login() {
+  const dispatch= useDispatch();
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -14,14 +16,7 @@ function Login() {
   const onSubmit = async (e) => {
     try {
       e.preventDefault();
-      const response = await axios.post(
-        "http://localhost:8849" + "/login",
-        data
-      );
-      const { token, user } = response.data.data;
-      localStorage.setItem("userToken", token);
-      // store user in Redux
-      console.log(response);
+      dispatch(loginUser(data))
     } catch (error) {
       console.log(error);
     }

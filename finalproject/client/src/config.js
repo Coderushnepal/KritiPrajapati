@@ -2,11 +2,14 @@ const config = {
     apiUrl: process.env.REACT_APP_API_URL,
   
     endpoints: {
+      me:'/me',
+      signup:'/signup',
+      login: '/login',
+      logout: '/logout',
       posts: "/posts", //for infinite scrolling of post
       post: "/posts/:id", // for individual 
       addPost: '/post',
-      updatePost: '/post',
-      deletePost: '/donate',
+      deletePost: '/posts/:id',
       donatePost: '/donate'
     },
   };

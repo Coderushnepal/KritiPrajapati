@@ -19,9 +19,11 @@ function App() {
     <BrowserRouter>
       <Routes>
         {/* <Route exact path={routes.POSTS} component={PostInfiniteList} /> */}
-        <Route exact path={'/'} element={<Home />} />
+        <Route exact path={'/feed'} element={<Home />} />
         <Route exact path ={'/post/:postId'} element={<SinglePost />} />
         <Route exact path={'/join'} element={<Join />} />
+        {/* <Route exact path={'/aboutme'} element={<AboutMe />} /> */}
+
 
         {/* <Redirect to={routes.POSTS} /> */}
       </Routes>

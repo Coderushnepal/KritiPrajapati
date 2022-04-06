@@ -31,7 +31,7 @@ function Post({ post }) {
           <DonatePost postId = {post.id}/>
         </div>
       </div>
-      <DropDownDots postId={post.id} />
+      <DropDownDots post={post} />
      
     </div>
      

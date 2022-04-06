@@ -37,7 +37,10 @@ router.get('/posts',authenticate,postController.getPosts);
 
 router.post('/donate/',authenticate, validateBody(addDonateSchema),donateController.addDonation);
 
-router.get('/donate/:postIdentifier',authenticate,donateController.getDonations);
+router.get('/posts/:postIdentifier',authenticate,postController.getPost);
 
+router.put('/posts/:postIdentifier',authenticate,postController.updatePost);
+
+router.delete('/posts/:postIdentifier',postController.removePost);
 
 export default router;

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import axios from "axios";
 import Modal from 'react-modal';
+import { signupUser } from "../../actions/users";
+
+import { useDispatch } from "react-redux";
 
 const customStyles = {
   content: {
@@ -17,6 +19,8 @@ const customStyles = {
 Modal.setAppElement('#root');
 
 function SignUp() {
+  const dispatch= useDispatch();
+
     let subtitle;
     const [modalIsOpen, setModalIsOpen] = useState(false);
   
@@ -47,11 +51,9 @@ function SignUp() {
   const onSubmit = async (e) => {
     try {
       e.preventDefault();
-      const response = await axios.post(
-        "http://127.0.0.1:8849/" + "signup",
-        data
-      );
-      console.log(response);
+      dispatch(signupUser(data))
+
+      
     } catch (error) {
       console.log(error);
     }
