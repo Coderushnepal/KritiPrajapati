@@ -48,12 +48,32 @@ export const logoutUser = async () => {
 export const fetchUser = async () => {
   try {
     const url = `${config.apiUrl}${config.endpoints.me}`;
-    const response = await axios.get(url);
+    const response = await axios.get(url,{
+      headers: {
+          Authorization: `Bearer ${localStorage.getItem('userToken')}`
+      }
+  });
+    return response;
+  } catch (error) {
+    toast.error(error.response?.data?.details || "Something went wrong!");
+  }
+};
 
+
+export const updateUser = async (data) => {
+  try {
+    const url = `${config.apiUrl}${config.endpoints.me}`;
+    const response = await axios.put(url, {
+      headers: {
+          Authorization: `Bearer ${localStorage.getItem('userToken')}`
+      }
+  },data);
+
+    toast.success("update successful");
     return {
       response,
     };
   } catch (error) {
     toast.error(error.response?.data?.details || "Something went wrong!");
   }
-};
+}

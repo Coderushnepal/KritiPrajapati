@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../actions/users";
-
+import InputField from "../common/InputField";
+import Button from "../common/Button";
 function Login() {
-  const dispatch= useDispatch();
+  const dispatch = useDispatch();
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -16,7 +17,7 @@ function Login() {
   const onSubmit = async (e) => {
     try {
       e.preventDefault();
-      dispatch(loginUser(data))
+      dispatch(loginUser(data));
     } catch (error) {
       console.log(error);
     }
@@ -25,24 +26,26 @@ function Login() {
   return (
     <div>
       <form onSubmit={onSubmit}>
-        <label htmlFor="email">Email</label>
-        <input
-          name="email"
-          id="email"
-          placeholder="Enter your email"
-          onChange={onChangeHandler}
+        <InputField
+          name={"email"}
+          label={"Email"}
           value={data.email}
+          labelClass="text-black"
+          handleOnChange={onChangeHandler}
+          placeholder="Enter your email"
         />
-
-        <label htmlFor="password">Password</label>
-        <input
-          name="password"
-          id="password"
-          placeholder="Enter your password"
-          onChange={onChangeHandler}
+        <InputField
+          name={"password"}
+          label={"Password"}
+          labelClass="text-black"
           value={data.password}
+          type={"password"}
+          handleOnChange={onChangeHandler}
+          placeholder="Enter your password"
         />
-        <button>Login</button>
+        <div>
+          <Button>Login</Button>
+        </div>
       </form>
     </div>
   );

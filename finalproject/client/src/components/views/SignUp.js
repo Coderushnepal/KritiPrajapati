@@ -4,7 +4,11 @@ import { signupUser } from "../../actions/users";
 
 import { useDispatch } from "react-redux";
 
-const customStyles = {
+import './styles/SignUp.scss';
+import InputField from "../common/InputField";
+import Button from "../common/Button";
+
+export const customStyles = {
   content: {
     top: '50%',
     left: '50%',
@@ -51,7 +55,14 @@ function SignUp() {
   const onSubmit = async (e) => {
     try {
       e.preventDefault();
-      dispatch(signupUser(data))
+      dispatch(signupUser(data));
+      setData({
+        fullName: "",
+        email: "",
+        phoneNumber: "",
+        password: "",
+      });
+      closeModal();
 
       
     } catch (error) {
@@ -59,58 +70,54 @@ function SignUp() {
     }
   };
   return (
-    <div>
-      <span>Don't have an account?</span>
-      <div>
-        <button onClick={openModal}>Sign up</button>
-      </div>
+    <div className="SignUpContainer">
+      <span className="signupText">Don't have an account?
+      <span className="signUpBtn" onClick={openModal}>Sign up</span ></span>
+       
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
-        // style={customStyles}
+        style={customStyles}
         contentLabel="Example Modal"
       >
-        <form onSubmit={onSubmit}>
             <button onClick={closeModal}>x</button>
-          <h1></h1>
-          <label htmlFor="fullName">Full name</label>
-          <input
-            placeholder="Enter your Name"
-            name="fullName"
-            id="fullName"
-            value={data.fullName}
-            onChange={onChangeHandler}
+        <h3>Sign up</h3>
+        <p>Please fill the sign up form below to Signup to our system</p>
+        <form onSubmit={onSubmit}>
+          <InputField
+          name="fullName"
+          label="Full name"
+          value={data.fullName}
+          onChange={onChangeHandler}
+          placeholder="Enter your Name"
           />
 
-          <label htmlFor="email">Email</label>
-          <input
+          <InputField
             placeholder="Enter your Email"
             name="email"
-            id="email"
+            label="Email"
             value={data.email}
             onChange={onChangeHandler}
           />
-
-          <label htmlFor="phoneNumber">phone Number</label>
-          <input
+          <InputField
+          label="Phone Number"
             placeholder="Enter your phone Number"
             name="phoneNumber"
-            id="phoneNumber"
             value={data.phoneNumber}
             onChange={onChangeHandler}
           />
-
-          <label htmlFor="password">Password</label>
-          <input
+          <InputField
             placeholder="Enter your Password"
             name="password"
+            label="Password"
+            type="password"
             id="password"
             value={data.password}
             onChange={onChangeHandler}
           />
 
-          <button type="submit">Submit</button>
+          <Button type="submit" className="subitBtn">Submit</Button>
         </form>
       </Modal>
     </div>

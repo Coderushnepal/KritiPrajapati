@@ -1,9 +1,11 @@
 import * as userService from "../services/user";
 
-export const SET_USER = "SET_USER";
+export const FETCH_USER = "FETCH_USER";
 export const LOGIN_USER = "LOGIN_USER";
 export const SIGNUP_USER = "SIGNUP_USER";
 export const LOGOUT_USER = "LOGOUT_USER";
+export const UPDATE_USER = "UPDATE_USER";
+
 
 export function signupUser(userDetail) {
   return async function (dispatch) {
@@ -44,7 +46,8 @@ export function fetchUser() {
   return async function (dispatch) {
     try {
       const response = await userService.fetchUser();
-      dispatch(setUser(response));
+      console.log(response)
+      dispatch(setUser(response.data.data));
     } catch (err) {
       console.log(err);
     }
@@ -72,8 +75,10 @@ const logout = () => {
 }
 
 const setUser = (data) => {
+  console.log(data)
   return {
-    type: SET_USER,
+   
+    type: FETCH_USER,
     payload: data,
   };
 }

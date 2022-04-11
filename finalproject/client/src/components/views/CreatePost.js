@@ -50,6 +50,14 @@ function CreatePost() {
     try {
       e.preventDefault();
       dispatch(createNewPost(data));
+      setData({
+        postTitle: "",
+        postDescription: "",
+        targetAmount: 0,
+        category: "",
+        endDate: "",
+      });
+      closeModal();
     } catch (error) {
       console.log(error);
     }

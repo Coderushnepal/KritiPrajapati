@@ -8,6 +8,8 @@ import { ToastContainer } from 'react-toastify';
 import Home from './views/Home';
 import Join from './views/Join';
 import SinglePost from './views/SinglePost';
+import AboutMe from './views/AboutMe';
+
 
 
 // Infinite Scroll -->   /beers , /
@@ -21,8 +23,8 @@ function App() {
         {/* <Route exact path={routes.POSTS} component={PostInfiniteList} /> */}
         <Route exact path={'/feed'} element={<Home />} />
         <Route exact path ={'/post/:postId'} element={<SinglePost />} />
-        <Route exact path={'/join'} element={<Join />} />
-        {/* <Route exact path={'/aboutme'} element={<AboutMe />} /> */}
+        <Route exact path={'/'} element={<Join />} />
+        <Route exact path={'/aboutme'} element={<AboutMe />} />
 
 
         {/* <Redirect to={routes.POSTS} /> */}

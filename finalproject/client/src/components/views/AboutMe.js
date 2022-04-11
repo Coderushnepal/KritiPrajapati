@@ -6,14 +6,18 @@ import { useDispatch, useSelector } from "react-redux";
 
 function AboutMe() {
   const dispatch = useDispatch();
-  const users = useSelector((state) => state.user?.user || {});
+  
+  const user = useSelector((state) => state.user?.user || {});
 
   useEffect(() => {
     dispatch(fetchUser({}));
   }, [dispatch]);
 
-  console.log(users, "users");
-  return <div>about me</div>;
+  console.log(user, "users");
+  return <div>about me
+    <p>{user.fullName}</p>
+
+  </div>;
 }
 
 export default AboutMe;

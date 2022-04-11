@@ -5,7 +5,6 @@ const config = {
       me:'/me',
       signup:'/signup',
       login: '/login',
-      logout: '/logout',
       posts: "/posts", //for infinite scrolling of post
       post: "/posts/:id", // for individual 
       addPost: '/post',

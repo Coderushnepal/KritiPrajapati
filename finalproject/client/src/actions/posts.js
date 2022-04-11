@@ -15,6 +15,7 @@ export function fetchPosts(params) {
     dispatch(fetchPostsPending());
     try {
       const data = await postService.fetchPosts({ page, post_title });
+      console.log(data);
       dispatch(fetchPostsFulfilleded(data));
     } catch (err) {
       dispatch(fetchBeersRejected(err));

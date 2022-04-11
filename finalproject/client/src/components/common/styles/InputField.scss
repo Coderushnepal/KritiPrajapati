@@ -1,0 +1,17 @@
+.inputField {
+  margin-bottom: 15px;
+  .label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+  .input {
+    padding: 3px 5px;
+    border: 2px solid #cacaca;
+    border-radius: 5px;
+    height: 40px;
+    font-size: 18px;
+    width: 100%;
+    outline: none;
+  }
+}
