@@ -44,22 +44,6 @@ export async function createUser(params) {
 }
 
 /**
- * Get list of users
- *
- * @return {Object}
- */
- export async function getAllUsers() {
-  logger.info('Fetching list of users');
-
-  const data = await new User().getAll();
-
-  return {
-    data,
-    message: 'List of users'
-  };
-}
-
-/**
  * Login validation and token generation.
  *
  * @param {Object} params
@@ -95,5 +79,57 @@ export async function login(params) {
   return {
     data: { token, user },
     message: "Logged in succesfully",
+  };
+}
+
+/**
+ * Get list of users
+ *
+ * @return {Object}
+ */
+ export async function getAllUsers() {
+  logger.info('Fetching list of users');
+
+  const data = await new User().getAll();
+
+  return {
+    data,
+    message: 'List of users'
+  };
+}
+
+/**
+ * Get user details.
+ *
+ * @return {Object}
+ */
+ export async function getUserDetails(user) {
+  logger.info('Fetching user details');
+
+  const userId = user.id;
+
+  const data = await new User().getById(userId);
+
+  return {
+    data,
+    message: 'user detail'
+  };
+}
+
+/**
+ * update user details.
+ *
+ * @return {Object}
+ */
+ export async function updateUserDetails(user) {
+  logger.info('Fetching user details');
+
+  const userId = user.id;
+
+  const data = await new User().updateById(userId);
+
+  return {
+    data,
+    message: 'update user detail'
   };
 }

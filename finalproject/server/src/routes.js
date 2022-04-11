@@ -30,6 +30,9 @@ router.get('/users', userController.getUsers);
 router.post('/signup', validateBody(addUserSchema), userController.addUser);
 
 router.post('/login', validateBody(loginSchema), userController.login);
+router.get('/me',authenticate,userController.getUser);
+router.put('/me',authenticate,userController.updateUser);
+
 
 router.post('/post',authenticate, validateBody(addPostSchema),postController.addPost);
 
@@ -39,7 +42,7 @@ router.post('/donate/',authenticate, validateBody(addDonateSchema),donateControl
 
 router.get('/posts/:postIdentifier',authenticate,postController.getPost);
 
-router.put('/posts/:postIdentifier',authenticate,postController.updatePost);
+
 
 router.delete('/posts/:postIdentifier',postController.removePost);
 
