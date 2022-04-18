@@ -1,0 +1,29 @@
+.home-container {
+  margin: auto;
+  padding: 20px 0;
+
+  .main {
+    width: 100%;
+    height: calc(100vh - 110px);
+    overflow-y: auto;
+
+    padding: 0 10px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 760px;
+    .user_info {
+      width: 25%;
+      float: left;
+    }
+    .main {
+      width: 70%;
+      float: right;
+    }
+  }
+  @media screen and (min-width: 992px) {
+  }
+  @media screen and (min-width: 1128px) {
+    width: 1128px;
+  }
+}

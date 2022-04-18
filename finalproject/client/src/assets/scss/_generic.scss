@@ -12,3 +12,11 @@ body {
   color: #2c2c2c;
 }
 // font-family: 'Poppins', sans-serif;
+.clearfix {
+  overflow: auto;
+}
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}

@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { createNewPost } from "../../actions/posts";
+import AvatarImg from "../common/AvatarImg";
+
+import "./styles/CreatePost.scss";
+
 const customStyles = {
   content: {
     top: "50%",
@@ -21,7 +25,7 @@ function CreatePost() {
   const dispatch = useDispatch();
   let subtitle;
   const [modalIsOpen, setModalIsOpen] = useState(false);
-
+  const user = useSelector((state) => state.user?.user);
   function openModal() {
     setModalIsOpen(true);
   }
@@ -64,9 +68,14 @@ function CreatePost() {
   };
 
   return (
-    <div>
-      <div>
-        <button onClick={openModal}>Create New Post</button>
+    <div className="createPost-container">
+      <div className="createPost clearfix">
+        <div className="avatar_div">
+          <AvatarImg avatar={user?.avatar} name={user?.name} />
+        </div>
+        <div className="startPost" onClick={openModal}>
+          Start a Post
+        </div>
       </div>
       <Modal
         isOpen={modalIsOpen}

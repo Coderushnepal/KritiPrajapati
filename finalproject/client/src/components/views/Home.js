@@ -1,29 +1,21 @@
 import React from "react";
+import UserDetail from "../common/UserDetail/UserDetail";
 import CreatePost from "./CreatePost";
 import PostInfiniteList from "./PostInfiniteList";
-import { logoutUser } from "../../actions/users";
-import { useDispatch } from "react-redux";
+
+import "./styles/Home.scss";
 
 function Home() {
-  const dispatch = useDispatch();
-
-  const logout = async () => {
-    
-      dispatch(logoutUser());
-  }
-    
-  
-    return (
-    <React.Fragment>
-      <button onClick={logout}>Logout</button>
-
-      <div>
-        <CreatePost />
+  return (
+    <div className="home-container clearfix">
+      <div className="user_info">
+        <UserDetail />
       </div>
-      <div>
+      <div className="main">
+        <CreatePost />
         <PostInfiniteList />
       </div>
-    </React.Fragment>
+    </div>
   );
 }
 

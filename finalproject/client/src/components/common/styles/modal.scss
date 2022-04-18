@@ -1,0 +1,32 @@
+.modal-container-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #14141493;
+  .content-wrapper {
+    width: 90%;
+    position: relative;
+    padding: 30px;
+    background-color: white;
+    margin: auto;
+    border-radius: 15px;
+    @media screen and (min-width: 768px) {
+      width: 50%;
+      margin-top: 60px;
+    }
+    @media screen and (min-width: 992px) {
+      width: 30%;
+    }
+  }
+  .closeBtn {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    cursor: pointer;
+    font-size: 24px;
+    color: #58a9d7;
+    font-weight: 500;
+  }
+}

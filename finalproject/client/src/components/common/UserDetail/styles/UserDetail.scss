@@ -1,0 +1,58 @@
+.userDetail-container {
+  width: 100%;
+  padding: 6px;
+  background-color: #58a9d7;
+  .userImg {
+    width: 60px;
+    display: block;
+    margin: 0 auto;
+    background-color: aliceblue;
+    border-radius: 10000px;
+    margin-top: 12px;
+  }
+  .userName {
+    font-size: 16px;
+    line-height: 16px;
+    color: #fff;
+    margin: 12px auto 0;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+  }
+  .amount {
+    font-size: 14px;
+    width: 200px;
+    line-height: 16px;
+    color: #ffffffbf;
+    margin: 8px auto 12px;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 12px;
+
+    .userImg {
+      width: 80px;
+    }
+    border-radius: 10px;
+    .userName {
+      font-size: 18px;
+      width: 200px;
+    }
+    .amount {
+      font-size: 12px;
+    }
+    .userName,
+    .amount {
+      width: 100%;
+    }
+  }
+  @media screen and (min-width: 992px) {
+  }
+  @media screen and (min-width: 1128px) {
+    .userName,
+    .amount {
+      width: 230px;
+    }
+  }
+}

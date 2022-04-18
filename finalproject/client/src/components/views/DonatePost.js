@@ -1,35 +1,19 @@
 import React, { useState } from "react";
-import Modal from "react-modal";
+import Modal from "../common/Modal";
 import { useDispatch } from "react-redux";
 
 import { donatePost } from "../../actions/posts";
+import Button from "../common/Button";
+import InputField from "../common/InputField";
 
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-  },
-};
+import "./styles/DonatePost.scss";
 
-// Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
-Modal.setAppElement("#root");
+function DonatePost({ postId, post }) {
+  const [isOpen, setIsOpen] = useState(false);
 
-function DonatePost({ postId }) {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-
-  function openModal() {
-    setModalIsOpen(true);
-  }
-  function closeModal() {
-    setModalIsOpen(false);
-  }
   const dispatch = useDispatch();
   const [data, setData] = useState({
-    amount: 0,
+    amount: undefined,
     message: "",
     postId: postId,
   });
@@ -41,46 +25,57 @@ function DonatePost({ postId }) {
   const onSubmit = async (e) => {
     try {
       e.preventDefault();
-      
-       dispatch(donatePost(data));
-      closeModal();
+
+      dispatch(donatePost(data));
+      handleClose();
     } catch (error) {
       console.log(error);
-
     }
   };
 
+  const handleShow = () => {
+    setIsOpen(true);
+  };
+  const handleClose = () => {
+    setIsOpen(false);
+  };
   return (
-    <div>
+    <div className="donate-container">
       <div>
-        <button onClick={openModal}>Donate</button>
+        <Button onClick={handleShow}>Donate</Button>
       </div>
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        // style={customStyles}
-        contentLabel="Example Modal"
-      >
+      <Modal show={isOpen} handleClose={handleClose}>
+        <h1 className="title">Donation</h1>
+        <div className="description">
+          <p>
+            You're supporting <b>{post.postTitle}</b>
+          </p>
+          <p>
+            Your donation will benefit <b>{post.ownerName}</b>
+          </p>
+        </div>
         <form onSubmit={onSubmit}>
-          <button onClick={closeModal}>x</button>
-          <label htmlFor="amount">Amount</label>
-          <input
+          <label htmlFor="amount">
+            <b>Enter your Donation</b>
+          </label>
+
+          <InputField
             name="amount"
-            id="amount"
             placeholder="Enter your Amount"
-            onChange={onChangeHandler}
+            handleOnChange={onChangeHandler}
             value={data.amount}
           />
 
-          <label htmlFor="message">Message</label>
-          <input
+          <label htmlFor="message">
+            <b>Message</b>
+          </label>
+          <InputField
             name="message"
-            id="message"
             placeholder="Enter your Message"
-            onChange={onChangeHandler}
+            handleOnChange={onChangeHandler}
             value={data.message}
           />
-          <button>Donate</button>
+          <Button>Donate</Button>
         </form>
       </Modal>
     </div>

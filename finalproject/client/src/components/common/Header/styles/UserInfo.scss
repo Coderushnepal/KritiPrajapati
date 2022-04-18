@@ -1,0 +1,15 @@
+.userInfo-container {
+  margin: 0 10px;
+  float: left;
+  .userAvatar {
+    width: 50px;
+    border-radius: 1000px;
+    background-color: aliceblue;
+    float: left;
+    margin-right: 6px;
+  }
+  .fullName {
+    margin-top: 16px;
+    float: right;
+  }
+}
