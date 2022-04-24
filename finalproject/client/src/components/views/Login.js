@@ -3,8 +3,10 @@ import { useDispatch } from "react-redux";
 import { loginUser } from "../../actions/users";
 import InputField from "../common/InputField";
 import Button from "../common/Button";
+import { useNavigate } from "react-router";
 function Login() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -17,7 +19,7 @@ function Login() {
   const onSubmit = async (e) => {
     try {
       e.preventDefault();
-      dispatch(loginUser(data));
+      dispatch(loginUser(data, navigate));
     } catch (error) {
       console.log(error);
     }

@@ -17,20 +17,15 @@ export const signupUser = async (data) => {
 }
 
 export const loginUser = async (data) => {
-  try {
     const url = `${config.apiUrl}${config.endpoints.login}`;
     const response = await axios.post(url, data);
-
     const { token, user } = response.data.data;
     localStorage.setItem("userToken", token);
     toast.success("login successful");
     return {
       ...user,
-      ...token,
+      token: token,
     };
-  } catch (error) {
-    toast.error(error.response?.data?.details || "Something went wrong!");
-  }
 }
 
 export const logoutUser = async () => {
