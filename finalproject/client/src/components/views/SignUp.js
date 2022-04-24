@@ -1,124 +1,109 @@
 import React, { useState } from "react";
-import Modal from 'react-modal';
-import { signupUser } from "../../actions/users";
+import { signupUser } from "../../services/user";
 
-import { useDispatch } from "react-redux";
-
-import './styles/SignUp.scss';
+import "./styles/SignUp.scss";
 import InputField from "../common/InputField";
 import Button from "../common/Button";
+import Modal from "../common/Modal";
 
-export const customStyles = {
-  content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-  },
-};
-
-// Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
-Modal.setAppElement('#root');
+import LogoSvg from "../../assets/images/sahayog.svg";
 
 function SignUp() {
-  const dispatch= useDispatch();
-
-    let subtitle;
-    const [modalIsOpen, setModalIsOpen] = useState(false);
-  
-    function openModal() {
-      setModalIsOpen(true);
-    }
-  
-    function afterOpenModal() {
-      // references are now sync'd and can be accessed.
-      subtitle.style.color = '#f00';
-    }
-  
-    function closeModal() {
-      setModalIsOpen(false);
-    }
-  const [data, setData] = useState({
+  const [isOpen, setIsOpen] = useState(false);
+  const initialState = {
     fullName: "",
-    email: "",
     phoneNumber: "",
+    email: "",
     password: "",
-  });
-  const onChangeHandler = (e) => {
+  };
+  const [data, setData] = useState(initialState);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
     setData({
       ...data,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
   };
-  const onSubmit = async (e) => {
-    try {
-      e.preventDefault();
-      dispatch(signupUser(data));
-      setData({
-        fullName: "",
-        email: "",
-        phoneNumber: "",
-        password: "",
-      });
-      closeModal();
 
-      
-    } catch (error) {
-      console.log(error);
+  const handleSignUp = async () => {
+    let isSuccess = await signupUser(data);
+    if (isSuccess) {
+      setIsOpen(false);
     }
   };
+
+  const handleShow = () => {
+    setIsOpen(true);
+  };
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+
   return (
-    <div className="SignUpContainer">
-      <span className="signupText">Don't have an account?
-      <span className="signUpBtn" onClick={openModal}>Sign up</span ></span>
-       
-      <Modal
-        isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Example Modal"
-      >
-            <button onClick={closeModal}>x</button>
-        <h3>Sign up</h3>
-        <p>Please fill the sign up form below to Signup to our system</p>
-        <form onSubmit={onSubmit}>
+    <div className="signUpContainer">
+      <div className="signupText">
+        Haven't joined yet?{" "}
+        <button className="signUpLinkBtn" onClick={handleShow}>
+          Sign Up
+        </button>
+      </div>
+      <Modal show={isOpen} handleClose={handleClose}>
+        <div className="logo ">
+          <h1 className="logoTitle">
+            <img src={LogoSvg} alt="sahayog" className="logoImg" />
+            Sahayog
+          </h1>
+        </div>
+        <div className="welcomeText">
+          Glad to have you. Please enter your details below to sign up with us
+          and give and receive sahayog.
+        </div>
+        <div>
           <InputField
-          name="fullName"
-          label="Full name"
-          value={data.fullName}
-          onChange={onChangeHandler}
-          placeholder="Enter your Name"
+            label="Full Name"
+            labelClass={"bold"}
+            name="fullName"
+            value={data.fullName}
+            handleOnChange={handleInputChange}
+            placeholder="Enter your full name"
           />
-
+        </div>
+        <div>
           <InputField
-            placeholder="Enter your Email"
-            name="email"
-            label="Email"
-            value={data.email}
-            onChange={onChangeHandler}
-          />
-          <InputField
-          label="Phone Number"
-            placeholder="Enter your phone Number"
-            name="phoneNumber"
+            type="number"
+            label="Phone Number"
+            labelClass={"bold"}
             value={data.phoneNumber}
-            onChange={onChangeHandler}
+            id="phoneNumber"
+            name="phoneNumber"
+            handleOnChange={handleInputChange}
+            placeholder={"Enter your Phone number"}
           />
+        </div>
+        <div>
           <InputField
-            placeholder="Enter your Password"
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            value={data.password}
-            onChange={onChangeHandler}
+            label="Email"
+            labelClass={"bold"}
+            placeholder={"Enter your email address"}
+            value={data.email}
+            name="email"
+            handleOnChange={handleInputChange}
           />
-
-          <Button type="submit" className="subitBtn">Submit</Button>
-        </form>
+        </div>
+        <div>
+          <InputField
+            label="Password"
+            labelClass={"bold"}
+            placeholder={"Enter your password"}
+            value={data.password}
+            name="password"
+            handleOnChange={handleInputChange}
+          />
+        </div>
+        <div>
+          <Button onClick={handleSignUp}>SignUp</Button>
+        </div>
       </Modal>
     </div>
   );

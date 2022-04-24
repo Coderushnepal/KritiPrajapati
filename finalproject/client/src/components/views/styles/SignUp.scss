@@ -1,17 +1,58 @@
-.SignUpContainer {
+.signUpContainer {
   .signupText {
     display: block;
     margin-top: 40px;
     font-size: 16px;
     color: #818181;
   }
-  .signUpBtn {
-    margin-left: 10px;
+  .signUpLinkBtn {
     color: #58a9d7;
     text-decoration: none;
     cursor: pointer;
+    background-color: transparent;
+    border: none;
   }
-  .subitBtn{
-      margin-top: 15px;
+  .subitBtn {
+    margin-top: 15px;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: center;
+
+    .logoTitle {
+      color: #58a9d7;
+      font-size: 28px;
+      margin: 0;
+      position: relative;
+      margin-left: 12px;
+
+      .logoImg {
+        width: 50px;
+        object-fit: contain;
+        position: absolute;
+        left: -70px;
+        top: -5px;
+      }
+      @media screen and (min-width: 768px) {
+        font-size: 32px;
+        .logoImg {
+          width: 60px;
+        }
+      }
+    }
+  }
+  .welcomeText {
+    text-align: center;
+    font-size: 18px;
+    color: #73737b;
+    margin: 0 auto 20px;
+    font-weight: 500;
+    width: 90%;
+  }
+  .bold {
+    font-weight: bold;
+    color: #525252;
   }
 }
