@@ -30,7 +30,6 @@ export async function createDonation(params, user) {
   }
 
   // check post status
-  console.log(donatingPost);
   if (donatingPost.postStatus !== "active") {
     logger.error(
       `The post has already been ${donatingPost.postStatus}. You cannot donate to this post.`
@@ -40,27 +39,29 @@ export async function createDonation(params, user) {
       `The post has already been ${donatingPost.postStatus}. You cannot donate to this post.`
     );
   }
+
+  const amount_num = Number(amount);
+  const donarAmount = Number(donarUser.amount);
+  const ownerAmount = Number(ownerUser.amount);
   // check if user has sufficient amount.
-  if(amount > donarUser.amount){
-    logger.error(
-        `You don't have enough money.`
-      );
-  
-      throw new Boom.badRequest(
-        `You don't have enough money.`
-      );
+  if (amount_num > donarAmount) {
+    logger.error(`You don't have enough money.`);
+
+    throw new Boom.badRequest(`You don't have enough money.`);
   }
 
   await new Post().updateById(postId, {
-    collectedAmount: donatingPost.collectedAmount + amount,
+    collectedAmount: Number(donatingPost.collectedAmount) + amount_num,
   });
   // doner_user ko amount banauna lageko
-  
-  await new User().updateById(donatingPost.ownerUserId, { amount: ownerUser.amount + amount });
+
+  await new User().updateById(donatingPost.ownerUserId, {
+    amount: ownerAmount + amount_num,
+  });
 
 
   // user amount
-  await new User().updateById(userId, { amount: donarUser.amount - amount });
+  await new User().updateById(userId, { amount: donarAmount - amount_num });
 
   const [insertedData] = await new Donation().save({
     postId,
