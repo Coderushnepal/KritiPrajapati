@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 body {
   font-family: "Roboto", sans-serif;
@@ -19,4 +21,14 @@ body {
   content: "";
   clear: both;
   display: table;
+}
+
+progress::-moz-progress-bar {
+  background-color: #ff5722;
+}
+progress::-webkit-progress-value {
+  background-color: #ff5722;
+}
+progress {
+  color: #ff5722;
 }

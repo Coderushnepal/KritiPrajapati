@@ -13,7 +13,11 @@ const INITIAL_STATE = {
 export default function fetchUsers(state = INITIAL_STATE, action) {
   switch (action.type) {
     case LOGIN_USER:
-      return { ...state, user: action.payload, isLoggedIn: true };
+      return { 
+        ...state, 
+        user: { ...state.user, ...action.payload },
+        isLoggedIn: true 
+      };
 
     case SIGNUP_USER:
       return { ...state, user: action.payload };

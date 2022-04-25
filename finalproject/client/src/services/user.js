@@ -6,69 +6,66 @@ export const signupUser = async (data) => {
   try {
     const url = `${config.apiUrl}${config.endpoints.signup}`;
     const response = await axios.post(url, data);
-
-    toast.success("signup successful");
-    return {
-      response,
-    };
+    toast.success("Added user successfully");
+    return response;
   } catch (error) {
-    toast.error(error.response?.data?.details || "Something went wrong!");
+    let errorList = error.response.data.details;
+    let errorMsg = error.response.data.message;
+    if (errorList) {
+      errorList.forEach((error) => {
+        toast.error(error);
+      });
+    }
+    if (errorMsg) {
+      toast.error(errorMsg);
+    }
   }
-}
+};
 
 export const loginUser = async (data) => {
-    const url = `${config.apiUrl}${config.endpoints.login}`;
-    const response = await axios.post(url, data);
-    const { token, user } = response.data.data;
-    localStorage.setItem("userToken", token);
-    toast.success("login successful");
-    return {
-      ...user,
-      token: token,
-    };
-}
+  const url = `${config.apiUrl}${config.endpoints.login}`;
+  const response = await axios.post(url, data);
+  const { token, user } = response.data.data;
+  localStorage.setItem("userToken", token);
+  toast.success("login successful");
+  return {
+    ...user,
+    token: token,
+  };
+};
 
 export const logoutUser = async () => {
-  try {
-    localStorage.removeItem("userToken");
-
-    toast.success("logout successful");
-    return true;
-  } catch (error) {
-    toast.error(error.response?.data?.details || "Something went wrong!");
-    return false;
-  }
+  localStorage.removeItem("userToken");
 };
 
 export const fetchUser = async () => {
-  try {
+  let token = localStorage.getItem("userToken");
+  if (token) {
     const url = `${config.apiUrl}${config.endpoints.me}`;
-    const response = await axios.get(url,{
+    const response = await axios.get(url, {
       headers: {
-          Authorization: `Bearer ${localStorage.getItem('userToken')}`
-      }
-  });
+        Authorization: `Bearer ${token}`,
+      },
+    });
     return response;
-  } catch (error) {
-    toast.error(error.response?.data?.details || "Something went wrong!");
   }
 };
 
-
 export const updateUser = async (data) => {
-  try {
-    const url = `${config.apiUrl}${config.endpoints.me}`;
-    const response = await axios.put(url, {
+  const url = `${config.apiUrl}${config.endpoints.me}`;
+  const response = await axios.put(
+    url,
+    {
       headers: {
-          Authorization: `Bearer ${localStorage.getItem('userToken')}`
-      }
-  },data);
+        Authorization: `Bearer ${localStorage.getItem("userToken")}`,
+      },
+    },
+    data
+  );
 
-    toast.success("update successful");
-    return {
-      response,
-    };
-  } catch (error) {
-    toast.error(error.response?.data?.details || "Something went wrong!");
-  }
-}
+  toast.success("update successful");
+  return {
+    response,
+  };
+  // toast.error(error.response?.data?.details || "Something went wrong!");
+};

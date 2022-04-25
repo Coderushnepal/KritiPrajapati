@@ -1,0 +1,13 @@
+.singlePost-container {
+  margin: auto;
+  padding: 20px 0;
+
+  .main {
+    background-color: #fff;
+    width: 100%;
+    height: calc(100vh - 110px);
+    overflow-y: auto;
+
+    padding: 10px;
+  }
+}
