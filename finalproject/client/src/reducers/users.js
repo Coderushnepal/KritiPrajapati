@@ -1,3 +1,4 @@
+import { DONATE_POST } from "../actions/posts";
 import {
   LOGIN_USER,
   LOGOUT_USER,
@@ -13,10 +14,10 @@ const INITIAL_STATE = {
 export default function fetchUsers(state = INITIAL_STATE, action) {
   switch (action.type) {
     case LOGIN_USER:
-      return { 
-        ...state, 
+      return {
+        ...state,
         user: { ...state.user, ...action.payload },
-        isLoggedIn: true 
+        isLoggedIn: true,
       };
 
     case SIGNUP_USER:
@@ -27,6 +28,16 @@ export default function fetchUsers(state = INITIAL_STATE, action) {
 
     case FETCH_USER:
       return { ...state, user: action.payload, isLoggedIn: true };
+
+    case DONATE_POST:
+      console.log(action.payload);
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          amount: state.user.amount - action.payload.amount,
+        },
+      };
 
     default:
       return state;
