@@ -1,47 +1,24 @@
 import React, { useState } from "react";
-import Modal from "react-modal";
+import Modal from "../common/Modal";
 import { useDispatch, useSelector } from "react-redux";
 
 import { createNewPost } from "../../actions/posts";
+import Button from "../common/Button";
 import AvatarImg from "../common/AvatarImg";
+import InputField from "../common/InputField";
 
 import "./styles/CreatePost.scss";
 
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-  },
-};
-
-// Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
-Modal.setAppElement("#root");
-
 function CreatePost() {
+  const [isOpen, setIsOpen] = useState(false);
+
   const dispatch = useDispatch();
-  let subtitle;
-  const [modalIsOpen, setModalIsOpen] = useState(false);
   const user = useSelector((state) => state.user?.user);
-  function openModal() {
-    setModalIsOpen(true);
-  }
 
-  function afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    subtitle.style.color = "#f00";
-  }
-
-  function closeModal() {
-    setModalIsOpen(false);
-  }
   const [data, setData] = useState({
     postTitle: "",
     postDescription: "",
-    targetAmount: 0,
+    targetAmount: null,
     category: "",
     endDate: "",
   });
@@ -57,14 +34,21 @@ function CreatePost() {
       setData({
         postTitle: "",
         postDescription: "",
-        targetAmount: 0,
+        targetAmount: null,
         category: "",
         endDate: "",
       });
-      closeModal();
+      handleClose();
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const handleShow = () => {
+    setIsOpen(true);
+  };
+  const handleClose = () => {
+    setIsOpen(false);
   };
 
   return (
@@ -73,62 +57,74 @@ function CreatePost() {
         <div className="avatar_div">
           <AvatarImg avatar={user?.avatar} name={user?.name} />
         </div>
-        <div className="startPost" onClick={openModal}>
+        <div className="startPost" onClick={handleShow}>
           Start a Post
         </div>
       </div>
       <Modal
-        isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
-        onRequestClose={closeModal}
-        // style={customStyles}
+        show={isOpen}
+        handleClose={handleClose}
         contentLabel="Example Modal"
       >
+                <h1 className="title">Create Post</h1>
+
+        <div className="description">
+          <p>Let's begin your fundraising journey!</p>
+</div>
         <form onSubmit={onSubmit}>
-          <label htmlFor="postTitle">Post Title</label>
-          <input
-            name="postTitle"
-            id="postTitle"
-            placeholder="Enter your post Title"
-            onChange={onChangeHandler}
-            value={data.postTitle}
-          />
+          <div>
+            <InputField
+              label="Post Title"
+              name="postTitle"
+              placeholder="Enter your post Title"
+              handleOnChange={onChangeHandler}
+              value={data.postTitle}
+            />
+          </div>
 
-          <label htmlFor="postDescription">Post Description</label>
-          <input
-            name="postDescription"
-            id="postDescription"
-            placeholder="Enter your post Description"
-            onChange={onChangeHandler}
-            value={data.postDescription}
-          />
+          <div>
+            <InputField
+              label="Post Description"
+              name="postDescription"
+              placeholder="Enter your post Description"
+              handleOnChange={onChangeHandler}
+              value={data.postDescription}
+            />
+          </div>
 
-          <label htmlFor="targetAmount">Target Amount</label>
-          <input
-            name="targetAmount"
-            id="targetAmount"
-            placeholder="Enter your target Amount"
-            onChange={onChangeHandler}
-            value={data.targetAmount}
-          />
-          <label htmlFor="category">Category</label>
-          <input
-            name="category"
-            id="category"
-            placeholder="Enter your category"
-            onChange={onChangeHandler}
-            value={data.category}
-          />
-          <label htmlFor="endDate">End Date</label>
-          <input
-            name="endDate"
-            id="endDate"
-            placeholder="Enter your end date"
-            onChange={onChangeHandler}
-            value={data.endDate}
-          />
+          <div>
+            <InputField
+              label="Target Amount"
+              name="targetAmount"
+              type="number"
+              placeholder="Enter your target Amount"
+              handleOnChange={onChangeHandler}
+              value={data.targetAmount}
+            />
+          </div>
 
-          <button>Post</button>
+          <div>
+            <InputField
+              label="Category"
+              name="category"
+              placeholder="Enter your category"
+              handleOnChange={onChangeHandler}
+              value={data.category}
+            />
+          </div>
+
+          <div>
+            <InputField
+              label="End Date"
+              name="endDate"
+              type="date"
+              placeholder="Enter your end date"
+              handleOnChange={onChangeHandler}
+              value={data.endDate}
+            />
+          </div>
+
+          <Button>Post</Button>
         </form>
       </Modal>
     </div>

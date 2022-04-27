@@ -14,7 +14,7 @@ function InputField({
 }) {
   return (
     <div className="inputField">
-      <label className={`label ${labelClass || ""}`} htmlFor={id}>
+      <label className={`label ${labelClass || ""}`} htmlFor={id || name}>
         {label}
       </label>
       <input
