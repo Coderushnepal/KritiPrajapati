@@ -1,6 +1,9 @@
 import React from "react";
+
 import "./styles/ProgressBar.scss";
+
 function ProgressBar({ value, target }) {
+  
   return (
     <div className="progressBar-container">
       <progress

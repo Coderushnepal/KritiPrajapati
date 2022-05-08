@@ -43,7 +43,7 @@ export function addPost(req, res, next) {
 }
 
 /**
- * Controller to get update the details of a post.
+ * Controller to update the details of a post.
  *
  * @param {Object} req
  * @param {Object} res
@@ -57,7 +57,7 @@ export function addPost(req, res, next) {
 }
 
 /**
- * Controller to get remove a post record.
+ * Controller to remove a post record.
  *
  * @param {Object} req
  * @param {Object} res
@@ -66,6 +66,20 @@ export function addPost(req, res, next) {
 export function removePost(req, res, next) {
   postService
     .removePost(+req.params.postIdentifier)
+    .then((data) => res.json(data))
+    .catch((err) => next(err));
+}
+
+/**
+ * Controller to report the details of a post.
+ *
+ * @param {Object} req
+ * @param {Object} res
+ * @param {Function} next
+ */
+ export function reportPost(req, res, next) {
+  postService
+    .reportPost(+req.params.postIdentifier)
     .then((data) => res.json(data))
     .catch((err) => next(err));
 }

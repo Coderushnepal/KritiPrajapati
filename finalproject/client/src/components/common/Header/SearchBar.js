@@ -1,4 +1,5 @@
 import React from "react";
+
 import SearchSvg from "../../../assets/icons/search.svg";
 
 import "./styles/SearchBar.scss";

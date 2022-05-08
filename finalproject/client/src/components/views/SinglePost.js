@@ -1,9 +1,11 @@
+import { useParams } from "react-router";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router";
-import ProgressBar from "../../components/common/ProgressBar";
-import { fetchPosts } from "../../actions/posts";
+
 import Button from "../common/Button";
+import { fetchPost } from "../../actions/posts";
+import ProgressBar from "../../components/common/ProgressBar";
+
 import "./styles/SinglePost.scss";
 
 function SinglePost() {
@@ -16,7 +18,7 @@ function SinglePost() {
   );
 
   useEffect(() => {
-    dispatch(fetchPosts({}));
+    dispatch(fetchPost(postId));
   }, [dispatch]);
 
   useEffect(() => {

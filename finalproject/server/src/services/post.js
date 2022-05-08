@@ -108,4 +108,42 @@ export async function getAllPosts() {
   };
 }
 
+/**
+ * Update report_count of an existing record based on the identifier.
+ *
+ * @param {string} id
+ * @return {Object}
+ */
+ export async function reportPost(id) {
+  logger.info(`Checking if post with id ${id} exists`);
+
+  const post = await new Post().getById(id);
+
+  if (!post) {
+    logger.error(`Cannot delete post with id ${id} because it doesn't exist`);
+
+    throw new Boom.notFound(
+      `Cannot delete post with id ${id} because it doesn't exist`
+    );
+  }
+
+  let tempReportCount = post.reportCount;
+  let postStatus = post.postStatus;
+  if (tempReportCount < 5) {
+    tempReportCount++;
+  } else {
+    postStatus = "banned";
+  }
+  const [updatedData] = await new Post().updateById(id, {
+    ...post,
+    postStatus: postStatus,
+    reportCount: tempReportCount,
+  });
+
+  return {
+    data: updatedData,
+    message: `Reported of post ${id}`,
+  };
+}
+
 

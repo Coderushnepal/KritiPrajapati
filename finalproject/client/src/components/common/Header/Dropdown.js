@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { logoutUser } from "../../../actions/users";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 
+import { logoutUser } from "../../../actions/users";
 import DownSvg from "../../../assets/icons/down.svg";
 
 import "./styles/Dropdown.scss";

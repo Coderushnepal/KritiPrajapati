@@ -1,8 +1,7 @@
-import { fetchUser } from "../../actions/users";
-
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import { fetchUser } from "../../actions/users";
 
 function AboutMe() {
   const dispatch = useDispatch();

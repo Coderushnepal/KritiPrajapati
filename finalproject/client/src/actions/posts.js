@@ -1,14 +1,16 @@
 import { toast } from "react-toastify";
 import * as postService from "../services/post";
-export const FETCH_POSTS_PENDING = "FETCH_POSTS_PENDING";
-export const FETCH_POSTS_REJECTED = "FETCH_POSTS_REJECTED";
-export const FETCH_POSTS_FULFILLED = "FETCH_POSTS_FULFILLED";
+
+export const SET_POSTS = "SET_POSTS";
 export const RESET_POSTS = "RESET_POSTS";
-export const ADD_NEW_POST = "ADD_NEW_POST";
 export const UPDATE_POST = "UPDATE_POST";
 export const DELETE_POST = "DELETE_POST";
 export const DONATE_POST = "DONATE_POST";
-export const SET_POSTS = "SET_POSTS";
+export const REPORT_POST = "REPORT_POST";
+export const ADD_NEW_POST = "ADD_NEW_POST";
+export const FETCH_POSTS_PENDING = "FETCH_POSTS_PENDING";
+export const FETCH_POSTS_REJECTED = "FETCH_POSTS_REJECTED";
+export const FETCH_POSTS_FULFILLED = "FETCH_POSTS_FULFILLED";
 
 export function setPosts() {
   return async function (dispatch) {
@@ -21,6 +23,20 @@ export function setPosts() {
     }
   };
 }
+
+export function fetchPost(id){
+  return async function (dispatch) {
+    try {
+      const data = await postService.fetchPost(id);
+      console.log(data, "data actions");
+      dispatch(setPostAction(data));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+}
+
 export function fetchPosts(params) {
   const { pageNumber: page, searchQuery: post_title } = params;
 
@@ -35,6 +51,7 @@ export function fetchPosts(params) {
     }
   };
 }
+
 export function createNewPost(data) {
   return async function (dispatch) {
     try {
@@ -45,6 +62,7 @@ export function createNewPost(data) {
     }
   };
 }
+
 export function updatePost(data) {
   return async function (dispatch) {
     try {
@@ -75,6 +93,19 @@ export function donatePost(data) {
       toast.success("Donation Successful");
     } catch (err) {
       toast.error(err.response.data.message);
+    }
+  };
+}
+
+export function reportPost(data) {
+  return async function (dispatch) {
+    try {
+      const response = await postService.reportPost(data);
+      dispatch(reportPostAction(response));
+      toast.success("Report Successful");
+
+    } catch (err) {
+      dispatch(fetchBeersRejected(err));
     }
   };
 }
@@ -131,3 +162,12 @@ const donateInPost = (data) => {
     payload: data,
   };
 };
+
+const reportPostAction = (data) => {
+  return {
+    type: REPORT_POST,
+    payload: data,
+  };
+};
+k987
+const 

@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import LogoSvg from "../../../assets/images/sahayog.svg";
 import Navs from "./Navs";
 import SearchBar from "./SearchBar";
+import LogoSvg from "../../../assets/images/sahayog.svg";
+
 import "./styles/Header.scss";
+
 function Header() {
   return (
     <div className="header-container clearfix">

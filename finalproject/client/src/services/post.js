@@ -12,6 +12,7 @@ export const fetchPosts = async (query) => {
   });
   return data.data;
 };
+
 export const createPost = async (data) => {
   const url = `${config.apiUrl}${config.endpoints.addPost}`;
   const response = await axios.post(url, data, {
@@ -47,6 +48,17 @@ export const deletePost = async (id) => {
 export const donatePost = async (data) => {
   const url = `${config.apiUrl}${config.endpoints.donatePost}`;
   const response = await axios.post(url, data, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("userToken")}`,
+    },
+  });
+  return response.data.data;
+};
+
+export const reportPost = async (id) => {
+  const url = `${config.apiUrl}${config.endpoints.reportPost}`;
+  console.log(id);
+  const response = await axios.patch(interpolate(url, { id }),{}, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("userToken")}`,
     },

@@ -42,6 +42,7 @@ router.post('/donate/',authenticate, validateBody(addDonateSchema),donateControl
 
 router.get('/posts/:postIdentifier',authenticate,postController.getPost);
 
+router.patch('/posts/report/:postIdentifier',authenticate,postController.reportPost);
 
 
 router.delete('/posts/:postIdentifier',postController.removePost);

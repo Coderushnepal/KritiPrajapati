@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./styles/Post.scss";
-
-import DonatePost from "../views/DonatePost";
-import DropDownDots from "./DropDownDots";
-import ProgressBar from "./ProgressBar";
-import Button from "./Button";
 import { useSelector } from "react-redux";
+
+import Button from "./Button";
+import ProgressBar from "./ProgressBar";
+import DropDownDots from "./DropDownDots";
+import DonatePost from "../views/DonatePost";
+
+import "./styles/Post.scss";
 
 function Post({ post }) {
   const userId = useSelector((state) => state.user.user.id);
@@ -20,7 +21,7 @@ function Post({ post }) {
             width="50"
             src={post.avatar}
             alt={post.ownerName}
-          ></img>
+          />
           <div className="ownerAndDot clearfix">
             <div className="ownerInfo">
               <p className="ownerName">{post.ownerName}</p>
@@ -31,7 +32,11 @@ function Post({ post }) {
             </div>
           </div>
         </div>
+
         <hr className="hr" />
+        <div> {
+          post.postStatus 
+        }</div>
         <div className="postContent">
           <div>
             <Link to={`/post/${post.id}`}>
@@ -45,7 +50,6 @@ function Post({ post }) {
               value={post.collectedAmount}
             />
           </div>
-
           <div className="clearfix">
             <Link to={`/post/${post.id}`} className="viewBtn">
               <Button>View</Button>
@@ -57,8 +61,10 @@ function Post({ post }) {
             )}
           </div>
         </div>
+
       </div>
     </div>
   );
 }
+
 export default Post;

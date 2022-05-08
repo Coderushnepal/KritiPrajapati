@@ -1,6 +1,7 @@
 import React from "react";
-import Dropdown from "./Dropdown";
+
 import UserInfo from "./UserInfo";
+import Dropdown from "./Dropdown";
 
 function Navs() {
   return (

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import Modal from "../common/Modal";
 import { useDispatch, useSelector } from "react-redux";
 
-import { createNewPost } from "../../actions/posts";
+import Modal from "../common/Modal";
 import Button from "../common/Button";
 import AvatarImg from "../common/AvatarImg";
 import InputField from "../common/InputField";
+import { createNewPost } from "../../actions/posts";
 
 import "./styles/CreatePost.scss";
 

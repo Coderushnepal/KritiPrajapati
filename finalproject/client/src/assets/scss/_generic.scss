@@ -32,3 +32,14 @@ progress::-webkit-progress-value {
 progress {
   color: #ff5722;
 }
+
+.container {
+  margin: auto;
+  padding: 20px 40px;
+  @media screen and (min-width: 768px) {
+    width: 760px;
+  }
+  @media screen and (min-width: 1128px) {
+    width: 1128px;
+  }
+}

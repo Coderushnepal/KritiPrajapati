@@ -42,7 +42,7 @@ function DonatePost({ postId, post }) {
   return (
     <div className="donate-container">
       <div>
-        <Button onClick={handleShow}>Donate</Button>
+        <Button disabled={post.postStatus === 'banned'} onClick={handleShow}>Donate</Button>
       </div>
       <Modal show={isOpen} handleClose={handleClose}>
         <h1 className="title">Donation</h1>

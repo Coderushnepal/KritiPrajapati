@@ -9,7 +9,9 @@ const config = {
       post: "/posts/:id", // for individual 
       addPost: '/post',
       deletePost: '/posts/:id',
-      donatePost: '/donate'
+      donatePost: '/donate',
+      reportPost: '/posts/report/:id',
+
     },
   };
   
