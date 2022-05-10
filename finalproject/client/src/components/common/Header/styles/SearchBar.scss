@@ -1,0 +1,25 @@
+.searchBar-container {
+  position: relative;
+
+  .searchInput {
+    padding: 6px;
+    font-size: 18px;
+    border: 1px solid #1f1f1f;
+    border-radius: 1000px;
+    outline-color: #58a9d7;
+    margin-top: 7px;
+    width: 40px;
+    height: 40px;
+
+    @media screen and (min-width: 768px) {
+      width: 250px;
+      border-radius: 20px;
+    }
+  }
+
+  .searchIcon {
+    position: absolute;
+    top: 18px;
+    right: 12px;
+  }
+}

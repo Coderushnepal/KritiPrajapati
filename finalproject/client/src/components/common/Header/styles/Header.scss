@@ -1,0 +1,44 @@
+.header-container {
+  background-color: #ffffff;
+  padding: 10px;
+  width: 100%;
+  .left-section {
+    float: left;
+    .logo {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      float: left;
+      margin-right: 5px;
+    }
+    .logo-title {
+      float: right;
+      margin-top: 12px;
+      font-size: 24px;
+      color: #58a9d7;
+    }
+  }
+  .right-section {
+    overflow: unset;
+    float: right;
+    .search-section {
+      float: left;
+    }
+    .navs-section {
+      float: right;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    padding-left: 40px;
+    padding-right: 40px;
+    .logoTitle {
+      top: -17px;
+      font-size: 32px;
+    }
+  }
+  @media screen and (min-width: 1128px) {
+    width: 1122px;
+    margin: 0 auto;
+  }
+}

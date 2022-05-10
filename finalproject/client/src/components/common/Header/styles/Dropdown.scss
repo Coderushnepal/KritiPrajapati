@@ -1,0 +1,34 @@
+.dropdown-container {
+  float: right;
+  margin-top: 15px;
+  .toggler {
+    cursor: pointer;
+    img {
+      transition: transform 150ms;
+      &.isOpen {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  .menu {
+    border: 1px solid #f1f1f1;
+    background-color: #f8f8f8;
+    width: 200px;
+    position: absolute;
+    right: 30px;
+    top: 60px;
+    .menu-item {
+      cursor: pointer;
+      padding: 4px 8px;
+      transition: background-color 200ms;
+      &:hover {
+        background-color: #fdfdfd;
+      }
+    }
+  }
+  @media screen and (min-width: 992px) {
+    .menu {
+      right: 8%;
+    }
+  }
+}

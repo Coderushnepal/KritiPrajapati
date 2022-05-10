@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.text-white {
+  color: #dff;
+}
+.text-black {
+  color: #2c2c2c;
+}
+// font-family: 'Poppins', sans-serif;
+.clearfix {
+  overflow: auto;
+}
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+progress::-moz-progress-bar {
+  background-color: #ff5722;
+}
+progress::-webkit-progress-value {
+  background-color: #ff5722;
+}
+progress {
+  color: #ff5722;
+}
+
+.container {
+  margin: auto;
+  padding: 20px 40px;
+  @media screen and (min-width: 768px) {
+    width: 760px;
+  }
+  @media screen and (min-width: 1128px) {
+    width: 1128px;
+  }
+}
