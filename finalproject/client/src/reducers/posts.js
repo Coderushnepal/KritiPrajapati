@@ -6,11 +6,13 @@ import {
   FETCH_POSTS_PENDING,
   FETCH_POSTS_REJECTED,
   RESET_POSTS,
+  SET_POST,
   SET_POSTS,
 } from "../actions/posts";
 
 const INITIAL_STATE = {
   list: [],
+  singlePost: {},
   isLoading: false,
   isNoMore: false,
 };
@@ -43,6 +45,11 @@ export default function fetchPosts(state = INITIAL_STATE, action) {
       return {
         ...state,
         list: action.payload,
+      };
+    case SET_POST:
+      return {
+        ...state,
+        singlePost: action.payload,
       };
 
     case ADD_NEW_POST:

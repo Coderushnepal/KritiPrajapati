@@ -2,6 +2,7 @@ import { toast } from "react-toastify";
 import * as postService from "../services/post";
 
 export const SET_POSTS = "SET_POSTS";
+export const SET_POST= "SET_POST";
 export const RESET_POSTS = "RESET_POSTS";
 export const UPDATE_POST = "UPDATE_POST";
 export const DELETE_POST = "DELETE_POST";
@@ -135,6 +136,13 @@ const setPostsAction = (data) => {
     payload: data,
   };
 };
+
+const setPostAction = (data) => {
+  return {
+    type: SET_POST,
+    payload: data,
+  }; 
+}
 const addNewPost = (data) => {
   return {
     type: ADD_NEW_POST,
@@ -169,5 +177,3 @@ const reportPostAction = (data) => {
     payload: data,
   };
 };
-k987
-const 

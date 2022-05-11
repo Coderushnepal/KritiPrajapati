@@ -1,61 +1,67 @@
-import { useParams } from "react-router";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
-import Button from "../common/Button";
-import { fetchPost } from "../../actions/posts";
+import { useParams } from "react-router";
 import ProgressBar from "../../components/common/ProgressBar";
-
+import { fetchPost } from "../../actions/posts";
+import Button from "../common/Button";
 import "./styles/SinglePost.scss";
+import DonarsMessages from "../common/DonarsMessages";
+import AvatarImg from "../common/AvatarImg";
+import DonatePost from "./DonatePost";
 
 function SinglePost() {
   const { postId } = useParams();
-  const [post, setPost] = useState();
-
+  const singlePost = useSelector(state => state.post.singlePost);
   const dispatch = useDispatch();
-  const posts = useSelector((state) =>
-    state.post?.list ? state.post.list : []
-  );
 
   useEffect(() => {
     dispatch(fetchPost(postId));
   }, [dispatch]);
 
-  useEffect(() => {
-    if (posts.length > 0) {
-      const post = posts.find((post) => post.id === +postId);
-      setPost(post);
-    }
-  }, [posts, postId]);
 
-  if (!post) return <div>Loading ...</div>;
+  if (!singlePost) return <div>Loading ...</div>;
 
   return (
-    <div className="singlePost-container">
+    <div className="singlePost-container container clearfix">
       <div className="main">
-        <h1>{post.postTitle}</h1>
+        <h1 className="postTitle_h1">{singlePost.postTitle}</h1>
+        <div className="organizer_div">
+          <AvatarImg avatar={singlePost.avatar} name={singlePost.ownerName} />
+          <span className="organizer_span">
+            {singlePost.ownerName} is organizing this fundraiser.
+          </span>
+        </div>
+        <hr className="organizer_hr" />
+        <p>{singlePost.postDescription}</p>
 
-        <p>{post.postDescription}</p>
+        <div className="donate_div">
+          <DonatePost post={singlePost} postId={singlePost.id} />
+        </div>
+        {console.log(singlePost, 'singlePost')}
 
-        {JSON.stringify(post)}
+        <DonarsMessages donarsDetail={singlePost.donarDetail} post={singlePost} />
       </div>
       <div className="donationBox">
         <div>
           <div>
-            <span>Rs. {post.collectedAmount}</span> raised of Rs.{" "}
-            {post.targetAmount} goal.
+            <span>Rs. {singlePost.collectedAmount}</span> raised of Rs.{" "}
+            {singlePost.targetAmount} goal.
           </div>
           <div>
             <ProgressBar
-              target={post.targetAmount}
-              value={post.collectedAmount}
+              target={singlePost.targetAmount}
+              value={singlePost.collectedAmount}
             />
           </div>
-            <div>{post.donarDetail ? post.donarDetail.length : '0'} donations.</div>
+          <div>{singlePost?.donarDetail?.length} donations.</div>
         </div>
-        <div>
-          <Button>Donate</Button>
-          <Button>Share</Button>
+        <div className="clearFix donationBox_div">
+          <div className="donateBtn_div">
+            <DonatePost post={singlePost} postId={singlePost.id} />
+          </div>
+          <div className="shareBtn_div">
+            <Button>Share</Button>
+          </div>
         </div>
       </div>
     </div>

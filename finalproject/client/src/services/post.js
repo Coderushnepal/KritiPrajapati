@@ -13,6 +13,16 @@ export const fetchPosts = async (query) => {
   return data.data;
 };
 
+export const fetchPost = async (id) => {
+  const url = `${config.apiUrl}${config.endpoints.post}`;
+  const response = await axios.get(interpolate(url, { id }), {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("userToken")}`,
+    },
+  });
+  return response.data.data;
+};
+
 export const createPost = async (data) => {
   const url = `${config.apiUrl}${config.endpoints.addPost}`;
   const response = await axios.post(url, data, {
