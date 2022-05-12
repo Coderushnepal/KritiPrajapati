@@ -75,3 +75,13 @@ export const reportPost = async (id) => {
   });
   return response.data.data;
 };
+
+export const postUpdate = async (data) => {
+  const url = `${config.apiUrl}${config.endpoints.postUpdate}`;
+  const response = await axios.post(url, data, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("userToken")}`,
+    },
+  });
+  return response.data.data;
+};

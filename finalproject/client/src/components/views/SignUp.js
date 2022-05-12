@@ -102,7 +102,7 @@ function SignUp() {
           />
         </div>
         <div>
-          <Button onClick={handleSignUp}>SignUp</Button>
+          <Button onClick={handleSignUp}>Sign Up</Button>
         </div>
       </Modal>
     </div>

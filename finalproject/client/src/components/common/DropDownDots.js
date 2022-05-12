@@ -1,7 +1,10 @@
 import React, { Fragment, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { updatePost, deletePost, reportPost } from "../../actions/posts";
+import { deletePost, reportPost } from "../../actions/posts";
+import PostUpdate from "../views/PostUpdate";
+
+import "./styles/DropDownDots.scss";
 
 function DropDownDots({ post }) {
   const userId = useSelector((state) => state.user.user.id);
@@ -10,14 +13,6 @@ function DropDownDots({ post }) {
   const dispatch = useDispatch();
 
   const [showOptions, setShowOptions] = useState(false);
-
-  const onClickEdit = async (id) => {
-    try {
-      dispatch(updatePost(id));
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   const onClickDelete = async (id) => {
     try {
@@ -42,25 +37,30 @@ function DropDownDots({ post }) {
   };
 
   return (
-    <div>
+    <Fragment>
       {!hasReported && (
-        <Fragment>
-          <div onClick={() => setShowOptions(!showOptions)}>...</div>
-          {showOptions && (
-            <div>
+        <div className="dropdownDots-container">
+        <div className="dropdownDot" onClick={() => setShowOptions(!showOptions)}>
+          ...
+        </div>
+  
+        {showOptions && (
+          <div className="dropdownMenu">
               {userId === post.ownerUserId ? (
-                <div>
-                  <span onClick={() => onClickEdit(post.id)}>Edit</span>
-                  <span onClick={() => onClickDelete(post.id)}>Delete</span>
-                </div>
+                <Fragment>
+                  
+              <PostUpdate postId={post.id} post={post} />
+            
+                  <div onClick={() => onClickDelete(post.id)}>Delete</div>
+                </Fragment>
               ) : (
                 <span onClick={() => onClickReport(post.id)}>Report</span>
               )}
-            </div>
-          )}
-        </Fragment>
+          </div>
+        )}
+      </div>
       )}
-    </div>
+    </Fragment>
   );
 }
 export default DropDownDots;

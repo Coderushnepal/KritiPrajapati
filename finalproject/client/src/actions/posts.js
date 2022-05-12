@@ -1,13 +1,14 @@
 import { toast } from "react-toastify";
 import * as postService from "../services/post";
 
-export const SET_POSTS = "SET_POSTS";
 export const SET_POST= "SET_POST";
+export const SET_POSTS = "SET_POSTS";
 export const RESET_POSTS = "RESET_POSTS";
 export const UPDATE_POST = "UPDATE_POST";
 export const DELETE_POST = "DELETE_POST";
 export const DONATE_POST = "DONATE_POST";
 export const REPORT_POST = "REPORT_POST";
+export const POST_UPDATE = "POST_UPDATE";
 export const ADD_NEW_POST = "ADD_NEW_POST";
 export const FETCH_POSTS_PENDING = "FETCH_POSTS_PENDING";
 export const FETCH_POSTS_REJECTED = "FETCH_POSTS_REJECTED";
@@ -111,6 +112,18 @@ export function reportPost(data) {
   };
 }
 
+export function postUpdate(data) {
+  return async function (dispatch) {
+    try {
+      const response = await postService.postUpdate(data);
+      dispatch(updateOnPost(response));
+      toast.success("Update Added Successful");
+    } catch (err) {
+      toast.error(err.response.data.message);
+    }
+  };
+}
+
 const fetchPostsPending = () => {
   return {
     type: FETCH_POSTS_PENDING,
@@ -174,6 +187,13 @@ const donateInPost = (data) => {
 const reportPostAction = (data) => {
   return {
     type: REPORT_POST,
+    payload: data,
+  };
+};
+
+const updateOnPost = (data) => {
+  return {
+    type: POST_UPDATE,
     payload: data,
   };
 };

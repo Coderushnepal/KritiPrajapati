@@ -1,7 +1,8 @@
 .home-container {
-  margin: auto;
-  padding: 20px 0;
-
+  .user_info {
+    padding: 10px;
+    padding-top: 0;
+  }
   .main {
     width: 100%;
     height: calc(100vh - 110px);
@@ -21,9 +22,8 @@
   }
 
   @media screen and (min-width: 768px) {
-    width: 760px;
     .user_info {
-      width: 26%;
+      width: 27%;
       float: left;
     }
     .main {
@@ -32,8 +32,5 @@
     }
   }
   @media screen and (min-width: 992px) {
-  }
-  @media screen and (min-width: 1128px) {
-    width: 1128px;
   }
 }

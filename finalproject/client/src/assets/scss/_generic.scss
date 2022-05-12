@@ -4,7 +4,7 @@
   padding: 0;
 }
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .text-white {
@@ -13,7 +13,6 @@ body {
 .text-black {
   color: #2c2c2c;
 }
-// font-family: 'Poppins', sans-serif;
 .clearfix {
   overflow: auto;
 }
@@ -31,6 +30,10 @@ progress::-webkit-progress-value {
 }
 progress {
   color: #ff5722;
+}
+
+.font-ubuntu {
+  font-family: "Ubuntu", sans-serif;
 }
 
 .container {

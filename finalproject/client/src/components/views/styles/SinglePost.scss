@@ -11,11 +11,13 @@
     width: 68%;
 
     .postTitle_h1 {
+      color: #333;
       margin-bottom: 20px;
     }
     .organizer_hr {
       width: 90%;
       margin: 5px auto;
+      border: 1px #d6ecff solid;
     }
 
     .organizer_div {
@@ -37,10 +39,27 @@
   .donationBox {
     float: right;
     width: 30%;
-    padding: 10px;
+    padding: 15px;
     background: white;
+    .amount_div {
+      margin-bottom: 5px;
+      .collectedAmount_span {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .targetAmount_span {
+        font-size: 14px;
+        font-weight: 400;
+        color: #767676;
+      }
+    }
+
+    .donationCount {
+      margin-top: 5px;
+    }
     .donationBox_div {
-      margin: 10px;
+      margin: 10px 0;
+      width: 100%;
       .donateBtn_div {
         float: left;
       }

@@ -11,6 +11,7 @@ const config = {
       deletePost: '/posts/:id',
       donatePost: '/donate',
       reportPost: '/posts/report/:id',
+      postUpdate: '/update'
 
     },
   };

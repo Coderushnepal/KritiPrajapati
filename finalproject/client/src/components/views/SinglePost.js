@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import ProgressBar from "../../components/common/ProgressBar";
@@ -11,13 +11,13 @@ import DonatePost from "./DonatePost";
 
 function SinglePost() {
   const { postId } = useParams();
-  const singlePost = useSelector(state => state.post.singlePost);
+
   const dispatch = useDispatch();
+  const singlePost = useSelector((state) => state.post?.singlePost || {});
 
   useEffect(() => {
     dispatch(fetchPost(postId));
-  }, [dispatch]);
-
+  }, [dispatch, postId]);
 
   if (!singlePost) return <div>Loading ...</div>;
 
@@ -26,7 +26,10 @@ function SinglePost() {
       <div className="main">
         <h1 className="postTitle_h1">{singlePost.postTitle}</h1>
         <div className="organizer_div">
-          <AvatarImg avatar={singlePost.avatar} name={singlePost.ownerName} />
+          <AvatarImg
+            avatar={singlePost.ownerAvatar}
+            name={singlePost.ownerName}
+          />
           <span className="organizer_span">
             {singlePost.ownerName} is organizing this fundraiser.
           </span>
@@ -37,23 +40,32 @@ function SinglePost() {
         <div className="donate_div">
           <DonatePost post={singlePost} postId={singlePost.id} />
         </div>
-        {console.log(singlePost, 'singlePost')}
 
-        <DonarsMessages donarsDetail={singlePost.donarDetail} post={singlePost} />
+        <DonarsMessages
+          donarsDetail={singlePost.donarDetail}
+          post={singlePost}
+        />
       </div>
+
       <div className="donationBox">
-        <div>
-          <div>
-            <span>Rs. {singlePost.collectedAmount}</span> raised of Rs.{" "}
-            {singlePost.targetAmount} goal.
-          </div>
-          <div>
-            <ProgressBar
-              target={singlePost.targetAmount}
-              value={singlePost.collectedAmount}
-            />
-          </div>
-          <div>{singlePost?.donarDetail?.length} donations.</div>
+        <div className="amount_div">
+          <span className="collectedAmount_span">
+            Rs. {singlePost.collectedAmount}
+          </span>{" "}
+          <span className="targetAmount_span">
+            raised of Rs. {singlePost.targetAmount} goal.
+          </span>
+        </div>
+        <ProgressBar
+          target={singlePost.targetAmount}
+          value={singlePost.collectedAmount}
+          hideText={true}
+        />
+        <div className="donationCount">
+          {singlePost?.donarDetail?.length
+            ? singlePost.donarDetail.length
+            : "0"}{" "}
+          donations.
         </div>
         <div className="clearFix donationBox_div">
           <div className="donateBtn_div">
