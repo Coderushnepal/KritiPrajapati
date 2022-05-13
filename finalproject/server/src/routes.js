@@ -11,7 +11,7 @@ import addUserSchema from './schemas/addUser.js';
 import addPostSchema from './schemas/addPost.js';
 import addDonateSchema from './schemas/addDonate.js';
 import addUpdateSchema from './schemas/addUpdate.js';
-import  authenticate from './middlewares/ authenticate.js';
+import  authenticate from './middlewares/authenticate.js';
 import { validateBody, validateQueryParams } from './middlewares/validation.js';
 // import getCarsQuerySchema from './schemas/getCarsQuery.js';
 
@@ -25,7 +25,7 @@ router.post('/login', validateBody(loginSchema), userController.login);
 
 router.get('/users', userController.getUsers);
 
-router.post('/post', authenticate, validateBody(addPostSchema),postController.addPost);
+router.post('/post', authenticate, validateBody(addPostSchema), postController.addPost);
 
 router.get('/posts', authenticate, postController.getPosts);
 

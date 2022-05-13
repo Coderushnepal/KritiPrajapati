@@ -1,4 +1,4 @@
-import Update from "../models/Update";
+import Update from "../models/Update.js";
 import logger from "../utils/logger.js";
 
 /**

@@ -14,6 +14,7 @@ function Post({ post }) {
   return (
     <div className="postContainer">
       <div className="postOwnerInfo clearfix">
+        console.log(post)
         <img
           className="ownerImg"
           width="50"
