@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Home from "./views/Home";
 import Join from "./views/Join";
 import SinglePost from "./views/SinglePost";
-import AboutMe from "./views/AboutMe";
+import Profile from "./views/Profile";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUser } from "../actions/users";
@@ -20,7 +20,7 @@ function App() {
   useEffect(() => {
     dispatch(fetchUser());
   }, [dispatch, isLoggedIn]);
-  
+
   return (
     <BrowserRouter>
       <Routes>
@@ -29,7 +29,7 @@ function App() {
         <Route path="/" element={<AuthLayout />}>
           <Route index path={"feed"} element={<Home />} />
           <Route exact path={"post/:postId"} element={<SinglePost />} />
-          <Route exact path={"aboutme"} element={<AboutMe />} />
+          <Route exact path={"profile/:profileId"} element={<Profile />} />
         </Route>
 
         {/* <Redirect to={routes.POSTS} /> */}

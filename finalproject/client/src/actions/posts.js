@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 import * as postService from "../services/post";
 
-export const SET_POST= "SET_POST";
+export const SET_POST = "SET_POST";
 export const SET_POSTS = "SET_POSTS";
 export const RESET_POSTS = "RESET_POSTS";
 export const UPDATE_POST = "UPDATE_POST";
@@ -26,7 +26,7 @@ export function setPosts() {
   };
 }
 
-export function fetchPost(id){
+export function fetchPost(id) {
   return async function (dispatch) {
     try {
       const data = await postService.fetchPost(id);
@@ -36,7 +36,6 @@ export function fetchPost(id){
       console.log(err);
     }
   };
-
 }
 
 export function fetchPosts(params) {
@@ -105,7 +104,6 @@ export function reportPost(data) {
       const response = await postService.reportPost(data);
       dispatch(reportPostAction(response));
       toast.success("Report Successful");
-
     } catch (err) {
       dispatch(fetchBeersRejected(err));
     }
@@ -123,7 +121,6 @@ export function postUpdate(data) {
     }
   };
 }
-
 const fetchPostsPending = () => {
   return {
     type: FETCH_POSTS_PENDING,
@@ -154,8 +151,9 @@ const setPostAction = (data) => {
   return {
     type: SET_POST,
     payload: data,
-  }; 
-}
+  };
+};
+
 const addNewPost = (data) => {
   return {
     type: ADD_NEW_POST,
