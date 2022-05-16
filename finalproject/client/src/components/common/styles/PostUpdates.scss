@@ -1,0 +1,53 @@
+@use "../../../assets/scss/style.scss" as *;
+.postUpdates-container {
+ margin-top: 30px;
+ .title {
+   color: $dark;
+ }
+ .updates_list {
+   padding: 15px 0;
+   background-color: #f7f7f7;
+   margin: 5px 0;
+   border-radius: 10px;
+ }
+ .no-updates-text {
+   text-align: center;
+ }
+ .updates_info_text {
+   .updates_text {
+     float: left;
+   }
+   .updates_button {
+     float: left;
+     button {
+       background: transparent;
+       color: $primary;
+       margin: 0;
+       margin-left: 0px;
+       padding: 0;
+       min-width: auto;
+       margin-left: 10px;
+     }
+   }
+ }
+ 
+ .updates-modal-container {
+   margin: 10px 5px 25px;
+   .title {
+     color: $primary;
+   }
+   .description {
+     color: $textColor;
+   }
+   .label {
+     display: block;
+     color: $dark;
+     margin-top: 10px;
+   }
+   textarea {
+     width: 100%;
+     padding: 5px;
+     margin-bottom: 2px;
+   }
+ }
+}
