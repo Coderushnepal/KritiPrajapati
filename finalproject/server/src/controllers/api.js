@@ -1,5 +1,4 @@
-
-import * as apiService from '../services/api.js';
+import * as apiService from "../services/api.js";
 
 /**
  * Controller to get API details.
