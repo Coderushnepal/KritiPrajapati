@@ -30,12 +30,16 @@ function DonarsMessages({ post, donarsDetail }) {
         )}
       </div>
       <div className="clearfix support_info">
-        <span className="support_text">
-          Please donate to share your words of encouragement.{" "}
-        </span>
-        <span className="support_button">
-          <DonatePost postId={post.id} post={post} />
-        </span>
+        {post && (
+          <>
+            <span className="support_text">
+              Please donate to share your words of encouragement.{" "}
+            </span>
+            <span className="support_button">
+              <DonatePost postId={post.id} post={post} />
+            </span>
+          </>
+        )}
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ import addUserSchema from './schemas/addUser.js';
 import addPostSchema from './schemas/addPost.js';
 import addDonateSchema from './schemas/addDonate.js';
 import addUpdateSchema from './schemas/addUpdate.js';
-import  authenticate from './middlewares/authenticate.js';
+import authenticate from './middlewares/authenticate.js';
 import { validateBody, validateQueryParams } from './middlewares/validation.js';
 // import getCarsQuerySchema from './schemas/getCarsQuery.js';
 
@@ -42,5 +42,7 @@ router.delete('/posts/:postIdentifier', postController.removePost);
 router.get('/me', authenticate, userController.getUser);
 
 router.put('/me', authenticate, userController.updateUser);
+
+router.get("/profile/:id", authenticate, userController.getProfileDetail);
 
 export default router;

@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 import "./styles/UserInfo.scss";
 
@@ -8,10 +9,10 @@ function UserInfo() {
   return (
     <div className="userInfo-container clearfix">
       {user.fullName && (
-        <>
+        <Link to={`/profile/${user.id}`}>
           <img src={user.avatar} alt={user.fullName} className="userAvatar" />
           <div className="fullName">{user.fullName.split(" ")[0]}</div>
-        </>
+        </Link>
       )}
     </div>
   );

@@ -1,3 +1,5 @@
+@use "../../../../assets/scss/style.scss" as *;
+
 .dropdown-container {
   float: right;
   margin-top: 15px;
@@ -13,7 +15,7 @@
   .menu {
     border: 1px solid #f1f1f1;
     background-color: #f8f8f8;
-    width: 200px;
+    width: 225px;
     position: absolute;
     right: 30px;
     top: 60px;
@@ -23,6 +25,25 @@
       transition: background-color 200ms;
       &:hover {
         background-color: #fdfdfd;
+      }
+
+      .nav-userDetail-container {
+        border-bottom: 1px solid $borderColor;
+        .avatarImg {
+          float: left;
+          width: 30%;
+          img {
+            width: 45px;
+            height: 45px;
+          }
+        }
+        .userName {
+          float: right;
+          font-weight: 500;
+          line-height: 14px;
+          padding-top: 10px;
+          width: 70%;
+        }
       }
     }
   }
