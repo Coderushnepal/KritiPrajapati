@@ -1,27 +1,28 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
-import ProgressBar from "../../components/common/ProgressBar";
-import { fetchPost } from "../../actions/posts";
+import { useDispatch, useSelector } from "react-redux";
+
 import Button from "../common/Button";
-import "./styles/SinglePost.scss";
-import DonarsMessages from "../common/DonarsMessages";
-import AvatarImg from "../common/AvatarImg";
 import DonatePost from "./DonatePost";
+import AvatarImg from "../common/AvatarImg";
+import { fetchPost } from "../../actions/posts";
 import PostUpdates from "../common/PostUpdates";
- 
+import DonarsMessages from "../common/DonarsMessages";
+import ProgressBar from "../../components/common/ProgressBar";
+
+import "./styles/SinglePost.scss";
+
 function SinglePost() {
  const { postId } = useParams();
- 
  const dispatch = useDispatch();
  const singlePost = useSelector((state) => state.post?.singlePost || {});
  
  useEffect(() => {
    dispatch(fetchPost(postId));
  }, [dispatch, postId]);
- 
+
  if (!singlePost) return <div>Loading ...</div>;
- 
+
  return (
    <div className="singlePost-container container clearfix">
      <div className="main">
@@ -37,22 +38,23 @@ function SinglePost() {
        </div>
        <hr className="organizer_hr" />
        <p>{singlePost.postDescription}</p>
- 
+
        <div className="donate_div">
          <DonatePost post={singlePost} postId={postId} />
        </div>
- 
+
        <PostUpdates
          postOwnerId={singlePost.postOwnerId}
          postId={postId}
+         updatesDetail={singlePost.postUpdates}
        />
- 
+
        <DonarsMessages
          donarsDetail={singlePost.donarDetail}
          post={singlePost}
        />
      </div>
- 
+
      <div className="donationBox">
        <div className="amount_div">
          <span className="collectedAmount_span">
@@ -86,5 +88,5 @@ function SinglePost() {
    </div>
  );
 }
- 
+
 export default SinglePost;
