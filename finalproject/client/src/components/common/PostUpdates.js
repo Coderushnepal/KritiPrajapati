@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-
+import { format } from "date-fns";
+ 
 import Button from "./Button";
-import AvatarImg from "./AvatarImg";
 import UpdatesModal from "./Modals/UpdatesModal/UpdatesModal";
-
+ 
 import "./styles/PostUpdates.scss";
-
+ 
 function PostUpdates({ userId, postId, postOwnerId, updatesDetail }) {
  let isOwner = userId === postOwnerId;
  let hasUpdates = Boolean(updatesDetail?.length);
  const [isOpen, setIsOpen] = useState(false);
-
+ 
  const handleShow = () => {
    setIsOpen(true);
  };
@@ -19,18 +19,18 @@ function PostUpdates({ userId, postId, postOwnerId, updatesDetail }) {
  };
  return (
    <div className="postUpdates-container">
-     <h2 className="title">Updates</h2>
+     <h2 className="title">
+       Updates {hasUpdates && `( ${updatesDetail?.length} )`}
+     </h2>
      <div className="updates_list">
        {hasUpdates ? (
          updatesDetail?.map((detail) => (
-           <div className="postUpdate-container clearfix">
-             <div className="avatar_div">
-               <AvatarImg avatar={detail.donarAvatar} name={detail.name} />
+           <div className="postUpdate-container clearfix" key={detail.id}>
+             <h4 className="name">{detail.name}</h4>
+             <div className="updatedTime">
+               {format(new Date(detail.updatedAt), "MMMM dd, yyyy")}
              </div>
-             <div className="donationDetail_div">
-               <h4 className="name">{detail.name}</h4>
-               <div className="message">{detail.message}</div>
-             </div>
+             <div className="message">{detail.message}</div>
            </div>
          ))
        ) : (
@@ -49,11 +49,11 @@ function PostUpdates({ userId, postId, postOwnerId, updatesDetail }) {
              share your updates about the post.
            </span>
          )}
-
+ 
          <div className="updates_button">
            <Button onClick={handleShow}>Add Updates</Button>
          </div>
-
+ 
          <UpdatesModal
            handleClose={handleClose}
            isOpen={isOpen}
@@ -64,5 +64,5 @@ function PostUpdates({ userId, postId, postOwnerId, updatesDetail }) {
    </div>
  );
 }
-
+ 
 export default PostUpdates;
