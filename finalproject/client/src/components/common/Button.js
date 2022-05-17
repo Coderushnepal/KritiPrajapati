@@ -2,7 +2,7 @@ import React from "react";
 
 import "./styles/button.scss";
 
-function Button({ onClick, disabled, children }) {
+function Button({ onClick, disabled,className, children }) {
   return (
     <button
       disabled={disabled}

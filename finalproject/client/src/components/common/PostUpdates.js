@@ -10,7 +10,6 @@ function PostUpdates({ userId, postId, postOwnerId, updatesDetail }) {
  let isOwner = userId === postOwnerId;
  let hasUpdates = Boolean(updatesDetail?.length);
  const [isOpen, setIsOpen] = useState(false);
- 
  const handleShow = () => {
    setIsOpen(true);
  };
