@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import React, { useState } from "react";
 
 import Modal from "../common/Modal";
@@ -9,6 +9,7 @@ import { donatePost } from "../../actions/posts";
 import "./styles/DonatePost.scss";
 
 function DonatePost({ postId, post }) {
+  const user = useSelector((state) => state.user.user);
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
   const [data, setData] = useState({
@@ -24,7 +25,13 @@ function DonatePost({ postId, post }) {
   const onSubmit = async (e) => {
     try {
       e.preventDefault();
-      dispatch(donatePost(data));
+      dispatch(
+        donatePost(data, {
+          donarId: user.id,
+          name: user.fullName,
+          donarAvatar: user.avatar,
+        })
+      );
       handleClose();
     } catch (error) {
       console.log(error);

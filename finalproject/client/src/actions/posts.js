@@ -86,11 +86,11 @@ export function deletePost(data) {
   };
 }
 
-export function donatePost(data) {
+export function donatePost(data, userDetail) {
   return async function (dispatch) {
     try {
       const response = await postService.donatePost(data);
-      dispatch(donateInPost(response));
+      dispatch(donateInPost({...response, ...userDetail}));
       toast.success("Donation Successful");
     } catch (err) {
       toast.error(err.response.data.message);

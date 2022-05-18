@@ -17,16 +17,12 @@ export async function createDonation(params, user) {
 
   const donatingPost = await new Post().getById(postId);
   const donarUser = await new User().getById(userId);
-  const ownerUser =  await new User().getById(donatingPost.ownerUserId);
+  const ownerUser = await new User().getById(donatingPost.ownerUserId);
 
   if (userId === ownerUser.id) {
-    logger.error(
-      `You cannot donate to your own post.`
-    );
+    logger.error(`You cannot donate to your own post.`);
 
-    throw new Boom.badRequest(
-      `You cannot donate to your own post.`
-    );
+    throw new Boom.badRequest(`You cannot donate to your own post.`);
   }
 
   // check post status
@@ -50,18 +46,23 @@ export async function createDonation(params, user) {
     throw new Boom.badRequest(`You don't have enough money.`);
   }
 
+  // total cllected money of post -> increase
+  const newPostCollectedAmount =
+    Number(donatingPost.collectedAmount) + amount_num;
   await new Post().updateById(postId, {
-    collectedAmount: Number(donatingPost.collectedAmount) + amount_num,
+    collectedAmount: newPostCollectedAmount,
   });
-  // doner_user ko amount banauna lageko
 
+  // post owner user -> amount increase
   await new User().updateById(donatingPost.ownerUserId, {
     amount: ownerAmount + amount_num,
   });
 
-
-  // user amount
-  await new User().updateById(userId, { amount: donarAmount - amount_num });
+  // donar amount -> decrease
+  const newDonarAmount = donarAmount - amount_num;
+  await new User().updateById(userId, {
+    amount: newDonarAmount,
+  });
 
   const [insertedData] = await new Donation().save({
     postId,
@@ -70,8 +71,14 @@ export async function createDonation(params, user) {
     donarUserId: userId,
   });
 
+  const result = {
+    ...insertedData,
+    postCollectedAmount: newPostCollectedAmount,
+    donarUserAmount: newDonarAmount,
+  };
+
   return {
-    data: insertedData,
+    data: result,
     message: "Added donation successfully",
   };
 }
