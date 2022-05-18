@@ -19,13 +19,16 @@
      .ownerInfo {
        float: left;
        margin-top: 4px;
+       a{
+        text-decoration: none;
+       }
        .ownerName {
          font-family: "Poppins", sans-serif;
          font-weight: bold;
          color: $dark;
        }
        .postStartTime {
-         font-size: 14px;
+         font-size: 12px;
          color: $faded;
        }
      }
