@@ -8,7 +8,7 @@ export const UPDATE_POST = "UPDATE_POST";
 export const DELETE_POST = "DELETE_POST";
 export const DONATE_POST = "DONATE_POST";
 export const REPORT_POST = "REPORT_POST";
-export const POST_UPDATE = "POST_UPDATE";
+export const ADD_POST_UPDATE = "ADD_POST_UPDATE";
 export const ADD_NEW_POST = "ADD_NEW_POST";
 export const FETCH_POSTS_PENDING = "FETCH_POSTS_PENDING";
 export const FETCH_POSTS_REJECTED = "FETCH_POSTS_REJECTED";
@@ -114,7 +114,8 @@ export function postUpdate(data) {
   return async function (dispatch) {
     try {
       const response = await postService.postUpdate(data);
-      dispatch(updateOnPost(response));
+      console.log(response)
+      dispatch(addPostUpdate(response));
       toast.success("Update Added Successful");
     } catch (err) {
       toast.error(err.response.data.message);
@@ -189,9 +190,9 @@ const reportPostAction = (data) => {
   };
 };
 
-const updateOnPost = (data) => {
+const addPostUpdate = (data) => {
   return {
-    type: POST_UPDATE,
+    type: ADD_POST_UPDATE,
     payload: data,
   };
 };

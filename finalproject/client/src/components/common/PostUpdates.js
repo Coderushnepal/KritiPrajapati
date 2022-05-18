@@ -22,6 +22,7 @@ function PostUpdates({ userId, postId, postOwnerId, updatesDetail }) {
        Updates {hasUpdates && `( ${updatesDetail?.length} )`}
      </h2>
      <div className="updates_list">
+       {console.log(updatesDetail)}
        {hasUpdates ? (
          updatesDetail?.map((detail) => (
            <div className="postUpdate-container clearfix" key={detail.id}>
