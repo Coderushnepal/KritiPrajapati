@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./styles/Post.scss";
+import {formatDistanceStrict} from 'date-fns'
 
+import PostContent from "./PostContent";
 import DropDownDots from "./DropDownDots";
 import { useSelector } from "react-redux";
-import PostContent from "./PostContent";
+
+import "./styles/Post.scss";
 
 function Post({ post }) {
   const userId = useSelector((state) => state.user.user.id);
@@ -24,8 +26,9 @@ function Post({ post }) {
             <Link to={`/profile/${post.ownerUserId}`}>
 
               <p className="ownerName">{post.ownerName}</p>
-              <p className="postStartTime">{post.startDate.substring(0, 10)}</p>
-            </Link>
+              </Link>
+              
+              <p className="postStartTime">{formatDistanceStrict(new Date(post.startDate),new Date(),{addSuffix : true})}</p>
 
             </div>
             <div className="dot_div">
