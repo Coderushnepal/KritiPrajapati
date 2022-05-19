@@ -4,7 +4,6 @@ import * as postService from "../services/post";
 export const SET_POST = "SET_POST";
 export const SET_POSTS = "SET_POSTS";
 export const RESET_POSTS = "RESET_POSTS";
-export const UPDATE_POST = "UPDATE_POST";
 export const DELETE_POST = "DELETE_POST";
 export const DONATE_POST = "DONATE_POST";
 export const REPORT_POST = "REPORT_POST";
@@ -58,17 +57,6 @@ export function createNewPost(data) {
     try {
       const response = await postService.createPost(data);
       dispatch(addNewPost(response));
-    } catch (err) {
-      dispatch(fetchBeersRejected(err));
-    }
-  };
-}
-
-export function updatePost(data) {
-  return async function (dispatch) {
-    try {
-      const response = await postService.updatePost(data);
-      dispatch(editPost(response));
     } catch (err) {
       dispatch(fetchBeersRejected(err));
     }
@@ -158,13 +146,6 @@ const setPostAction = (data) => {
 const addNewPost = (data) => {
   return {
     type: ADD_NEW_POST,
-    payload: data,
-  };
-};
-
-const editPost = (data) => {
-  return {
-    type: UPDATE_POST,
     payload: data,
   };
 };

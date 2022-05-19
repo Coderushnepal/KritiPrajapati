@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 
 import config from "../config";
 import { interpolate } from "../utils/string";
- 
+
 export const signupUser = async (data) => {
  try {
    const url = `${config.apiUrl}${config.endpoints.signup}`;
@@ -53,7 +53,7 @@ export const fetchUser = async () => {
  }
 };
  
-export const updateUser = async (data) => {
+export const updateProfile = async (data) => {
  const url = `${config.apiUrl}${config.endpoints.me}`;
  const response = await axios.put(
    url,
@@ -72,6 +72,7 @@ export const updateUser = async (data) => {
  // toast.error(error.response?.data?.details || "Something went wrong!");
 };
  
+
 export const fetchUserProfile = async (id) => {
  let token = localStorage.getItem("userToken");
  if (token) {

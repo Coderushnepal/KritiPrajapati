@@ -5,7 +5,7 @@ export const FETCH_USER = "FETCH_USER";
 export const LOGIN_USER = "LOGIN_USER";
 export const SIGNUP_USER = "SIGNUP_USER";
 export const LOGOUT_USER = "LOGOUT_USER";
-export const UPDATE_USER = "UPDATE_USER";
+export const UPDATE_PROFILE = "UPDATE_PROFILE";
 export const SET_USER_PROFILE = "SET_USER_PROFILE";
 export const SET_PROFILE_LOADING = "SET_PROFILE_LOADING";
 
@@ -75,6 +75,17 @@ export function fetchUserProfile(userId) {
     }
   };
 }
+
+export function updateProfile(data) {
+  return async function (dispatch) {
+    try {
+      const response = await userService.updateProfile(data);
+      dispatch(editProfile(response));
+    } catch (err) {
+      toast.error("Something went wrong!");    }
+  };
+}
+
 const signup = (data) => {
   return {
     type: SIGNUP_USER,
@@ -112,6 +123,13 @@ const setUserProfile = (data) => {
 const setLoading = (data) => {
   return {
     type: SET_PROFILE_LOADING,
+    payload: data,
+  };
+};
+
+const editProfile = (data) => {
+  return {
+    type: UPDATE_PROFILE,
     payload: data,
   };
 };
