@@ -53,6 +53,7 @@ function SinglePost() {
         <DonarsMessages
           donarsDetail={singlePost.donarDetail}
           post={singlePost}
+          postId={postId}
         />
       </div>
 
