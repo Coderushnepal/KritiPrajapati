@@ -1,8 +1,9 @@
 import "./styles/modal.scss";
+import ReactDOM from "react-dom";
 
 function Modal({ show, handleClose, children }) {
   if (show)
-    return (
+    return ReactDOM.createPortal(
       <div className="modal-container-overlay">
         <div className="content-wrapper ">
           <div className="closeBtn" onClick={handleClose}>
@@ -10,9 +11,10 @@ function Modal({ show, handleClose, children }) {
           </div>
           <div className="content">{children}</div>
         </div>
-      </div>
+      </div>,
+      document.getElementById("modal")
     );
-    
+
   return null;
 }
 
