@@ -1,0 +1,43 @@
+@use "../../../assets/scss/style.scss" as *;
+.not-found-container {
+  padding: 0 20px;
+  text-align: center;
+  .img404 {
+    max-width: 90%;
+    margin: 70px 0 0;
+  }
+  .title {
+    font-size: 60px;
+    color: $dark;
+  }
+  .description {
+    color: $textColor;
+    font-size: 20px;
+    max-width: 600px;
+    margin: 0 auto 30px;
+  }
+  .btn-container {
+    a {
+      color: white;
+      text-decoration: none;
+      button {
+        font-weight: 600;
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .img404 {
+      max-width: 50%;
+    }
+    .title {
+      font-size: 70px;
+      color: $dark;
+    }
+  }
+  @media screen and (min-width: 1128px) {
+    .img404 {
+      max-width: 500px;
+    }
+  }
+}

@@ -13,6 +13,8 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUser } from "../actions/users";
 import AuthLayout from "./common/Layout/AuthLayout";
+import { PublicRoute, ProtectedRoute } from "./common/AuthRoute";
+import NotFound from "./views/NotFound";
 
 function App() {
   const isLoggedIn = useSelector((state) => state.user?.isLoggedIn);
@@ -24,15 +26,17 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* <Route exact path={routes.POSTS} component={PostInfiniteList} /> */}
-        <Route exact path={"/"} element={<Join />} />
-        <Route path="/" element={<AuthLayout />}>
-          <Route index path={"feed"} element={<Home />} />
-          <Route exact path={"post/:postId"} element={<SinglePost />} />
-          <Route exact path={"profile/:profileId"} element={<Profile />} />
+        <Route path="/" element={<PublicRoute isLoggedIn={isLoggedIn} />}>
+          <Route exact path={"/"} element={<Join />} />
         </Route>
-
-        {/* <Redirect to={routes.POSTS} /> */}
+        <Route path="/" element={<ProtectedRoute isLoggedIn={isLoggedIn} />}>
+          <Route path="/" element={<AuthLayout />}>
+            <Route index path={"feed"} element={<Home />} />
+            <Route exact path={"post/:postId"} element={<SinglePost />} />
+            <Route exact path={"profile/:profileId"} element={<Profile />} />
+          </Route>
+        </Route>
+        <Route path="*" element={<NotFound />}></Route>
       </Routes>
       <ToastContainer />
     </BrowserRouter>
