@@ -1,6 +1,6 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import Post from "./views/Post";
 // import PostInfiniteList from "./views/PostInfiniteList";
 
@@ -17,7 +17,7 @@ import { PublicRoute, ProtectedRoute } from "./common/AuthRoute";
 import NotFound from "./views/NotFound";
 
 function App() {
-  const isLoggedIn = useSelector((state) => state.user?.isLoggedIn);
+  const { isLoggedIn } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchUser());
@@ -29,7 +29,14 @@ function App() {
         <Route path="/" element={<PublicRoute isLoggedIn={isLoggedIn} />}>
           <Route exact path={"/"} element={<Join />} />
         </Route>
-        <Route path="/" element={<ProtectedRoute isLoggedIn={isLoggedIn} />}>
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute
+              isLoggedIn={isLoggedIn}
+            />
+          }
+        >
           <Route path="/" element={<AuthLayout />}>
             <Route index path={"feed"} element={<Home />} />
             <Route exact path={"post/:postId"} element={<SinglePost />} />

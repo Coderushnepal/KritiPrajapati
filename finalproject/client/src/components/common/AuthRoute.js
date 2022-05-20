@@ -2,9 +2,11 @@ import React from "react";
 import { Navigate, Outlet } from "react-router";
 
 export function PublicRoute({ isLoggedIn }) {
-  return !isLoggedIn ? <Outlet /> : <Navigate to="/feed" />;
+  const loggedIn = isLoggedIn || localStorage.getItem('userToken');
+  return !loggedIn ? <Outlet /> : <Navigate to="/feed" />;
 }
 
 export function ProtectedRoute({ isLoggedIn }) {
-  return isLoggedIn ? <Outlet /> : <Navigate to="/" />;
+  const loggedIn = isLoggedIn || localStorage.getItem('userToken');
+  return loggedIn ? <Outlet /> : <Navigate to="/" />;
 }
