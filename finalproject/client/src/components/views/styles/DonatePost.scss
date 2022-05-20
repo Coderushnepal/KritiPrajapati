@@ -1,6 +1,6 @@
 @use "../../../assets/scss/style.scss" as *;
 
-.donate-container {
+.donate-content {
   .title {
     color: $primary;
   }
@@ -11,5 +11,15 @@
   }
   label {
     color: $dark;
+    display: block;
+    color: $dark;
+    margin-top: 10px;
+  }
+  textarea {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 2px;
+    border: 2px solid #cacaca;
+    font-family: inherit;
   }
 }

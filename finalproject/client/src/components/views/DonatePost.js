@@ -37,6 +37,7 @@ function DonatePost({ postId, post }) {
       console.log(error);
     }
   };
+  
 
   const handleShow = () => {
     setIsOpen(true);
@@ -54,38 +55,41 @@ function DonatePost({ postId, post }) {
         Donate
       </Button>
       <Modal show={isOpen} handleClose={handleClose}>
-        <h1 className="title">Donation</h1>
-        <div className="description">
-          <p>
-            You're supporting <b>{post.postTitle}</b>
-          </p>
-          <p>
-            Your donation will benefit <b>{post.ownerName}</b>
-          </p>
+        <div className="donate-content">
+          <h1 className="title">Donation</h1>
+          <div className="description">
+            <p>
+              You're supporting <b>{post.postTitle}</b>
+            </p>
+            <p>
+              Your donation will benefit <b>{post.ownerName}</b>
+            </p>
+          </div>
+          <form onSubmit={onSubmit}>
+            <label htmlFor="amount">
+              <b>Enter your Donation</b>
+            </label>
+
+            <InputField
+              name="amount"
+              placeholder="Enter your Amount"
+              handleOnChange={onChangeHandler}
+              value={data.amount}
+            />
+
+            <label htmlFor="message">
+              <b>Message</b>
+            </label>
+            <textarea
+              name="message"
+              placeholder="Enter your Message"
+              onChange={onChangeHandler}
+              value={data.message}
+              cols="10"
+            />
+            <Button>Donate</Button>
+          </form>
         </div>
-        <form onSubmit={onSubmit}>
-          <label htmlFor="amount">
-            <b>Enter your Donation</b>
-          </label>
-
-          <InputField
-            name="amount"
-            placeholder="Enter your Amount"
-            handleOnChange={onChangeHandler}
-            value={data.amount}
-          />
-
-          <label htmlFor="message">
-            <b>Message</b>
-          </label>
-          <InputField
-            name="message"
-            placeholder="Enter your Message"
-            handleOnChange={onChangeHandler}
-            value={data.message}
-          />
-          <Button>Donate</Button>
-        </form>
       </Modal>
     </div>
   );

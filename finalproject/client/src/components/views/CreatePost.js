@@ -83,13 +83,16 @@ function CreatePost() {
           </div>
 
           <div>
-            <InputField
-              label="Post Description"
-              name="postDescription"
-              placeholder="Enter your post Description"
-              handleOnChange={onChangeHandler}
-              value={data.postDescription}
-            />
+          <label htmlFor="postDescription" className="label">
+           <b>Update Message</b>
+         </label>
+          <textarea
+           name="postDescription"
+           placeholder="Enter your post Description"
+           onChange={onChangeHandler}
+           value={data.postDescription}
+           cols="10"
+         />
           </div>
 
           <div>
