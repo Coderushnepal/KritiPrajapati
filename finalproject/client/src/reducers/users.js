@@ -10,6 +10,7 @@ import {
  
 const INITIAL_STATE = {
  loading: true,
+ isUserLoaded: false,
  user: {},
  profile: {},
  isLoggedIn: false,
@@ -22,16 +23,17 @@ export default function fetchUsers(state = INITIAL_STATE, action) {
        ...state,
        user: { ...state.user, ...action.payload },
        isLoggedIn: true,
+       isUserLoaded: true
      };
  
    case SIGNUP_USER:
      return { ...state, user: action.payload };
  
    case LOGOUT_USER:
-     return { ...state, user: {}, isLoggedIn: false };
+     return { ...state, user: {}, isLoggedIn: false, isUserLoaded: false };
  
    case FETCH_USER:
-     return { ...state, user: action.payload, isLoggedIn: true };
+     return { ...state, user: action.payload, isLoggedIn: true ,  isUserLoaded: true };
  
    case DONATE_POST:
      console.log(action.payload);
