@@ -54,6 +54,12 @@ export function fetchUser() {
       }
     } catch (error) {
       toast.error(error.response?.data?.details || "Something went wrong!");
+      if(error.response.status===401){{
+        dispatch(logoutUser());
+      }
+
+      }
+      console.log(error.response, 'Error')
     }
   };
 }
@@ -65,7 +71,6 @@ export function fetchUserProfile(userId) {
       if (token) {
         dispatch(setLoading(true));
         const response = await userService.fetchUserProfile(userId);
-        console.log(response, "response");
         dispatch(setUserProfile(response.data.data));
         dispatch(setLoading(false));
       }
@@ -80,9 +85,10 @@ export function updateProfile(data) {
   return async function (dispatch) {
     try {
       const response = await userService.updateProfile(data);
-      dispatch(editProfile(response));
+      dispatch(editProfile(response.data.data));
     } catch (err) {
-      toast.error("Something went wrong!");    }
+      toast.error("Something went wrong!");
+    }
   };
 }
 
