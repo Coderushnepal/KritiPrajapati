@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
-import React, { useEffect } from "react";
 import { useParams } from "react-router";
+import React, { useEffect } from "react";
 import { FiMail, FiPhone } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 
-import "./styles/Profile.scss";
+import ProfileEdit from "./ProfileEdit";
 import PostContent from "../common/PostContent";
 import { fetchUserProfile } from "../../actions/users";
-import ProfileEdit from "./ProfileEdit"
+
+import "./styles/Profile.scss";
 
 function Profile() {
   const { profileId } = useParams();
@@ -18,8 +19,7 @@ function Profile() {
     dispatch(fetchUserProfile(profileId));
   }, [dispatch, profileId]);
 
-  const isMyProfile = user.id === +profileId ;
-console.log(isMyProfile,user, profileId)
+  const isMyProfile = user.id === +profileId;
   if (loading) return <div>Loading ...</div>;
 
   const myDonations = profile.donations;
@@ -47,14 +47,12 @@ console.log(isMyProfile,user, profileId)
           </div>
           {/* <div className="joinedAt">{profile.joinedAt}</div> */}
           <div className="amount">Rs. {profile.amount}</div>
-          {(isMyProfile) && ( 
-            <ProfileEdit profile={profile}/>
-          )}
-          </div>
+          {isMyProfile && <ProfileEdit profile={profile} />}
+        </div>
         <div className="activities-container">
           <h2 className="title">Activities</h2>
           <div className="donation-container">
-            <h3 className="title">Donations</h3>
+            <h3 className="title">Donations ({myDonations?.length})</h3>
             <div className="scroller scrollbar-hidden">
               {myDonations?.length > 0 ? (
                 myDonations.map((donation) => (
@@ -79,7 +77,7 @@ console.log(isMyProfile,user, profileId)
             </div>
           </div>
           <div className="organized-container">
-            <h3 className="title">Posts</h3>
+            <h3 className="title">Posts ({myPosts?.length})</h3>
             <div className="scroller scrollbar-hidden">
               {myPosts?.length > 0 ? (
                 myPosts.map((post) => (
