@@ -7,7 +7,7 @@ import DonatePost from "../views/DonatePost";
 
 import "./styles/DonarsMessages.scss";
 
-function DonarsMessages({ post, postId, donarsDetail }) {
+function DonarsMessages({ post, postId, selfPost, donarsDetail }) {
   let hasDonations = Boolean(donarsDetail?.length);
   return (
     <div className="donarMessages-container">
@@ -17,8 +17,9 @@ function DonarsMessages({ post, postId, donarsDetail }) {
       <div className="donars_list">
         {hasDonations ? (
           donarsDetail?.map((detail) => (
-            
-            <div className="donarMessage-container clearfix">
+        
+            <div className="donarMessage-container ">
+              <div className="clearfix">
               <div className="avatar_div">
                 <AvatarImg avatar={detail.donarAvatar} name={detail.name} />
               </div>
@@ -27,29 +28,42 @@ function DonarsMessages({ post, postId, donarsDetail }) {
                 <Link to={`/profile/${detail.donarId}`}>
                   <h4 className="name">{detail.name} </h4>
                 </Link>
-                <p className="donatedTime">{formatDistanceStrict(new Date(detail.donatedAt),new Date(),{addSuffix : true})}</p>
-                
+                <div className="clearfix">
                 <div className="amount">Rs. {detail.amount}</div>
-                <div className="message">{detail.message}</div>
+                <p className="donatedTime">
+                  {formatDistanceStrict(
+                    new Date(detail.donatedAt),
+                    new Date(),
+                    { addSuffix: true }
+                  )}
+                </p>
+                </div>
+                
+                </div>
+                
               </div>
+              
+                <div className="message">{detail.message}</div>
             </div>
           ))
         ) : (
           <div className="no-support-text">No supports yet...</div>
         )}
       </div>
-      <div className="clearfix support_info">
-        {post && (
-          <>
-            <span className="support_text">
-              Please donate to share your words of encouragement.{" "}
-            </span>
-            <span className="support_button">
-              <DonatePost postId={postId} post={post} />
-            </span>
-          </>
-        )}
-      </div>
+      {!selfPost && (
+        <div className="clearfix support_info">
+          {post && (
+            <>
+              <span className="support_text">
+                Please donate to share your words of encouragement.{" "}
+              </span>
+              <span className="support_button">
+                <DonatePost postId={postId} post={post} />
+              </span>
+            </>
+          )}
+        </div>
+      )}
     </div>
   );
 }

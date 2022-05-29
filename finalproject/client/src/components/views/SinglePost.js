@@ -45,7 +45,7 @@ function SinglePost() {
           </div>
         )}
         <PostUpdates
-        userId={userId}
+          userId={userId}
           postOwnerId={singlePost.ownerUserId}
           postId={postId}
           updatesDetail={singlePost.postUpdates}
@@ -54,6 +54,7 @@ function SinglePost() {
           donarsDetail={singlePost.donarDetail}
           post={singlePost}
           postId={postId}
+          selfPost={userId === singlePost.ownerUserId}
         />
       </div>
 
