@@ -1,0 +1,15 @@
+@use "../../../assets/scss/style.scss" as *;
+
+.update-container {
+  .title {
+    color: $primary;
+  }
+  .description {
+    color: $textColor;
+    margin-bottom: 16px;
+    margin-top: 8px;
+  }
+  label {
+    color: $dark;
+  }
+}

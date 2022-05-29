@@ -1,8 +1,8 @@
-
 import React from "react";
-import UserDetail from "../common/UserDetail/UserDetail";
+
 import CreatePost from "./CreatePost";
 import PostInfiniteList from "./PostInfiniteList";
+import UserDetail from "../common/UserDetail/UserDetail";
 
 import "./styles/Home.scss";
 

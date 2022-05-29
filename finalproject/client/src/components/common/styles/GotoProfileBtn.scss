@@ -1,0 +1,22 @@
+@use "../../../assets/scss/style.scss" as *;
+ 
+.viewProfileBtn {
+ margin: 6px auto;
+ border: 2px solid $primary;
+ border-radius: 30px;
+ text-align: center;
+ font-size: 14px;
+ a {
+   text-decoration: none;
+   color: $primary;
+   width: 100%;
+   display: inline-block;
+ }
+ transition: background-color 200ms;
+ &:hover {
+   background-color: $primary;
+   a {
+     color: $white;
+   }
+ }
+}

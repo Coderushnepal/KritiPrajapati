@@ -11,21 +11,43 @@ function InputField({
   placeholder,
   labelClass,
   inputClass,
+  errors = {},
 }) {
   return (
     <div className="inputField">
       <label className={`label ${labelClass || ""}`} htmlFor={id || name}>
         {label}
       </label>
-      <input
-        id={id || name}
-        name={name}
-        className={`input ${inputClass || ""}`}
-        type={type}
-        value={value}
-        onChange={handleOnChange}
-        placeholder={placeholder}
-      />
+      {type === "textarea" ? (
+        <textarea
+          id={id || name}
+          name={name}
+          className={`textarea input ${inputClass || ""} ${
+            errors[name] ? "invalid" : ""
+          }`}
+          placeholder={placeholder}
+          onChange={handleOnChange}
+          value={value}
+          rows={3}
+        />
+      ) : (
+        <input
+          id={id || name}
+          name={name}
+          className={`input ${inputClass || ""} ${
+            errors[name] ? "invalid" : ""
+          }`}
+          type={type}
+          value={value}
+          onChange={handleOnChange}
+          placeholder={placeholder}
+        />
+      )}
+      {errors[name] && (
+        <div key={errors} className="error">
+          {errors[name]}
+        </div>
+      )}
     </div>
   );
 }

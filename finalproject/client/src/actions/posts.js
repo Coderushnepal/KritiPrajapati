@@ -1,12 +1,13 @@
 import { toast } from "react-toastify";
 import * as postService from "../services/post";
 
+export const SET_POST = "SET_POST";
 export const SET_POSTS = "SET_POSTS";
 export const RESET_POSTS = "RESET_POSTS";
-export const UPDATE_POST = "UPDATE_POST";
 export const DELETE_POST = "DELETE_POST";
 export const DONATE_POST = "DONATE_POST";
 export const REPORT_POST = "REPORT_POST";
+export const ADD_POST_UPDATE = "ADD_POST_UPDATE";
 export const ADD_NEW_POST = "ADD_NEW_POST";
 export const FETCH_POSTS_PENDING = "FETCH_POSTS_PENDING";
 export const FETCH_POSTS_REJECTED = "FETCH_POSTS_REJECTED";
@@ -24,7 +25,7 @@ export function setPosts() {
   };
 }
 
-export function fetchPost(id){
+export function fetchPost(id) {
   return async function (dispatch) {
     try {
       const data = await postService.fetchPost(id);
@@ -34,7 +35,6 @@ export function fetchPost(id){
       console.log(err);
     }
   };
-
 }
 
 export function fetchPosts(params) {
@@ -47,7 +47,7 @@ export function fetchPosts(params) {
       console.log(data);
       dispatch(fetchPostsFulfilleded(data));
     } catch (err) {
-      dispatch(fetchBeersRejected(err));
+      toast.error(err.response.data.message);
     }
   };
 }
@@ -58,18 +58,7 @@ export function createNewPost(data) {
       const response = await postService.createPost(data);
       dispatch(addNewPost(response));
     } catch (err) {
-      dispatch(fetchBeersRejected(err));
-    }
-  };
-}
-
-export function updatePost(data) {
-  return async function (dispatch) {
-    try {
-      const response = await postService.updatePost(data);
-      dispatch(editPost(response));
-    } catch (err) {
-      dispatch(fetchBeersRejected(err));
+      toast.error(err.response.data.message);
     }
   };
 }
@@ -80,16 +69,17 @@ export function deletePost(data) {
       const response = await postService.deletePost(data);
       dispatch(removePost(response));
     } catch (err) {
-      dispatch(fetchBeersRejected(err));
+      toast.error(err.response.data.message);
     }
   };
 }
 
-export function donatePost(data) {
+export function donatePost(data, userDetail) {
   return async function (dispatch) {
     try {
       const response = await postService.donatePost(data);
-      dispatch(donateInPost(response));
+      console.log(response)
+      dispatch(donateInPost({...response, ...userDetail}));
       toast.success("Donation Successful");
     } catch (err) {
       toast.error(err.response.data.message);
@@ -103,13 +93,24 @@ export function reportPost(data) {
       const response = await postService.reportPost(data);
       dispatch(reportPostAction(response));
       toast.success("Report Successful");
-
     } catch (err) {
-      dispatch(fetchBeersRejected(err));
+      toast.error(err.response.data.message);
     }
   };
 }
 
+export function postUpdate(data) {
+  return async function (dispatch) {
+    try {
+      const response = await postService.postUpdate(data);
+      console.log(response)
+      dispatch(addPostUpdate(response));
+      toast.success("Update Added Successful");
+    } catch (err) {
+      toast.error(err.response.data.message);
+    }
+  };
+}
 const fetchPostsPending = () => {
   return {
     type: FETCH_POSTS_PENDING,
@@ -135,16 +136,17 @@ const setPostsAction = (data) => {
     payload: data,
   };
 };
-const addNewPost = (data) => {
+
+const setPostAction = (data) => {
   return {
-    type: ADD_NEW_POST,
+    type: SET_POST,
     payload: data,
   };
 };
 
-const editPost = (data) => {
+const addNewPost = (data) => {
   return {
-    type: UPDATE_POST,
+    type: ADD_NEW_POST,
     payload: data,
   };
 };
@@ -169,5 +171,10 @@ const reportPostAction = (data) => {
     payload: data,
   };
 };
-k987
-const 
+
+const addPostUpdate = (data) => {
+  return {
+    type: ADD_POST_UPDATE,
+    payload: data,
+  };
+};

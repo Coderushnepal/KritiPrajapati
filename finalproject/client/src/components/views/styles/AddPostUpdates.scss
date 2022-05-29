@@ -1,0 +1,38 @@
+@use "../../../assets/scss/style.scss" as *;
+
+.updates-modal-container {
+  float: left;
+  margin-top: 3px;
+  .updates_button {
+    background: transparent;
+    color: $primary;
+    margin: 0;
+    padding: 0;
+    min-width: auto;
+    margin-left: 10px;
+  }
+}
+
+.addPostUpdateModal{
+  .update-modal-content {
+    .title {
+      color: $primary;
+    }
+    .description {
+      color: $textColor;
+    }
+    form {
+      .label {
+        display: block;
+        color: $dark;
+        margin-top: 10px;
+      }
+      textarea {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 2px;
+      }
+    }
+  }
+
+}

@@ -1,0 +1,73 @@
+@use "../../../assets/scss/style.scss" as *;
+
+.postContent {
+  margin: 0 8px;
+  a {
+    text-decoration: none;
+    float: left;
+  }
+  .infoIcon {
+    position: relative;
+    display: inline-block;
+    color: $error;
+    .infoIconText {
+      visibility: hidden;
+      background-color: $white;
+      color: $error;
+      text-align: center;
+      border-radius: 6px;
+      position: absolute;
+      z-index: 1;
+      top: 0px;
+      left: 130%;
+      padding: 0 10px;
+      width: 200px;
+      font-size: 12px;
+      border: $error 1px solid;
+      & ::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 65%;
+        margin-left: -10px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent $error transparent transparent;
+      }
+    }
+  }
+  .infoIcon:hover .infoIconText {
+    visibility: visible;
+  }
+
+  .postTitle {
+    font-family: "Poppins", sans-serif;
+    color: $dark !important;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  .postDesc {
+    margin-bottom: 10px;
+    color: $textColor;
+    word-break: break-word;
+  }
+  .status {
+    margin-bottom: 10px;
+  }
+  .viewBtn {
+    float: left;
+    button {
+      background-color: transparent;
+      border: 1px solid $secondary;
+      color: $secondary;
+      &:hover {
+        background-color: $secondary;
+        color: $white;
+      }
+    }
+  }
+  .donateBtn {
+    float: left;
+    margin-left: 10px;
+  }
+}

@@ -1,17 +1,21 @@
+@use "../../../assets/scss/style.scss" as *;
+
 .signUpContainer {
   .signupText {
     display: block;
     margin-top: 40px;
     font-size: 16px;
-    color: #818181;
+    color: $faded;
   }
   .signUpLinkBtn {
-    color: #58a9d7;
+    color: $primary;
     text-decoration: none;
     cursor: pointer;
     background-color: transparent;
     border: none;
   }
+}
+.signUPModal {
   .subitBtn {
     margin-top: 15px;
   }
@@ -22,7 +26,7 @@
     justify-content: center;
 
     .logoTitle {
-      color: #58a9d7;
+      color: $primary;
       font-size: 28px;
       margin: 0;
       position: relative;
@@ -46,13 +50,16 @@
   .welcomeText {
     text-align: center;
     font-size: 18px;
-    color: #73737b;
+    color: $faded;
     margin: 0 auto 20px;
     font-weight: 500;
     width: 90%;
+    line-height: 26px;
   }
-  .bold {
-    font-weight: bold;
-    color: #525252;
+  .fa{
+    position: absolute;
+top: 12px;
+right: 12px;
+cursor: pointer;
   }
 }

@@ -1,0 +1,69 @@
+@use "../../../assets/scss/style.scss" as *;
+
+.profileEdit-container {
+  .bold {
+    font-family: "ubuntu", sans-serif;
+    font-weight: bold;
+    color: $dark;
+  }
+  .profileImg_container {
+    margin-bottom: 20px;
+  }
+  .profileImg_div {
+    position: relative;
+    background-color: aliceblue;
+    margin: auto;
+    border-radius: 1000px;
+    width: 150px;
+    height: 150px;
+    padding: 5px;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin-bottom: 10px;
+    &:hover .editPP_div {
+      opacity: 1;
+    }
+  }
+  .editPP_div {
+    opacity: 0;
+    transition: opacity 150ms;
+    position: absolute;
+    border-radius: 1000px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #2e2e2eb7;
+  }
+  .editIcon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $white;
+    font-size: 38px;
+  }
+  .profileImg {
+    width: 100%;
+  }
+  .changeAvatar_div {
+    .avatar-label {
+      text-align: center;
+    }
+    .small-label {
+      display: block;
+      text-align: center;
+      font-size: 12px;
+    }
+    .changeAvatar_input {
+      padding: 5px;
+      border: 1px solid $borderColor;
+      outline: none;
+      margin: auto;
+      display: block;
+      margin-top: 4px;
+      font-size: 18px;
+      text-align: center;
+    }
+  }
+}

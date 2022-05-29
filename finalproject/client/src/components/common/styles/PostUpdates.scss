@@ -1,0 +1,37 @@
+@use "../../../assets/scss/style.scss" as *;
+
+.postUpdates-container {
+ margin-top: 30px;
+ .title {
+   color: $dark;
+ }
+ .postUpdate-container {
+   margin-bottom: 16px;
+   .updatedTime {
+     font-weight: 600;
+     color: $dark;
+   }
+   .message {
+     color: $textColor;
+     word-break: break-word;
+   }
+ }
+ .updates_list {
+   padding: 15px 10px;
+   background-color: #f7f7f7;
+   margin: 5px 0;
+   border-radius: 10px;
+ }
+ .no-updates-text {
+   text-align: center;
+ }
+ .updates_info_text {
+   .updates_text {
+     float: left;
+   }
+   .updates_button {
+     float: left;
+     
+   }
+ }
+}

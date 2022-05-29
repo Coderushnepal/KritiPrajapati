@@ -1,13 +1,12 @@
-.donate-container {
+@use "../../../assets/scss/style.scss" as *;
+
+.donate-content {
   .title {
-    color: #58a9d7;
+    color: $primary;
   }
   .description {
-    color: #555;
+    color: $textColor;
     margin-bottom: 16px;
     margin-top: 8px;
-  }
-  label {
-    color: #525252;
   }
 }

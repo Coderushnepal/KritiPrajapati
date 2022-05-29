@@ -1,6 +1,8 @@
 import axios from "axios";
-import config from "../config";
 import { toast } from "react-toastify";
+
+import config from "../config";
+import { interpolate } from "../utils/string";
 
 export const signupUser = async (data) => {
   try {
@@ -51,21 +53,29 @@ export const fetchUser = async () => {
   }
 };
 
-export const updateUser = async (data) => {
+export const updateProfile = async (data) => {
   const url = `${config.apiUrl}${config.endpoints.me}`;
-  const response = await axios.put(
-    url,
-    {
+  const response = await axios(url, {
+    method: "patch",
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("userToken")}`,
+    },
+    data: data,
+  });
+  toast.success("update successful");
+  return response;
+};
+
+export const fetchUserProfile = async (id) => {
+  let token = localStorage.getItem("userToken");
+  if (token) {
+    const url = `${config.apiUrl}${config.endpoints.userProfile}`;
+    const response = await axios.get(interpolate(url, { id }), {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("userToken")}`,
       },
-    },
-    data
-  );
-
-  toast.success("update successful");
-  return {
-    response,
-  };
-  // toast.error(error.response?.data?.details || "Something went wrong!");
+    });
+    console.log(response, "response");
+    return response;
+  }
 };

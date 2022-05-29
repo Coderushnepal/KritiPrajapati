@@ -1,0 +1,21 @@
+@use "../../../assets/scss/style.scss" as *;
+
+.dropdownDots-container {
+  text-align: right;
+  cursor: pointer;
+  .dropdownDot {
+    font-size: 18px;
+  }
+  .dropdownMenu {
+    border: 1px solid $light;
+    background-color: $light;
+    padding: 4px 16px;
+    position: absolute;
+    text-align: end;
+    right: 10px;
+    transition: background-color 120ms;
+    &:hover {
+      background-color: #fbfdff;
+    }
+  }
+}

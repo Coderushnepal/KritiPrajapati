@@ -1,3 +1,4 @@
+@use "../../../assets/scss/style.scss" as *;
 .joinContainer {
   .header {
     padding: 5px 30px;
@@ -10,7 +11,7 @@
         display: inline;
         position: relative;
         top: -20px;
-        color: #58a9d7;
+        color: $primary;
         margin-left: 10px;
         font-size: 24px;
       }
@@ -64,26 +65,29 @@
       margin-top: 110px;
     }
     .welcomeContainer {
+      margin-bottom: 15px;
       .welcomeText {
+        font-family: "Ubuntu", sans-serif;
+        font-weight: 700;
         font-size: 40px;
-        color: #2c2c2c;
-        margin-bottom: 5px;
+        color: $dark;
+        line-height: 48px;
         .title {
-          color: #58a9d7;
+          color: $primary;
         }
       }
       .loginInstruction {
         font-size: 20px;
-        color: #818181;
+        color: $faded;
         margin-top: 0;
       }
     }
     .signupText {
       margin-top: 40px;
       font-size: 16px;
-      color: #818181;
+      color: $faded;
       a {
-        color: #58a9d7;
+        color: $primary;
         text-decoration: none;
       }
     }
@@ -92,6 +96,8 @@
       width: 50%;
       float: right;
       padding: 0px 60px;
+      height: 75vh;
+      border-left: $light 3px solid;
       .loginSide_div {
         margin: auto;
         margin-top: 110px;
@@ -99,12 +105,12 @@
       .welcomeContainer {
         .welcomeText {
           font-size: 40px;
-          color: #2c2c2c;
+          color: $dark;
           margin-bottom: 5px;
         }
         .loginInstruction {
           font-size: 20px;
-          color: #818181;
+          color: $faded;
           margin-top: 0;
         }
       }

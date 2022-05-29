@@ -4,7 +4,7 @@
   padding: 0;
 }
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .text-white {
@@ -13,7 +13,6 @@ body {
 .text-black {
   color: #2c2c2c;
 }
-// font-family: 'Poppins', sans-serif;
 .clearfix {
   overflow: auto;
 }
@@ -33,6 +32,10 @@ progress {
   color: #ff5722;
 }
 
+.font-ubuntu {
+  font-family: "Ubuntu", sans-serif;
+}
+
 .container {
   margin: auto;
   padding: 20px 40px;
@@ -42,4 +45,15 @@ progress {
   @media screen and (min-width: 1128px) {
     width: 1128px;
   }
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge add Firefox */
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none; /* Firefox */
 }

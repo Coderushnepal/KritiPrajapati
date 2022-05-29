@@ -1,83 +1,56 @@
+@use "../../../assets/scss/style.scss" as *;
+ 
 .postContainer {
-    border: 1px solid #e0dfdc;
-    background-color: white;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    padding: 5px 10px 17px;
-    .postOwnerInfo {
-      padding: 12px 0;
-      .ownerImg {
-        float: left;
-      }
-      .ownerAndDot {
-        float: left;
-        width: 80%;
-        .ownerInfo {
-          float: left;
-          margin-top: 4px;
-          .ownerName {
-            font-family: "Poppins", sans-serif;
-            font-weight: bold;
-            color: #2c2c2c;
-          }
-          .postStartTime {
-            font-size: 14px;
-          }
-        }
-        .dot_div {
-          float: right;
-        }
-      }
-    }
-    .hr {
-      border: 1px solid #e0dfdc;
-      margin: 0 auto 10px;
-    }
-    .postContent {
-      margin: 0 8px;
-      a {
+ border: 1px solid $borderColor;
+ background-color: $white;
+ border-radius: 5px;
+ margin-bottom: 15px;
+ padding: 5px 10px 17px;
+ .postOwnerInfo {
+   padding: 12px 0;
+   position: relative;
+ 
+   .ownerImg {
+     float: left;
+   }
+   .ownerAndDot {
+     float: left;
+     width: 80%;
+     .ownerInfo {
+       float: left;
+       margin-top: 4px;
+       a{
         text-decoration: none;
-      }
-  
-      .postTitle {
-        font-family: "Poppins", sans-serif;
-        color: #2c2c2c !important;
-        font-size: 24px;
-        margin-bottom: 10px;
-      }
-      .postDesc {
-        margin-bottom: 10px;
-      }
-      .status {
-        margin-bottom: 10px;
-      }
-    }
-    .viewBtn {
-      float: left;
-      button {
-        background-color: transparent;
-        border: 1px solid #f9785c;
-        color: #f9785c;
-        &:hover {
-          background-color: #f9785c;
-          color: white;
-        }
-      }
-    }
-    .donateBtn {
-      float: left;
-      margin-left: 10px;
-    }
-    @media screen and (min-width: 768px) {
-      .postOwnerInfo {
-        .ownerAndDot {
-          width: 88%;
-        }
-      }
-    }
-    @media screen and (min-width: 992px) {
-    }
-    @media screen and (min-width: 1128px) {
-    }
-  }
-  
+       }
+       .ownerName {
+         font-family: "Poppins", sans-serif;
+         font-weight: bold;
+         color: $dark;
+       }
+       .postStartTime {
+         font-size: 12px;
+         color: $faded;
+       }
+     }
+     .dot_div {
+       float: right;
+     }
+   }
+ }
+ .hr {
+   border: 1px solid $borderColor;
+   margin: 0 auto 10px;
+ }
+ 
+ @media screen and (min-width: 768px) {
+   .postOwnerInfo {
+     .ownerAndDot {
+       width: 88%;
+     }
+   }
+ }
+ @media screen and (min-width: 992px) {
+ }
+ @media screen and (min-width: 1128px) {
+ }
+}

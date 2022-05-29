@@ -1,16 +1,19 @@
 import {
-  ADD_NEW_POST,
-  DELETE_POST,
-  DONATE_POST,
-  FETCH_POSTS_FULFILLED,
-  FETCH_POSTS_PENDING,
-  FETCH_POSTS_REJECTED,
-  RESET_POSTS,
+  SET_POST,
   SET_POSTS,
+  RESET_POSTS,
+  DONATE_POST,
+  DELETE_POST,
+  ADD_NEW_POST,
+  ADD_POST_UPDATE,
+  FETCH_POSTS_PENDING,
+  FETCH_POSTS_FULFILLED,
+  FETCH_POSTS_REJECTED,
 } from "../actions/posts";
 
 const INITIAL_STATE = {
   list: [],
+  singlePost: {},
   isLoading: false,
   isNoMore: false,
 };
@@ -45,6 +48,12 @@ export default function fetchPosts(state = INITIAL_STATE, action) {
         list: action.payload,
       };
 
+    case SET_POST:
+      return {
+        ...state,
+        singlePost: action.payload,
+      };
+
     case ADD_NEW_POST:
       return {
         ...state,
@@ -58,20 +67,43 @@ export default function fetchPosts(state = INITIAL_STATE, action) {
         ...state,
         list: tempList,
       };
+
     case DONATE_POST:
       let donate_tempList = [...state.list];
+      let tempSinglePost = {}
       let postIndex = donate_tempList.findIndex(
         (post) => post.id === action.payload.postId
       );
       if (postIndex >= 0) {
         let tempPost = donate_tempList[postIndex];
-        tempPost.collectedAmount =
-          tempPost.collectedAmount + action.payload.amount;
+        tempPost.collectedAmount = action.payload.postCollectedAmount;
         donate_tempList.splice(postIndex, 1, tempPost);
-        return { ...state, list: donate_tempList };
+      }
+      if (state.singlePost?.id) {
+        tempSinglePost= {...state.singlePost || {} };
+        tempSinglePost.collectedAmount = action.payload.postCollectedAmount;
+        tempSinglePost.donarDetail = [
+
+          action.payload,
+
+          ...tempSinglePost?.donarDetail,
+        ];
       }
       return {
         ...state,
+        list: donate_tempList,
+        singlePost: tempSinglePost,
+      };
+
+    case ADD_POST_UPDATE:
+      let tempPostUpdate = { ...(state.singlePost || {}) };
+      tempPostUpdate.postUpdates = [
+        action.payload,
+        ...tempPostUpdate.postUpdates,
+      ];
+      return {
+        ...state,
+        singlePost: tempPostUpdate,
       };
 
     default:

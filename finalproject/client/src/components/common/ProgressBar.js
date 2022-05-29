@@ -2,8 +2,7 @@ import React from "react";
 
 import "./styles/ProgressBar.scss";
 
-function ProgressBar({ value, target }) {
-  
+function ProgressBar({ value, target, hideText }) {
   return (
     <div className="progressBar-container">
       <progress
@@ -12,9 +11,12 @@ function ProgressBar({ value, target }) {
         value={value}
         max={target}
       ></progress>
-      <div className="progressText">
-        <span className="raisedAmount">Rs. {value} raised</span> of Rs. {target}
-      </div>
+      {!hideText && (
+        <div className="progressText">
+          <span className="raisedAmount">Rs. {value} raised</span> of Rs.{" "}
+          {target}
+        </div>
+      )}
     </div>
   );
 }
