@@ -37,11 +37,11 @@ router.patch('/posts/report/:postIdentifier', authenticate, postController.repor
 
 router.post('/update/', authenticate, validateBody(addUpdateSchema),updateController.addUpdate);
 
-router.delete('/posts/:postIdentifier', postController.removePost);
+router.delete('/posts/:postIdentifier',authenticate, postController.removePost);
 
 router.get('/me', authenticate, userController.getUser);
 
-router.put('/me', authenticate, userController.updateUser);
+router.patch('/me', authenticate, userController.updateUser);
 
 router.get("/profile/:id", authenticate, userController.getProfileDetail);
 
