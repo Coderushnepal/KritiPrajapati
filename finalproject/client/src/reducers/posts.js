@@ -9,7 +9,6 @@ import {
   FETCH_POSTS_PENDING,
   FETCH_POSTS_FULFILLED,
   FETCH_POSTS_REJECTED,
-  
 } from "../actions/posts";
 
 const INITIAL_STATE = {
@@ -71,6 +70,7 @@ export default function fetchPosts(state = INITIAL_STATE, action) {
 
     case DONATE_POST:
       let donate_tempList = [...state.list];
+      let tempSinglePost = {}
       let postIndex = donate_tempList.findIndex(
         (post) => post.id === action.payload.postId
       );
@@ -79,11 +79,16 @@ export default function fetchPosts(state = INITIAL_STATE, action) {
         tempPost.collectedAmount = action.payload.postCollectedAmount;
         donate_tempList.splice(postIndex, 1, tempPost);
       }
-      let tempSinglePost = { ...(state.singlePost || {}) };
-      tempSinglePost.donarDetail = [
-        action.payload,
-        ...tempSinglePost.donarDetail,
-      ];
+      if (state.singlePost?.id) {
+        tempSinglePost= {...state.singlePost || {} };
+        tempSinglePost.collectedAmount = action.payload.postCollectedAmount;
+        tempSinglePost.donarDetail = [
+
+          action.payload,
+
+          ...tempSinglePost?.donarDetail,
+        ];
+      }
       return {
         ...state,
         list: donate_tempList,
@@ -91,17 +96,15 @@ export default function fetchPosts(state = INITIAL_STATE, action) {
       };
 
     case ADD_POST_UPDATE:
-        let tempPostUpdate = { ...(state.singlePost || {}) };
-        tempPostUpdate.postUpdates = [
-          action.payload,
-          ...tempPostUpdate.postUpdates,
-        ];
-        return {
-          ...state,
-          singlePost: tempPostUpdate,
-        };
-
-    
+      let tempPostUpdate = { ...(state.singlePost || {}) };
+      tempPostUpdate.postUpdates = [
+        action.payload,
+        ...tempPostUpdate.postUpdates,
+      ];
+      return {
+        ...state,
+        singlePost: tempPostUpdate,
+      };
 
     default:
       return state;
