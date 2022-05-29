@@ -47,7 +47,7 @@ export function fetchPosts(params) {
       console.log(data);
       dispatch(fetchPostsFulfilleded(data));
     } catch (err) {
-      dispatch(fetchBeersRejected(err));
+      toast.error(err.response.data.message);
     }
   };
 }
@@ -58,7 +58,7 @@ export function createNewPost(data) {
       const response = await postService.createPost(data);
       dispatch(addNewPost(response));
     } catch (err) {
-      dispatch(fetchBeersRejected(err));
+      toast.error(err.response.data.message);
     }
   };
 }
@@ -69,7 +69,7 @@ export function deletePost(data) {
       const response = await postService.deletePost(data);
       dispatch(removePost(response));
     } catch (err) {
-      dispatch(fetchBeersRejected(err));
+      toast.error(err.response.data.message);
     }
   };
 }
@@ -78,6 +78,7 @@ export function donatePost(data, userDetail) {
   return async function (dispatch) {
     try {
       const response = await postService.donatePost(data);
+      console.log(response)
       dispatch(donateInPost({...response, ...userDetail}));
       toast.success("Donation Successful");
     } catch (err) {
@@ -93,7 +94,7 @@ export function reportPost(data) {
       dispatch(reportPostAction(response));
       toast.success("Report Successful");
     } catch (err) {
-      dispatch(fetchBeersRejected(err));
+      toast.error(err.response.data.message);
     }
   };
 }
