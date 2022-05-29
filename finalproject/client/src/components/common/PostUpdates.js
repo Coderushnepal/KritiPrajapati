@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { format } from "date-fns";
 
-import Button from "./Button";
 import AddPostUpdates from "../views/AddPostUpdates";
 
 import "./styles/PostUpdates.scss";
@@ -17,7 +16,6 @@ function PostUpdates({ userId, postId, postOwnerId, updatesDetail }) {
         Updates {hasUpdates && `( ${updatesDetail?.length} )`}
       </h2>
       <div className="updates_list">
-        {console.log(updatesDetail)}
         {hasUpdates ? (
           updatesDetail?.map((detail) => (
             <div className="postUpdate-container clearfix" key={detail.id}>
@@ -44,7 +42,7 @@ function PostUpdates({ userId, postId, postOwnerId, updatesDetail }) {
               share your updates about the post.
             </span>
           )}
-          <AddPostUpdates />
+          <AddPostUpdates postId={postId} />
         </div>
       )}
     </div>
