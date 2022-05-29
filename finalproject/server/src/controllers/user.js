@@ -65,7 +65,7 @@ export function getUser(req, res, next) {
  */
 export function updateUser(req, res, next) {
   userService
-    .updateUserDetails(req.user)
+    .updateUserDetails(req.user, req.body)
     .then((data) => res.json(data))
     .catch((err) => next(err));
 }

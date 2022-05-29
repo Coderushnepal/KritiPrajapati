@@ -28,7 +28,7 @@ export async function createUser(params) {
  }
  
  const hashedPassword = hash(password);
- const avatar = `https://avatars.dicebear.com/api/big-smile/${phoneNumber}.svg`;
+ const avatar = `https://avatars.dicebear.com/api/avataaars/${phoneNumber}.svg`;
  const [insertedData] = await new User().save({
    fullName,
    email,
@@ -139,20 +139,21 @@ export async function getProfileDetail(userId) {
    message: "user profile detail",
  };
 }
+
 /**
 * update user details.
 *
 * @return {Object}
 */
-export async function updateUserDetails(user) {
- logger.info("Fetching user details");
- 
- const userId = user.id;
- 
- const data = await new User().updateById(userId);
- 
- return {
-   data,
-   message: "update user detail",
- };
+export async function updateUserDetails(user, body) {
+  logger.info("Updating user details");
+
+  const userId = user.id;
+
+  const data = await new User().updateById(userId, body);
+
+  return {
+    data,
+    message: "update user detail",
+  };
 }
