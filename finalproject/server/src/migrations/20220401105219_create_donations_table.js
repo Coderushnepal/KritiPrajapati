@@ -9,8 +9,8 @@ export function up(knex) {
     table.increments('id').primary().unsigned();
     table.integer('donar_user_id').references('id').inTable('users').notNull();
     table.double('amount').notNull();
-    table.string('message', 100);
-    table.integer('post_id').references('id').inTable('posts').notNull();
+    table.string('message', 1000);
+    table.integer('post_id').references('id').inTable('posts').notNull().onDelete('CASCADE');
     table.timestamp('donated_at').default(knex.fn.now()).notNull();
   });
 }

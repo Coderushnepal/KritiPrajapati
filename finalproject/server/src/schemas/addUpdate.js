@@ -1,9 +1,8 @@
 import Joi from "joi";
 
 const schema = Joi.object({
-    message : Joi.string().max(2000),
+    message : Joi.string().required(),
     postId: Joi.number().required(),
-
 });
 
 export default schema;

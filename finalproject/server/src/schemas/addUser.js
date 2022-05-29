@@ -6,7 +6,7 @@ const schema = Joi.object({
   phoneNumber: Joi.string()
     .length(10)
     .pattern(/^[0-9]+$/),
-  password: Joi.string().min(8).max(20).required(),
+  password: Joi.string().min(8).max(50).required(),
 });
 
 export default schema;
