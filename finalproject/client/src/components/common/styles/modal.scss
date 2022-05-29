@@ -9,19 +9,17 @@
  background-color: #14141493;
  z-index: 1000;
  .content-wrapper {
-   width: 90%;
+  max-width: 400px;
    position: relative;
    padding: 30px;
    background-color: $white;
    margin: auto;
    border-radius: 15px;
    @media screen and (min-width: 768px) {
-     width: 50%;
-     margin-top: 60px;
+     margin-top: 25px;
+     max-width: 450px;
    }
-   @media screen and (min-width: 992px) {
-     width: 30%;
-   }
+   
  }
  .closeBtn {
    position: absolute;
@@ -30,5 +28,6 @@
    cursor: pointer;
    color: $primary;
    font-weight: 500;
+   font-size: 20px;
  }
 }
