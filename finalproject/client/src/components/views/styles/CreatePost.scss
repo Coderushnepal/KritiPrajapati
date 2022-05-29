@@ -22,13 +22,18 @@
       border: 1px solid $borderColor;
     }
   }
+}
+
+.createPostModal {
   .title {
     color: $primary;
   }
   .description {
     color: $textColor;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
+  }
+  .post-btn{
     margin-top: 8px;
   }
-
 }
+

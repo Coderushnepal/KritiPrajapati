@@ -14,6 +14,8 @@
     background-color: transparent;
     border: none;
   }
+}
+.signUPModal {
   .subitBtn {
     margin-top: 15px;
   }
@@ -54,9 +56,10 @@
     width: 90%;
     line-height: 26px;
   }
-  .bold {
-    font-family: "ubuntu", sans-serif;
-    font-weight: bold;
-    color: $dark;
+  .fa{
+    position: absolute;
+top: 12px;
+right: 12px;
+cursor: pointer;
   }
 }

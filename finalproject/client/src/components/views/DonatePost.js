@@ -5,6 +5,7 @@ import Modal from "../common/Modal";
 import Button from "../common/Button";
 import InputField from "../common/InputField";
 import { donatePost } from "../../actions/posts";
+import { requiredValidator } from "../../utils/validators";
 
 import "./styles/DonatePost.scss";
 
@@ -13,10 +14,11 @@ function DonatePost({ postId, post }) {
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
   const [data, setData] = useState({
-    amount: undefined,
+    amount: "",
     message: "",
     postId: postId,
   });
+  const [errors, setErrors] = useState({});
 
   const onChangeHandler = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -25,25 +27,45 @@ function DonatePost({ postId, post }) {
   const onSubmit = async (e) => {
     try {
       e.preventDefault();
-      dispatch(
-        donatePost(data, {
-          donarId: user.id,
-          name: user.fullName,
-          donarAvatar: user.avatar,
-        })
-      );
-      handleClose();
+      let isAllFormDataValid = true;
+      let tempErrors = {};
+
+      if (!requiredValidator(data.amount)) {
+        tempErrors.amount = "Amount is required";
+        isAllFormDataValid = false;
+      }
+      if (!requiredValidator(data.message)) {
+        tempErrors.message =
+          "Message is not allowed to be empty. Please write something";
+        isAllFormDataValid = false;
+      }
+      setErrors(tempErrors);
+
+      if (isAllFormDataValid) {
+        dispatch(
+          donatePost(data, {
+            donarId: user.id,
+            name: user.fullName,
+            donarAvatar: user.avatar,
+          })
+        );
+        handleClose();
+      }
     } catch (error) {
       console.log(error);
     }
   };
-  
 
   const handleShow = () => {
     setIsOpen(true);
   };
   const handleClose = () => {
     setIsOpen(false);
+    setData({
+      amount: "",
+      message: "",
+      postId: postId,
+    });
   };
   return (
     <div className="donate-container">
@@ -66,26 +88,22 @@ function DonatePost({ postId, post }) {
             </p>
           </div>
           <form onSubmit={onSubmit}>
-            <label htmlFor="amount">
-              <b>Enter your Donation</b>
-            </label>
-
             <InputField
+              label="Enter your Donation"
               name="amount"
               placeholder="Enter your Amount"
               handleOnChange={onChangeHandler}
               value={data.amount}
+              errors={errors}
             />
-
-            <label htmlFor="message">
-              <b>Message</b>
-            </label>
-            <textarea
+            <InputField
+              label="Message"
+              type="textarea"
               name="message"
               placeholder="Enter your Message"
-              onChange={onChangeHandler}
+              handleOnChange={onChangeHandler}
               value={data.message}
-              cols="10"
+              errors={errors}
             />
             <Button>Donate</Button>
           </form>

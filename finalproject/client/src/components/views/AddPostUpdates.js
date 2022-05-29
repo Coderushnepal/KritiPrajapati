@@ -3,14 +3,17 @@ import { useDispatch } from "react-redux";
 
 import Modal from "../common/Modal";
 import Button from "../common/Button";
+import InputField from "../common/InputField";
 import { postUpdate } from "../../actions/posts";
+import { requiredValidator } from "../../utils/validators";
 
 import "./styles/AddPostUpdates.scss";
 
-function AddPostUpdates({ postId, post }) {
+function AddPostUpdates({ postId }) {
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
   const [message, setMessage] = useState("");
+  const [errors, setErrors] = useState({});
 
   const onChangeHandler = (e) => {
     setMessage(e.target.value);
@@ -19,8 +22,20 @@ function AddPostUpdates({ postId, post }) {
   const onSubmit = async (e) => {
     try {
       e.preventDefault();
-      dispatch(postUpdate({ message: message, postId: postId }));
-      handleClose();
+      let isAllFormDataValid = true;
+      let tempErrors = {};
+
+      if (!requiredValidator(message)) {
+        tempErrors.message = "Update message is required";
+        isAllFormDataValid = false;
+      }
+      setErrors(tempErrors);
+
+      if (isAllFormDataValid) {
+        dispatch(postUpdate({ message: message, postId: postId }));
+
+        handleClose();
+      }
     } catch (error) {
       console.log(error);
     }
@@ -30,6 +45,7 @@ function AddPostUpdates({ postId, post }) {
     setIsOpen(true);
   };
   const handleClose = () => {
+    setMessage(''); 
     setIsOpen(false);
   };
   return (
@@ -38,6 +54,8 @@ function AddPostUpdates({ postId, post }) {
         Add Updates
       </Button>
       <Modal show={isOpen} handleClose={handleClose}>
+      <div className="addPostUpdateModal">
+
         <div className="update-modal-content">
           <h1 className="title">Updates</h1>
           <p className="description">
@@ -45,18 +63,18 @@ function AddPostUpdates({ postId, post }) {
             your endevours and hardwork.
           </p>
           <form onSubmit={onSubmit}>
-            <label htmlFor="message" className="label">
-              <b>Update Message</b>
-            </label>
-            <textarea
+            <InputField
+              type="textarea"
+              label="Update Message"
               name="message"
               placeholder="Enter your updates"
-              onChange={onChangeHandler}
+              handleOnChange={onChangeHandler}
               value={message}
-              cols="10"
+              errors={errors}
             />
             <Button>Send</Button>
           </form>
+        </div>
         </div>
       </Modal>
     </div>
