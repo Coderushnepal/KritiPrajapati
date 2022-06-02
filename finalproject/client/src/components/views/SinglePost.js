@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
 import { useParams } from "react-router";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import Button from "../common/Button";
 import DonatePost from "./DonatePost";
 import AvatarImg from "../common/AvatarImg";
-import { fetchPost } from "../../actions/posts";
 import PostUpdates from "../common/PostUpdates";
+import { fetchPost } from "../../actions/posts";
 import DonarsMessages from "../common/DonarsMessages";
 import ProgressBar from "../../components/common/ProgressBar";
 

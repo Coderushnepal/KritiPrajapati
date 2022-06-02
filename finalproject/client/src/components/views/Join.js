@@ -1,10 +1,11 @@
 import React from "react";
+
 import Login from "./Login";
 import SignUp from "./SignUp";
-import "./styles/Join.scss";
-
 import Logo from "../../assets/images/sahayog.svg";
 import loginPageImg from "../../assets/images/loginPageImg.svg";
+
+import "./styles/Join.scss";
 
 function Join() {
   return (
@@ -39,4 +40,5 @@ function Join() {
     </div>
   );
 }
+
 export default Join;

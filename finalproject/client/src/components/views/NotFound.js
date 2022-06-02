@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Button from "../common/Button";
 
+import Button from "../common/Button";
 import Img404 from "../../assets/images/404img.svg";
 
 import "./styles/NotFound.scss";

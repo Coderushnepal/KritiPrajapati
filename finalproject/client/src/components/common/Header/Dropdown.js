@@ -1,15 +1,13 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 import AvatarImg from "../AvatarImg";
-
+import GotoProfileBtn from "../GotoProfileBtn";
 import { logoutUser } from "../../../actions/users";
 import DownSvg from "../../../assets/icons/down.svg";
 
 import "./styles/Dropdown.scss";
-import GotoProfileBtn from "../GotoProfileBtn";
 
 function Dropdown() {
   const user = useSelector((state) => state.user.user);

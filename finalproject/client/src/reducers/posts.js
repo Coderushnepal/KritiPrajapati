@@ -70,7 +70,7 @@ export default function fetchPosts(state = INITIAL_STATE, action) {
 
     case DONATE_POST:
       let donate_tempList = [...state.list];
-      let tempSinglePost = {}
+      let tempSinglePost = {};
       let postIndex = donate_tempList.findIndex(
         (post) => post.id === action.payload.postId
       );
@@ -80,10 +80,9 @@ export default function fetchPosts(state = INITIAL_STATE, action) {
         donate_tempList.splice(postIndex, 1, tempPost);
       }
       if (state.singlePost?.id) {
-        tempSinglePost= {...state.singlePost || {} };
+        tempSinglePost = { ...(state.singlePost || {}) };
         tempSinglePost.collectedAmount = action.payload.postCollectedAmount;
         tempSinglePost.donarDetail = [
-
           action.payload,
 
           ...tempSinglePost?.donarDetail,

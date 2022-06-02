@@ -1,6 +1,3 @@
-// if i have already reported, then  dont show button
-// if post is banned , then donot show report button
-
 import React from "react";
 import { useDispatch } from "react-redux";
 

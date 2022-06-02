@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 
 import Modal from "../common/Modal";
 import Button from "../common/Button";
@@ -26,7 +26,7 @@ function SignUp() {
     password: "",
   };
   const [data, setData] = useState(initialState);
-  
+
   const onChangeHandler = (event) => {
     const { name, value } = event.target;
     setData({
@@ -46,7 +46,7 @@ function SignUp() {
     if (!requiredValidator(data.phoneNumber)) {
       tempErrors.phoneNumber = "Phone number is required";
       isAllFormDataValid = false;
-    } else if (!lengthValidator(data.phoneNumber, 9,11)) {
+    } else if (!lengthValidator(data.phoneNumber, 9, 11)) {
       tempErrors.phoneNumber = "Phone number length must be 10.";
       isAllFormDataValid = false;
     }
@@ -82,15 +82,14 @@ function SignUp() {
   };
   const [passwordType, setPasswordType] = useState("password");
   const [passwordInput, setPasswordInput] = useState("");
-  
-  const togglePassword =()=>{
-    if(passwordType==="password")
-    {
-     setPasswordType("text")
-     return;
+
+  const togglePassword = () => {
+    if (passwordType === "password") {
+      setPasswordType("text");
+      return;
     }
-    setPasswordType("password")
-  }
+    setPasswordType("password");
+  };
 
   return (
     <div className="signUpContainer">
@@ -155,10 +154,17 @@ function SignUp() {
               type="password"
             />
             <div className="input-group-btn">
-                     <button className="btn btn-outline-primary" onClick={togglePassword}>
-                     { passwordType==="password"? <i className="bi bi-eye-slash"></i> :<i className="bi bi-eye"></i> }
-                     </button>
-           </div>
+              <button
+                className="btn btn-outline-primary"
+                onClick={togglePassword}
+              >
+                {passwordType === "password" ? (
+                  <i className="bi bi-eye-slash"></i>
+                ) : (
+                  <i className="bi bi-eye"></i>
+                )}
+              </button>
+            </div>
           </div>
           <div>
             <Button onClick={handleSignUp}>Sign Up</Button>

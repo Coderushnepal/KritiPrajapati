@@ -6,7 +6,7 @@ import Button from "../common/Button";
 import AvatarImg from "../common/AvatarImg";
 import InputField from "../common/InputField";
 import { createNewPost } from "../../actions/posts";
-import { requiredValidator,lengthValidator } from "../../utils/validators";
+import { requiredValidator, lengthValidator } from "../../utils/validators";
 
 import "./styles/CreatePost.scss";
 
@@ -42,8 +42,7 @@ function CreatePost() {
       if (!requiredValidator(data.postTitle)) {
         tempErrors.postTitle = "Post title is required";
         isAllFormDataValid = false;
-      }
-      else if (!lengthValidator(data.postTitle,0,100)){
+      } else if (!lengthValidator(data.postTitle, 0, 100)) {
         tempErrors.postTitle = "Length should be less than 100.";
         isAllFormDataValid = false;
       }
@@ -159,7 +158,7 @@ function CreatePost() {
               />
             </div>
 
-            <Button className='post-btn'>Post</Button>
+            <Button className="post-btn">Post</Button>
           </form>
         </div>
       </Modal>

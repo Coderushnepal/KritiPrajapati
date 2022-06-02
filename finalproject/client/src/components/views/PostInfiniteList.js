@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setPosts } from "../../actions/posts";
+
 import Post from "../common/Post";
+import { setPosts } from "../../actions/posts";
 
 function PostInfiniteList() {
   const dispatch = useDispatch();
