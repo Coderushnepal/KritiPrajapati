@@ -7,13 +7,12 @@ import * as donateController from './controllers/donate.js';
 import * as updateController from './controllers/update.js';
 
 import loginSchema from './schemas/login.js';
-import addUserSchema from './schemas/addUser.js';
 import addPostSchema from './schemas/addPost.js';
+import addUserSchema from './schemas/addUser.js';
 import addDonateSchema from './schemas/addDonate.js';
 import addUpdateSchema from './schemas/addUpdate.js';
 import authenticate from './middlewares/authenticate.js';
-import { validateBody, validateQueryParams } from './middlewares/validation.js';
-// import getCarsQuerySchema from './schemas/getCarsQuery.js';
+import { validateBody } from './middlewares/validation.js';
 
 const router = Router();
 
