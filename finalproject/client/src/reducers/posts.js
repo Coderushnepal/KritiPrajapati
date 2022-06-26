@@ -85,7 +85,7 @@ export default function fetchPosts(state = INITIAL_STATE, action) {
         tempSinglePost.donarDetail = [
           action.payload,
 
-          ...tempSinglePost?.donarDetail,
+          ...(tempSinglePost?.donarDetail || []),
         ];
       }
       return {
@@ -98,7 +98,7 @@ export default function fetchPosts(state = INITIAL_STATE, action) {
       let tempPostUpdate = { ...(state.singlePost || {}) };
       tempPostUpdate.postUpdates = [
         action.payload,
-        ...tempPostUpdate.postUpdates,
+        ...(tempPostUpdate.postUpdates || [] ),
       ];
       return {
         ...state,
