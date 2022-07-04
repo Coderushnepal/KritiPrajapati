@@ -1,20 +1,18 @@
-import { ToastContainer } from "react-toastify";
+import { useEffect } from "react";
 import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import Post from "./views/Post";
-// import PostInfiniteList from "./views/PostInfiniteList";
 
 // import * as routes from "../constants/routes";
 import Home from "./views/Home";
 import Join from "./views/Join";
-import SinglePost from "./views/SinglePost";
 import Profile from "./views/Profile";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import NotFound from "./views/NotFound";
+import SinglePost from "./views/SinglePost";
 import { fetchUser } from "../actions/users";
 import AuthLayout from "./common/Layout/AuthLayout";
 import { PublicRoute, ProtectedRoute } from "./common/AuthRoute";
-import NotFound from "./views/NotFound";
 
 function App() {
   const { isLoggedIn } = useSelector((state) => state.user);
@@ -29,14 +27,7 @@ function App() {
         <Route path="/" element={<PublicRoute isLoggedIn={isLoggedIn} />}>
           <Route exact path={"/"} element={<Join />} />
         </Route>
-        <Route
-          path="/"
-          element={
-            <ProtectedRoute
-              isLoggedIn={isLoggedIn}
-            />
-          }
-        >
+        <Route path="/" element={<ProtectedRoute isLoggedIn={isLoggedIn} />}>
           <Route path="/" element={<AuthLayout />}>
             <Route index path={"feed"} element={<Home />} />
             <Route exact path={"post/:postId"} element={<SinglePost />} />

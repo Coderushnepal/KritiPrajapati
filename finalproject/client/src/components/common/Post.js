@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {formatDistanceStrict} from 'date-fns'
+import { useSelector } from "react-redux";
+import { formatDistanceStrict } from "date-fns";
 
 import PostContent from "./PostContent";
 import DropDownDots from "./DropDownDots";
-import { useSelector } from "react-redux";
 
 import "./styles/Post.scss";
 
@@ -14,28 +14,28 @@ function Post({ post }) {
   return (
     <div className="postContainer">
       <div className="postOwnerInfo clearfix">
-          <img
-            className="ownerImg"
-            width="50"
-            src={post.avatar}
-            alt={post.ownerName}
-          ></img>
-          <div className="ownerAndDot clearfix">
-
-            <div className="ownerInfo">
+        <img
+          className="ownerImg"
+          width="50"
+          src={post.avatar}
+          alt={post.ownerName}
+        ></img>
+        <div className="ownerAndDot clearfix">
+          <div className="ownerInfo">
             <Link to={`/profile/${post.ownerUserId}`}>
-
               <p className="ownerName">{post.ownerName}</p>
-              </Link>
-              
-              <p className="postStartTime">{formatDistanceStrict(new Date(post.startDate),new Date(),{addSuffix : true})}</p>
+            </Link>
 
-            </div>
-            <div className="dot_div">
-              <DropDownDots post={post} userId={userId} />
-            </div>
-
+            <p className="postStartTime">
+              {formatDistanceStrict(new Date(post.startDate), new Date(), {
+                addSuffix: true,
+              })}
+            </p>
           </div>
+          <div className="dot_div">
+            <DropDownDots post={post} userId={userId} />
+          </div>
+        </div>
       </div>
       <hr className="hr" />
       <PostContent post={post} userId={userId} />

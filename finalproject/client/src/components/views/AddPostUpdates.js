@@ -45,7 +45,7 @@ function AddPostUpdates({ postId }) {
     setIsOpen(true);
   };
   const handleClose = () => {
-    setMessage(''); 
+    setMessage("");
     setIsOpen(false);
   };
   return (
@@ -54,27 +54,26 @@ function AddPostUpdates({ postId }) {
         Add Updates
       </Button>
       <Modal show={isOpen} handleClose={handleClose}>
-      <div className="addPostUpdateModal">
-
-        <div className="update-modal-content">
-          <h1 className="title">Updates</h1>
-          <p className="description">
-            Your updates will ensure your supporter and helps them know about
-            your endevours and hardwork.
-          </p>
-          <form onSubmit={onSubmit}>
-            <InputField
-              type="textarea"
-              label="Update Message"
-              name="message"
-              placeholder="Enter your updates"
-              handleOnChange={onChangeHandler}
-              value={message}
-              errors={errors}
-            />
-            <Button>Send</Button>
-          </form>
-        </div>
+        <div className="addPostUpdateModal">
+          <div className="update-modal-content">
+            <h1 className="title">Updates</h1>
+            <p className="description">
+              Your updates will ensure your supporter and helps them know about
+              your endevours and hardwork.
+            </p>
+            <form onSubmit={onSubmit}>
+              <InputField
+                type="textarea"
+                label="Update Message"
+                name="message"
+                placeholder="Enter your updates"
+                handleOnChange={onChangeHandler}
+                value={message}
+                errors={errors}
+              />
+              <Button>Send</Button>
+            </form>
+          </div>
         </div>
       </Modal>
     </div>

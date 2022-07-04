@@ -7,7 +7,6 @@ import InputField from "../common/InputField";
 import { loginUser } from "../../actions/users";
 import {
   emailValidator,
-  lengthValidator,
   requiredValidator,
 } from "../../utils/validators";
 

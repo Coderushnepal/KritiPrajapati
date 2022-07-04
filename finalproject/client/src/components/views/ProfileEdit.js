@@ -36,7 +36,7 @@ function ProfileEdit({ profile }) {
     if (!requiredValidator(profileData.phoneNumber)) {
       tempErrors.phoneNumber = "Phone number is required";
       isAllFormDataValid = false;
-    } else if (!lengthValidator(profileData.phoneNumber, 9,11)) {
+    } else if (!lengthValidator(profileData.phoneNumber, 9, 11)) {
       tempErrors.phoneNumber = "Phone number length must be 10.";
       isAllFormDataValid = false;
     }

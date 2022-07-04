@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import "./styles/InputField.scss";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 function InputField({
   id,
@@ -13,6 +14,10 @@ function InputField({
   inputClass,
   errors = {},
 }) {
+  const [showPassword, setShowPassword] = useState(false);
+  function handleToggleShowPassword() {
+    setShowPassword(!showPassword);
+  }
   return (
     <div className="inputField">
       <label className={`label ${labelClass || ""}`} htmlFor={id || name}>
@@ -30,6 +35,26 @@ function InputField({
           value={value}
           rows={3}
         />
+      ) : type === "password" ? (
+        <div className="passwordContainer">
+          <input
+            id={id || name}
+            name={name}
+            className={`input ${inputClass || ""} ${
+              errors[name] ? "invalid" : ""
+            }`}
+            type={showPassword ? "text" : "password"}
+            value={value}
+            onChange={handleOnChange}
+            placeholder={placeholder}
+          />
+          {showPassword ? (
+            <AiFillEye onClick={handleToggleShowPassword} />
+            
+          ) : (
+            <AiFillEyeInvisible onClick={handleToggleShowPassword} />
+          )}
+        </div>
       ) : (
         <input
           id={id || name}

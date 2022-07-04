@@ -1,0 +1,14 @@
+@use "../../../../assets/scss/style.scss" as *;
+
+.footer-container {
+    hr{
+        width: 90%;
+        margin: auto;
+    }
+  p {
+      padding-bottom: 15px;
+    text-align: center;
+    font-size: 12px;
+    color: $faded;
+  }
+}
